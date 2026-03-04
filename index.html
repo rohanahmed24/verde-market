@@ -742,11 +742,15 @@
             <div class="footer-col">
                 <h3 class="font-bold text-lg mb-6 text-white">Company</h3>
                 <ul class="space-y-4 text-slate-300">
-                    <li><a class="hover:text-white transition-colors" href="verde-market-our-story.html">About Us</a></li>
+                    <li><a class="hover:text-white transition-colors" href="verde-market-our-story.html">About Us</a>
+                    </li>
                     <li><a class="hover:text-white transition-colors" href="#">Careers</a></li>
-                    <li><a class="hover:text-white transition-colors" href="verde-market-locations.html">Locations</a></li>
-                    <li><a class="hover:text-white transition-colors" href="verde-market-blog-journal.html">Blog</a></li>
-                    <li><a class="hover:text-white transition-colors" href="verde-market-sustainability.html">Sustainability</a></li>
+                    <li><a class="hover:text-white transition-colors" href="verde-market-locations.html">Locations</a>
+                    </li>
+                    <li><a class="hover:text-white transition-colors" href="verde-market-blog-journal.html">Blog</a>
+                    </li>
+                    <li><a class="hover:text-white transition-colors"
+                            href="verde-market-sustainability.html">Sustainability</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -767,7 +771,12 @@
     </footer>
     <!-- GSAP / Lenis Libraries -->
     <!-- 1. Lenis smooth scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script>
+        // Lenis CDN with fallback — if it fails, create a no-op stub so the rest of the script works
+        window.__lenisReady = false;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"
+        onerror="window.Lenis = function(){ this.on=function(){};this.raf=function(){};this.scrollTo=function(){}; }"></script>
     <!-- 2. GSAP core -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <!-- 3. GSAP plugins -->
@@ -1274,18 +1283,24 @@
         }
 
         // ── PRELOADER ─────────────────────────────────────────────────
+        function dismissPreloader() {
+            const preloader = document.querySelector('#preloader');
+            if (!preloader || preloader._dismissed) return;
+            preloader._dismissed = true;
+            gsap.to(preloader, {
+                yPercent: -100, duration: 0.9, ease: 'power4.inOut', delay: 0.3,
+                onComplete: () => preloader.remove(),
+            });
+        }
         function initPreloader() {
             const preloader = document.querySelector('#preloader');
             if (!preloader) return;
             gsap.to('.pl-dot', {
                 y: -14, stagger: 0.15, duration: 0.4, ease: 'power2.out', repeat: -1, yoyo: true,
             });
-            window.addEventListener('load', () => {
-                gsap.to(preloader, {
-                    yPercent: -100, duration: 0.9, ease: 'power4.inOut', delay: 0.5,
-                    onComplete: () => preloader.remove(),
-                });
-            });
+            // Dismiss on load — or after 3s max, whichever comes first
+            window.addEventListener('load', () => dismissPreloader());
+            setTimeout(() => dismissPreloader(), 3000);
         }
 
         // ── SCROLL-TO LINKS ───────────────────────────────────────────
