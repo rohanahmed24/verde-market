@@ -32,13 +32,7 @@
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
-
-<style>
-/* Verde Animation Layer */
-.cursor-none { cursor: none; }
-@media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }
-</style>
-</head>
+<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
 <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-10 py-4 bg-background-light dark:bg-background-dark sticky top-0 z-50">
 <div class="flex items-center gap-4 text-slate-900 dark:text-slate-100">
@@ -217,94 +211,48 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
 <script>
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
-CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
-CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
-CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
+if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
+    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
+    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
+    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
 
-// Lenis with CDN fallback
-let lenis;
-try {
-    lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-    lenis.on('scroll', ScrollTrigger.update);
-} catch(e) {
-    lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
-    window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
+    let lenis;
+    try {
+        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+        lenis.on('scroll', ScrollTrigger.update);
+    } catch(e) {
+        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
+        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
+    }
+    window.lenis = lenis;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('header, nav[role="navigation"]');
+        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
+
+        document.querySelectorAll('h1, h2').forEach((el, i) => {
+            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+        });
+
+        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
+        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
+
+        const imgs = document.querySelectorAll('img');
+        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
+
+        const btns = document.querySelectorAll('button, [class*="btn"]');
+        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
+
+        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
+            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
+            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
+            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
+            document.body.style.cursor = 'none';
+        }
+    });
 }
-window.lenis = lenis;
-
-// Universal entrance animations
-document.addEventListener('DOMContentLoaded', () => {
-    // Universal entrance animations
-    const header = document.querySelector('header, nav[role="navigation"]');
-    if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
-
-    // All section headings
-    document.querySelectorAll('h1, h2').forEach((el, i) => {
-        gsap.from(el, {
-            opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', delay: i === 0 ? 0.4 : 0,
-            scrollTrigger: { trigger: el, start: 'top 80%', once: true }
-        });
-    });
-
-    // All cards / list items
-    const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div, [class*="grid"] > article');
-    if (cards.length > 0) {
-        gsap.from(cards, {
-            opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)',
-            scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true }
-        });
-    }
-
-    // Images
-    const imgs = document.querySelectorAll('img');
-    if (imgs.length > 0) {
-        imgs.forEach(img => {
-            gsap.from(img, {
-                opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out',
-                scrollTrigger: { trigger: img, start: 'top 88%', once: true }
-            });
-        });
-    }
-
-    // Buttons
-    const btns = document.querySelectorAll('button, [class*="btn"]');
-    if (btns.length > 0) {
-        gsap.from(btns, {
-            opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)',
-            scrollTrigger: { trigger: 'body', start: 'top top', once: true }
-        });
-    }
-
-    // Custom cursor (desktop only)
-    if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
-        document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
-        const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 });
-            gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' });
-        });
-        document.body.style.cursor = 'none';
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => gsap.to(ring, { scale: 2, opacity: 0.6, duration: 0.3 }));
-            el.addEventListener('mouseleave', () => gsap.to(ring, { scale: 1, opacity: 1, duration: 0.3 }));
-        });
-    }
-
-    // Scroll links
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) lenis.scrollTo(target, { offset: -80, duration: 1.8 });
-        });
-    });
-
-    // Refresh ScrollTrigger after layouts settle
-    setTimeout(() => ScrollTrigger.refresh(), 400);
-});
-window.addEventListener('resize', () => ScrollTrigger.refresh());
 </script>
 </body></html>
