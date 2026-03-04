@@ -798,46 +798,52 @@
         CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1'); // Smooth cubic
         CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1'); // Snap + overshoot
 
-        // ── LENIS SMOOTH SCROLL ───────────────────────────────────────
-        const lenis = new Lenis({
-            duration: 1.4,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Expo out
-            orientation: 'vertical',
-            smoothWheel: true,
-        });
-
-        // Connect Lenis to GSAP ticker (critical — do not skip)
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-
-        // ScrollTrigger must use Lenis scroll position
-        lenis.on('scroll', ScrollTrigger.update);
-
+        // ── LENIS SMOOTH SCROLL (with CDN-fail fallback) ──────────────
+        let lenis;
+        try {
+            lenis = new Lenis({
+                duration: 1.4,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                orientation: 'vertical',
+                smoothWheel: true,
+            });
+            // Connect Lenis to GSAP ticker
+            gsap.ticker.add((time) => lenis.raf(time * 1000));
+            gsap.ticker.lagSmoothing(0);
+            // ScrollTrigger via Lenis scroll events
+            lenis.on('scroll', ScrollTrigger.update);
+        } catch (e) {
+            // Lenis failed (CDN blocked) — fall back to native scroll
+            console.warn('Lenis unavailable, using native scroll fallback');
+            lenis = {
+                scrollTo: (target, opts) => {
+                    const el = typeof target === 'string' ? document.querySelector(target) : target;
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                },
+                on: () => { }
+            };
+            window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
+        }
         // Expose lenis globally for smooth scroll-to links
         window.lenis = lenis;
 
         // ── SPLIT TEXT (no plugin needed) ────────────────────────────
         function splitWords(selector) {
             document.querySelectorAll(selector).forEach(el => {
-                const words = el.innerText.split(' ');
+                const words = el.innerText.trim().split(/\s+/);
                 el.innerHTML = words
-                    .map(w => `<span class="word" style="display:inline-block; overflow:hidden;">
-                   <span class="word-inner" style="display:inline-block;">${w}</span>
-                 </span>`)
-                    .join(' ');
+                    .map(w => `<span class="word" style="display:inline-block; overflow:hidden; margin-right:0.25em;"><span class="word-inner" style="display:inline-block;">${w}</span></span>`)
+                    .join('');
             });
         }
 
         function splitLines(selector) {
             document.querySelectorAll(selector).forEach(el => {
-                const spans = [];
-                el.innerText.split(' ').forEach(word => {
-                    const span = document.createElement('span');
-                    span.textContent = word + ' ';
-                    span.style.display = 'inline-block';
-                    el.appendChild(span);
-                    spans.push(span);
-                });
+                const originalText = el.innerText.trim();
+                const words = originalText.split(/\s+/);
+                // Wrap each word in a temp span to measure line breaks
+                el.innerHTML = words.map(w => `<span style="display:inline;">${w} </span>`).join('');
+                const spans = Array.from(el.querySelectorAll('span'));
                 const lines = [];
                 let currentLine = [];
                 let lastTop = null;
@@ -847,16 +853,13 @@
                         lines.push(currentLine);
                         currentLine = [];
                     }
-                    currentLine.push(span);
+                    currentLine.push(span.textContent.trim());
                     lastTop = top;
                 });
                 if (currentLine.length) lines.push(currentLine);
-                el.innerHTML = lines.map(line =>
-                    `<span class="line" style="display:block; overflow:hidden;">
-         <span class="line-inner" style="display:block;">
-           ${line.map(s => s.outerHTML).join('')}
-         </span>
-       </span>`
+                // Rebuild with proper line wrappers
+                el.innerHTML = lines.map(lineWords =>
+                    `<span class="line" style="display:block; overflow:hidden;"><span class="line-inner" style="display:block;">${lineWords.join(' ')}</span></span>`
                 ).join('');
             });
         }
