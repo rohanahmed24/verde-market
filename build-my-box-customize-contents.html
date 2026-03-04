@@ -1,11 +1,327 @@
 <!DOCTYPE html>
-<html lang=en>
-  <meta charset=utf-8>
-  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
-  <title>Build My Box Customize Contents | Verde Market</title>
-  <style>
-    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
-  </style>
-  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
-  <p><b>404.</b> <ins>That’s an error.</ins>
-  <p>The requested URL <code>/download</code> was not found on this server.  <ins>That’s all we know.</ins>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Build My Box Customize Contents | Verde Market</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0fbd49",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Navigation / Header -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">eco</span>
+<span class="font-bold text-xl tracking-tight">Verde Market</span>
+</div>
+<div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
+<span class="text-slate-400 dark:text-slate-500">1. Choose Box</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-sm">chevron_right</span>
+<span class="text-primary font-bold">2. Fill Box</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-sm">chevron_right</span>
+<span>3. Schedule</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-sm">chevron_right</span>
+<span>4. Checkout</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
+<!-- Left Column: Products (2/3) -->
+<div class="w-full lg:w-2/3 flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<h1 class="text-3xl font-bold tracking-tight">Step 2: Fill your box</h1>
+<p class="text-slate-600 dark:text-slate-400">Customize the contents of your box. Add items until your box is full.</p>
+</div>
+<!-- Categories Tabs -->
+<div class="flex border-b border-slate-200 dark:border-slate-800 gap-8 mt-4">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-slate-900 dark:text-slate-100 pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Veggies</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors pb-3 pt-2" href="#">
+<p class="text-sm font-semibold leading-normal tracking-wide">Fruits</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors pb-3 pt-2" href="#">
+<p class="text-sm font-semibold leading-normal tracking-wide">Pantry</p>
+</a>
+</div>
+<!-- Products Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<!-- Product Card 1 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Fresh organic carrots" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0c6F-2ajGd1QPZGM2cWx1frbOdOiH4aMJuwX2rnhZtOAde36qfNXDXPqy6u-JR8OOO0tEyKwKWJtaKkZ6N0nitVo3dKd9UNRbIdlj6rfWrC_sf8JxZWiwIudtmtN3Cd4wdaBMUkAKmtFdFz27eKZXk8mSLLdVc3QO2h2acytGxH4D8rFRMq8foqlps7ra2PO4DlQF7mHVB1jaKzN_gI2HGp1J7XOAH0-cpI6lRIvFaZhPdLkiXCMmDy-aCpsAAwhHzOPAUJGrWwU')">
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h2 class="text-base font-bold leading-tight">Organic Carrots</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$2.00 / bunch</p>
+</div>
+<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-medium text-sm">2</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Fresh broccoli crowns" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcsIl4VC-c8yj0GxRCLe-Nkn0UvcJw_lr_DeyRPHc5ymfCAu5aJsY_CFn1ui1sRkqfYl8BvTjzvmcAmosaXV0zoPeX-qAWmvRwiJ4Z9OvyfIVX_Ghl3Bjyc63QQioZFpD159MjX6mrynj_9KpurcfcrHYvac7ab9_3Y0xG3-CLs0WMfxa29bRYjn7RmD2nY34H0rnimkwDgaSU0eZvk8Zc6QiBKtWlUQNKJTaM94GEqaGcH0c33WmVCtLjJnr-WC5nit_kbLQ73qc')">
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h2 class="text-base font-bold leading-tight">Broccoli Crowns</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$3.50 / head</p>
+</div>
+<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled="">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-medium text-sm text-slate-400">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Fresh baby spinach leaves" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjwMRdhIYywnZ8pWUSip7FMFt18x0aCVgKD0_nfWAXYuodn024t6ssEJLLCtCyo5h8SNJkFCwFulhImopY9ZeoG0z9mLYG1W0-iztGnJETz2VOdrNqYJEvrjT1j30UFS6x9Dnc3GtZIvCcA07S6sv94djteN50VHoi0gHSlYX5wSN9ilTb7fV_W64RPdgyBSfg7wISK-Ytr9T8SFP0LVr7x4Pd24QxR7Xzlbc6jb0-b0lS2OF--yPAwekL0GT8CJTLkPm99yBftE0')">
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h2 class="text-base font-bold leading-tight">Baby Spinach</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$4.00 / bag</p>
+</div>
+<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-medium text-sm">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Vine ripe tomatoes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAK5uI1aPWv7xCA8OYpn2yxI8i_rT1y05r2kX0Wu3KhxQMz7de5FFNj_ko8xitt2GyuuA-dEbFhbmQ9GC8AUNjj4A52EBbiuHfxoLmoUPCfp8ftTMU2C82T7GMTuvq3Mk4NW2gYpPv8zAhzg_2m8pmmi2oTx6pyTJFn14eDPQckOam4L4rZFT79wHsTUwT1uqyPkeoROrD3L2MEjgFiT6U8pEjzI82Uiucrji6s9_I-v2ZjPDmNOpHIgUh9a-ybsIrEkvaodU4ud_8')">
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h2 class="text-base font-bold leading-tight">Vine Tomatoes</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$3.00 / lb</p>
+</div>
+<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled="">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-medium text-sm text-slate-400">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Red onions" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSnleSVIxw3thrnyT8FVQVaZ5XkqCKWrLqr1AD5NTwsNcebbTvdKVDp-KZrfYefHfOV_ppKkYytS9qUCMk4RIoYatprT4mCt40p-Hy-7ecfQSRQ_JTSh3Wo7Q1_tdu6LSbfdyJcE3QqaZOyHi-NOUFZVma4LERoFdbNv2yQU70f-aINVd81dAgVsarUeOD7PvgiBD01RjMc-f3ORlicXwRnYblQAumGHTSwfcc_zchf3cpEEre1KvIHr74TQuLAUNTPXee0B4KCkM')">
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h2 class="text-base font-bold leading-tight">Red Onions</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$1.50 / lb</p>
+</div>
+<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled="">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-medium text-sm text-slate-400">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Russet potatoes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGJLvDv8TzPrisq_Qye3BEbR1ILZLKbDw6NnBZqEALbUWFgv_NjQIOQFHw9SnIcQ3_1t81UwlNmCPgvpKknScYXYn954xGmaQrdNi-ZDHow9H4OZlzpixEON8xaRL1vhFdxaQwJnyDchfjuPH4Z7DKmLAZEw_mb1RvAAUKrSiuYeURZnZxe7dp-l1g-4TQUvm6lLtFio-8kX_HkKQ7RQbe_VeE7uhRRCWQmUbusVutBgyLApLuemCnLrnL-sqoQwywh5ZOU8O0wwI')">
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h2 class="text-base font-bold leading-tight">Russet Potatoes</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$1.20 / lb</p>
+</div>
+<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled="">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-medium text-sm text-slate-400">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="py-6 flex justify-center">
+<button class="px-6 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                     Load More
+                 </button>
+</div>
+</div>
+<!-- Right Column: Sidebar (1/3) -->
+<div class="w-full lg:w-1/3">
+<div class="sticky top-24 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+<!-- Sidebar Header -->
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+<h3 class="text-xl font-bold mb-4">Your Verde Box</h3>
+<!-- Fullness Meter -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end text-sm">
+<span class="font-medium text-slate-600 dark:text-slate-400">Box Fullness</span>
+<span class="font-bold text-primary">60%</span>
+</div>
+<div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 60%;"></div>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Add 3-4 more items to fill your box.</p>
+</div>
+</div>
+<!-- Added Items List -->
+<div class="flex-1 overflow-y-auto p-4 flex flex-col gap-4 max-h-[400px]">
+<!-- Cart Item 1 -->
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-lg bg-cover bg-center shrink-0 border border-slate-100 dark:border-slate-800" data-alt="Organic Carrots" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYLSeXQfUyapW7pEWd0iqmxxrIfRxKJ_TMIYykpkXIyBKhEe37RVDv1fxr_ofMdL1cgtWgXNlxhzlBQwzPmdJuEiJgMMid7G623c8T8KI7D7ylw-IhEcge6Nx14TU1ripuPaMYRFLL4cCKD3LJM5hqrMzcNHOVFnG57LvlJcO09TmCzwk5KqIAzkJGoQw4KcCWc7EM7R7Zq65v9sR_55QL4AK5Bf4JTfXkD5FmvCt2FfGoFcKcbNF6mz6Jlij9oWg0epngQqlgiNY')"></div>
+<div class="flex-1 min-w-0">
+<h4 class="font-semibold text-sm truncate">Organic Carrots</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">$4.00</p>
+</div>
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-lg p-1 shrink-0">
+<button class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="text-sm font-medium w-3 text-center">2</span>
+<button class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-lg bg-cover bg-center shrink-0 border border-slate-100 dark:border-slate-800" data-alt="Baby Spinach" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWTw0wrbTUXE_XfpG6KACeXtFBSd2A_khi9DpMw4Z77emGGh1qfg9q8p_2ts451kxK7H09KmSDjqmaRIMLZGzh7sbaWM7cqzOSxlqfgCaymMRZK8vWZSYwIrkBuovl_EDcMmI1kGqvlP0KFUAw2-G7CASe2O42kWa_rwGDpwTZpUX0vYUoHF0UVJuScPl4TsKAJYhxuAJ0iLYJRSdhxViBNx_ik8q7ocMSW9-UFxkc-T87QNmsXcyKTcSKDIOiQ8am2Cl0gKOO87E')"></div>
+<div class="flex-1 min-w-0">
+<h4 class="font-semibold text-sm truncate">Baby Spinach</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">$4.00</p>
+</div>
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-lg p-1 shrink-0">
+<button class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="text-sm font-medium w-3 text-center">1</span>
+<button class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sidebar Footer / Totals -->
+<div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+<div class="flex justify-between items-center mb-6">
+<span class="text-slate-600 dark:text-slate-400 font-medium">Estimated Total</span>
+<span class="text-2xl font-bold">$8.00</span>
+</div>
+<button class="w-full py-3 px-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 shadow-sm shadow-primary/20">
+                        Review Schedule
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-3">You won't be charged yet.</p>
+</div>
+</div>
+</div>
+</main>
+
+<!-- GSAP / Lenis Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script>
+if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
+    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
+    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
+    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
+
+    let lenis;
+    try {
+        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+        lenis.on('scroll', ScrollTrigger.update);
+    } catch(e) {
+        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
+        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
+    }
+    window.lenis = lenis;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('header, nav[role="navigation"]');
+        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
+
+        document.querySelectorAll('h1, h2').forEach((el, i) => {
+            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+        });
+
+        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
+        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
+
+        const imgs = document.querySelectorAll('img');
+        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
+
+        const btns = document.querySelectorAll('button, [class*="btn"]');
+        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
+
+        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
+            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
+            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
+            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
+            document.body.style.cursor = 'none';
+        }
+    });
+}
+</script>
+</body></html>
