@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "skills": {
+    "parallel-task": {
+      "source": "am-will/codex-skills",
+      "sourceType": "github",
+      "computedHash": "9acf7923dd26d3a29961b1da124df9178870961bd90d0a78e792d6539408e0a7"
+    },
+    "remotion-spline": {
+      "source": "oren-hollander/remotion-spline",
+      "sourceType": "github",
+      "computedHash": "2681e4040eb41f589c5bef8f7f1f831278c69d207f99baac3d00786e4e366660"
+    },
+    "role-creator": {
+      "source": "am-will/codex-skills",
+      "sourceType": "github",
+      "computedHash": "3ed78ef6752e15cc67cc54e1cb5269b54543390709a1bb6b9df268ee7c2604b8"
+    },
+    "spline-3d-integration": {
+      "source": "fawaz-i/spline-3d-integration",
+      "sourceType": "github",
+      "computedHash": "265946945d7de7403c19b9cb206e231b708f72e153cad6ce2fa5320c64edb4db"
+    },
+    "spline-interactive": {
+      "source": "freshtechbro/claudedesignskills",
+      "sourceType": "github",
+      "computedHash": "d71ae3bd67c771b81c6757a9b23796a25ff2765bf490912da8ec2fbc16289403"
+    },
+    "super-swarm-spark": {
+      "source": "am-will/codex-skills",
+      "sourceType": "github",
+      "computedHash": "23ee432abb842069cf3db0c9f6ee35fb90284776dcb3d2deb0664c73c106b9ab"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "computedHash": "e688fcd4c5693e14ebd00d48e982dbd2be060fbea89f5f60531e79c704a1bc28"
+    }
+  }
+}
