@@ -1,11 +1,246 @@
 <!DOCTYPE html>
-<html lang=en>
-  <meta charset=utf-8>
-  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
-  <title>Build My Box Checkout Finalize | Verde Market</title>
-  <style>
-    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
-  </style>
-  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
-  <p><b>404.</b> <ins>That’s an error.</ins>
-  <p>The requested URL <code>/download</code> was not found on this server.  <ins>That’s all we know.</ins>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Build My Box Checkout Finalize | Verde Market</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffb947",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231b0f",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col antialiased">
+<!-- Top Navigation -->
+<header class="bg-white dark:bg-[#2c2214] border-b border-primary/20 sticky top-0 z-50">
+<div class="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">eco</span>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Verde Market</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Shop</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Subscription</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About Us</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-slate-900 dark:text-slate-100 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="User profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFVVkd84LbWIR-U3QAQo-q_DXYcgeHgLoeC7sFz1dMiPHi4m8IHSEtGPDNyigdTjT5oUI_0He3jTepqjODWMCPWoGDkcXwbp5Qh95bgKGErlNDoEm296GjLhNteOcc53rQrjQZpoQsbltu-CjPoWvX29l2wm89BK3DfV844ZoblmGiqvYto4GJ92OldSNa7LxK94PJNNPozLVVDRKoip0zt_sftvUdV83HzM1GaChQnrzMCp6jdffLt-dlJNBh8DoNxPrfG_jEAwg');">
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-6 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-sm mb-6 text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Build My Box</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="font-semibold text-slate-900 dark:text-slate-100">Finalize Subscription</span>
+</nav>
+<!-- Header -->
+<div class="mb-8">
+<h2 class="text-3xl md:text-4xl font-bold mb-2">Finalize Subscription</h2>
+<p class="text-slate-500 dark:text-slate-400">Step 3 of 3: Complete your checkout</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Left Column: Forms -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Shipping Details -->
+<section class="bg-white dark:bg-[#2c2214] rounded-xl p-6 shadow-sm border border-primary/10">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+                        Shipping Details
+                    </h3>
+<form class="space-y-5">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div>
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">First Name</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="Jane" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Last Name</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="Doe" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Street Address</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="123 Organic Way" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<div class="md:col-span-2">
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">City</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="Portland" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Zip Code</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="97204" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Delivery Instructions (Optional)</label>
+<textarea class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400 resize-none h-24" placeholder="Leave at the front porch..."></textarea>
+</div>
+</form>
+</section>
+<!-- Payment Details -->
+<section class="bg-white dark:bg-[#2c2214] rounded-xl p-6 shadow-sm border border-primary/10">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+                        Payment Method
+                    </h3>
+<form class="space-y-5">
+<div>
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Card Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">credit_card</span>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] pl-12 pr-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="0000 0000 0000 0000" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-5">
+<div>
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Expiration Date</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="MM/YY" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">CVC</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="123" type="text"/>
+</div>
+</div>
+</form>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-5">
+<div class="bg-white dark:bg-[#2c2214] rounded-xl shadow-lg border border-primary/20 sticky top-24 overflow-hidden">
+<!-- Product Image -->
+<div class="h-48 w-full bg-cover bg-center relative" data-alt="Box of fresh organic vegetables" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgCc-aNeQN2lQX5e6GLfspeiz2RrKrq8e0EY0aTwFAHzffMI1u0Ls_FBh5XEGdu8QpPAR3QNbWqzyCfSo6SJwGVm5NPxtHnOiI_5ieQJQa5RIgdS3JAmVcXNL98jIW3iERtuffk-PSKBPrTQMfRsJie1DtnB2a80D12CIYuGQdippS5Yt4pMlBWOjurG9ZN-BpxUr31K-yMBVfVxPrd8wcXBCsCiyYwL9lPZtv1WbyXeweivZ1oS7ZbQk0mtT7ER4s8hjTvJAvPiM');">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="text-white text-xl font-bold">The Verde Box</h3>
+<p class="text-white/90 text-sm">Weekly Seasonal Organic Harvest</p>
+</div>
+</div>
+<div class="p-6">
+<!-- Delivery Info -->
+<div class="flex items-start gap-3 p-4 bg-primary/10 rounded-lg mb-6">
+<span class="material-symbols-outlined text-primary mt-0.5">calendar_month</span>
+<div>
+<p class="font-semibold text-sm">First delivery date</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Coming this Friday, Oct 12</p>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="space-y-3 mb-6 border-b border-primary/10 pb-6">
+<div class="flex justify-between text-sm">
+<span class="text-slate-600 dark:text-slate-400">Weekly Box (Medium)</span>
+<span class="font-medium">$45.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-600 dark:text-slate-400">Shipping</span>
+<span class="text-green-600 dark:text-green-400 font-medium">Free</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-600 dark:text-slate-400">Estimated Taxes</span>
+<span class="font-medium">$2.50</span>
+</div>
+</div>
+<!-- Total -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Total per week</p>
+<p class="text-3xl font-bold text-slate-900 dark:text-slate-100">$47.50</p>
+</div>
+</div>
+<!-- Sustainability Badge -->
+<div class="flex items-center gap-2 mb-6 text-sm text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-full w-fit">
+<span class="material-symbols-outlined text-lg">recycling</span>
+<span class="font-medium">Zero-waste packaging</span>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary hover:bg-primary/90 text-[#231b0f] font-bold text-lg py-4 px-6 rounded-lg transition-colors flex justify-center items-center gap-2">
+                            Start My Subscription
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-4">
+                            You can pause or cancel your subscription at any time.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<!-- GSAP / Lenis Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script>
+if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
+    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
+    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
+    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
+
+    let lenis;
+    try {
+        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+        lenis.on('scroll', ScrollTrigger.update);
+    } catch(e) {
+        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
+        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
+    }
+    window.lenis = lenis;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('header, nav[role="navigation"]');
+        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
+
+        document.querySelectorAll('h1, h2').forEach((el, i) => {
+            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+        });
+
+        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
+        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
+
+        const imgs = document.querySelectorAll('img');
+        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
+
+        const btns = document.querySelectorAll('button, [class*="btn"]');
+        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
+
+        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
+            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
+            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
+            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
+            document.body.style.cursor = 'none';
+        }
+    });
+}
+</script>
+</body></html>
