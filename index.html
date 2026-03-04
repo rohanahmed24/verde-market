@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Index | Verde Market</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Fraunces:opsz,wght@9..144,300..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2e6b50",
+                        "primary-dark": "#1f4a37",
+                        "secondary": "#e9f2ee",
+                        "accent": "#f3b942",
+                        "background-light": "#f6f7f7",
+                        "background-dark": "#151d19",
+                        "text-dark": "#131615",
+                        "text-light": "#f6f7f7",
+                    },
+                    fontFamily: {
+                        "display": ["Fraunces", "serif"],
+                        "sans": ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .font-serif {
+            font-family: 'Fraunces', serif;
+        }
+
+        .font-sans {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Smooth clip-path transitions */
+        .story-image-wrap {
+            clip-path: inset(0 0% 0 0);
+            /* Default: fully visible */
+            will-change: clip-path;
+        }
+
+        /* Product cards: preserve 3D for tilt effect */
+        .product-card {
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        /* Category cards: GPU layer */
+        .category-card {
+            will-change: transform;
+        }
+
+        /* Fix for cursor on touch devices */
+        @media (hover: none) {
+
+            #cursor-dot,
+            #cursor-ring {
+                display: none;
+            }
+
+            body {
+                cursor: auto !important;
+            }
+        }
+
+        /* Prevent layout shift during hero word split */
+        .hero-title {
+            overflow: hidden;
+        }
+
+        .word {
+            overflow: hidden;
+        }
+
+        /* Verde box badge: circular rotation origin */
+        .verde-box-badge {
+            transform-origin: center center;
+            will-change: transform;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-sans text-text-dark antialiased overflow-x-hidden w-full">
+    <!-- Preloader -->
+    <div id="preloader"
+        style="position:fixed;inset:0;background:#f6f7f7;z-index:10000; display:flex;align-items:center;justify-content:center;">
+        <div style="display:flex;gap:6px;">
+            <span class="pl-dot" style="width:10px;height:10px;border-radius:50%;background:#2e6b50;"></span>
+            <span class="pl-dot" style="width:10px;height:10px;border-radius:50%;background:#2e6b50;"></span>
+            <span class="pl-dot" style="width:10px;height:10px;border-radius:50%;background:#2e6b50;"></span>
+        </div>
+    </div>
+    <!-- Top Navigation -->
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 py-4 lg:px-12">
+        <div class="flex items-center gap-3 text-primary">
+            <span class="material-symbols-outlined text-3xl">eco</span>
+            <h2 class="font-serif text-2xl font-bold tracking-tight text-primary dark:text-white">VERDE MARKET</h2>
+        </div>
+        <nav class="hidden lg:flex items-center gap-8">
+            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
+                href="verde-market-shop-page.html">Shop</a>
+            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
+                href="verde-market-our-story.html">Our Story</a>
+            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
+                href="verde-market-sustainability.html">Sustainability</a>
+            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
+                href="verde-market-blog-journal.html">Blog</a>
+            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
+                href="verde-market-locations.html">Locations</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button
+                class="hidden lg:flex cursor-pointer items-center justify-center rounded-full bg-primary hover:bg-primary-dark transition-colors h-10 px-6 text-white text-sm font-bold tracking-wide shadow-lg shadow-primary/20">
+                Start Fresh
+            </button>
+            <button class="lg:hidden text-slate-900 dark:text-white">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative flex flex-col lg:flex-row items-center min-h-[calc(100vh-80px)] overflow-hidden">
+        <!-- Left Content -->
+        <div class="w-full lg:w-1/2 px-6 lg:pl-12 lg:pr-8 py-12 lg:py-0 flex flex-col justify-center gap-8 z-10">
+            <div class="space-y-4 max-w-xl">
+                <span
+                    class="inline-block px-3 py-1 rounded-full bg-secondary text-primary text-xs font-bold tracking-wider uppercase mb-2">Organic
+                    &amp; Fresh</span>
+                <h1
+                    class="hero-title font-serif text-5xl lg:text-7xl font-black leading-[1.1] text-text-dark dark:text-white">
+                    Fresh from the farm, straight to <span class="relative whitespace-nowrap z-10">your door<svg
+                            class="absolute -bottom-2 left-0 w-full h-3 text-primary z-[-1]" preserveaspectratio="none"
+                            viewbox="0 0 100 10">
+                            <path class="hero-underline" d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor"
+                                stroke-width="3"></path>
+                        </svg></span>.
+                </h1>
+                <p
+                    class="hero-description text-lg text-slate-600 dark:text-slate-300 font-sans max-w-md leading-relaxed">
+                    Experience the taste of nature with our certified organic produce. We deliver freshness directly to
+                    your doorstep by the very next day.
+                </p>
+            </div>
+            <div class="hero-ctas flex flex-wrap gap-4 mt-2">
+                <button
+                    class="flex items-center justify-center rounded-full bg-primary hover:bg-primary-dark transition-all h-14 px-8 text-white text-base font-bold shadow-xl shadow-primary/30">
+                    Start Shopping
+                </button>
+                <button
+                    class="flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all h-14 px-8 text-slate-900 dark:text-white text-base font-semibold">
+                    <span class="material-symbols-outlined mr-2 text-lg">play_circle</span> Watch Video
+                </button>
+            </div>
+            <div class="hero-badges flex items-center gap-8 mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+                    <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Certified Organic</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-2xl">local_shipping</span>
+                    <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Next-day Delivery</span>
+                </div>
+            </div>
+        </div>
+        <!-- Right Image/Visual -->
+        <div
+            class="w-full lg:w-1/2 h-[50vh] lg:h-auto relative bg-secondary dark:bg-slate-800/50 flex items-center justify-center lg:self-stretch">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+            </div>
+            <div class="relative w-full h-full flex items-center justify-center p-8">
+                <!-- Blob Shape with Image -->
+                <div
+                    class="hero-blob relative w-[80%] aspect-square lg:w-[500px] lg:h-[600px] overflow-hidden rounded-[40%_60%_70%_30%/40%_50%_60%_50%] shadow-2xl">
+                    <img alt="Fresh organic vegetables basket top view" class="w-full h-full object-cover"
+                        data-alt="Fresh organic vegetables basket"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO6ieWfGJgzLpDurITEq4wYHn_fsRDRq2EhqfYRKlYVIYt5hvgI_2RS6Dz2Bij1V44Yb9Oqg2iJ4SE2gnaNszWhKK_byImXCciPBqELURsUcGqvdFsv9CITGg47TAjeBlKzN6ABJE5qhcpLPncS6AlfUjN4MTk8bzRGTmKyafr4T8jNiksXm2ALIb5nUhmfQn_aGdlY7gQT0iP15KGj-QmXEExsRirL4RIrHjhugNBkY-1bhDZYHLfauljTtf4x82EJzGtExIB3kk" />
+                </div>
+                <!-- Floating Cards -->
+                <div class="hero-float-card absolute top-[20%] left-[10%] bg-white dark:bg-slate-900 p-4 rounded-xl shadow-lg flex gap-3 items-center max-w-[200px]"
+                    style="animation-duration: 3s;">
+                    <div class="bg-green-100 p-2 rounded-full text-green-700">
+                        <span class="material-symbols-outlined text-sm">nutrition</span>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">Nutrient Rich</p>
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">100% Natural</p>
+                    </div>
+                </div>
+                <div class="hero-float-card absolute bottom-[20%] right-[10%] bg-white dark:bg-slate-900 p-4 rounded-xl shadow-lg flex gap-3 items-center max-w-[200px]"
+                    style="animation-duration: 4s;">
+                    <div class="flex -space-x-2">
+                        <img alt="User" class="w-8 h-8 rounded-full border-2 border-white" data-alt="User avatar 1"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYrOJB4xVXy9KsGkIqOrBhp3swyrYeX82gd8aP-W5Jgnole05Dby-hHXQA7mRrvO87M87Ybqlof5Y7JN0sMYPQjXWH2n5ele-07k8ZIyqqCCOGjIn8ljiIHFtPrX5iD65W1Ew1Sc5XE7IkW2GWlef1tfVm4G7Bd2EJ24qjn26zwWhDs_8CYslLg62wxvjDPo688eSuA4KqSofAw7PW3gGJC95kUp-Xmdz6JBYSEe-3tKlDYnbK-Up9slfDioJhkizM0xN7YLgxs5E" />
+                        <img alt="User" class="w-8 h-8 rounded-full border-2 border-white" data-alt="User avatar 2"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEC1T_lY3WgkkBTAJf2izTFGxsOSBz2nPCu4EZzNVFLYjqqW4dt4WYcAJ0hx4j4A_xxNaOBSnf3d6TnuwCX-kuFLccfsXkhPkcFsZMkSgzqo0ZzEHErzIbYCOOsz-W34LYDMxpd63624-JIAbOS5z5uGk5pcY1kOW7jiM2OSrW60s5LHoIgXNAzU0AuBzx4rqtgVttQ_XZQIXNdeXfErf1Jelcx7efenAP0-4zv1ISsFCa5r3hRhNGctz7inCBDNLVbOUu6QAj65M" />
+                        <div
+                            class="w-8 h-8 rounded-full border-2 border-white bg-primary text-white text-[10px] flex items-center justify-center font-bold">
+                            +2k</div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Announcement Strip -->
+    <div class="bg-primary overflow-hidden py-3 whitespace-nowrap">
+        <div class="inline-flex animate-[marquee_20s_linear_infinite] items-center gap-8">
+            <span class="text-white text-sm font-medium uppercase tracking-widest flex items-center gap-4">Free Shipping
+                on orders over $50 <span class="w-2 h-2 rounded-full bg-accent"></span></span>
+            <span class="text-white text-sm font-medium uppercase tracking-widest flex items-center gap-4">Fresh from
+                local farms <span class="w-2 h-2 rounded-full bg-accent"></span></span>
+            <span class="text-white text-sm font-medium uppercase tracking-widest flex items-center gap-4">Certified
+                Organic Products <span class="w-2 h-2 rounded-full bg-accent"></span></span>
+            <span class="text-white text-sm font-medium uppercase tracking-widest flex items-center gap-4">Join our
+                sustainability mission <span class="w-2 h-2 rounded-full bg-accent"></span></span>
+            <span class="text-white text-sm font-medium uppercase tracking-widest flex items-center gap-4">Free Shipping
+                on orders over $50 <span class="w-2 h-2 rounded-full bg-accent"></span></span>
+            <span class="text-white text-sm font-medium uppercase tracking-widest flex items-center gap-4">Fresh from
+                local farms <span class="w-2 h-2 rounded-full bg-accent"></span></span>
+            <span class="text-white text-sm font-medium uppercase tracking-widest flex items-center gap-4">Certified
+                Organic Products <span class="w-2 h-2 rounded-full bg-accent"></span></span>
+            <span class="text-white text-sm font-medium uppercase tracking-widest flex items-center gap-4">Join our
+                sustainability mission <span class="w-2 h-2 rounded-full bg-accent"></span></span>
+        </div>
+    </div>
+    <!-- Categories Section -->
+    <section class="categories-section py-20 px-6 lg:px-12 bg-white dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2
+                    class="categories-title font-serif text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    What are you craving today?</h2>
+                <p class="categories-subtitle text-slate-500 max-w-2xl mx-auto">Browse our aisles of farm-fresh
+                    goodness, curated just for your healthy lifestyle.</p>
+            </div>
+            <div class="categories-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Category Card 1 -->
+                <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
+                    href="#">
+                    <img alt="Fresh mixed vegetables"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Fresh vegetables"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjD5DfCqTmYCv5--VNHipMZLtmfHwBGsDzYhG3DK35oOKJooQw5buV-6HV3MjIO8979W8n8VrfKPpPoFjQUb91IB6G-8yYKE_MH3pX1RpH6ityH47SY91u2JnKLaLIwNkEETi0bOUurCOW_lz6vhVCjKeCuwGiU3iwW_gQiFFeKnYNwA3_u_vUIOjCPnyxy1qxaS3rYyXODcvO0TjzkDqHGwzu_RbH2SsfuAroo8ClAOV38-eIOcUaG9mbg78J5q06Gh0y1khZPtg" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <p class="text-white font-serif text-lg font-bold">Vegetables</p>
+                    </div>
+                </a>
+                <!-- Category Card 2 -->
+                <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
+                    href="#">
+                    <img alt="Assorted fresh fruits"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Fresh fruits"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI86i0c_3Yxcangp5WBQPXIyJ1P8NYxbjpQbHOwBDfz8f3cTx1GTH3iISAlFxLG8uh-oefFqcWLUT_wWVH0j5cd03ZQaOK5rUVof61Mx3VZgQlwqq5VD-yFj9S3EsrsGeYBVojUERKK6-HLeh8v4n9dNuMf4dThFqgb466DM99dKJ5e-8LqoFYEVkr349_Ac59o2duHntoAOWErkt_uw-Dlq2Qi8RJ4GqfBXrTATDR0Cu5NZfba_Xy_F0HCdyk1taPK7fEdj-vsZ4" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <p class="text-white font-serif text-lg font-bold">Fruits</p>
+                    </div>
+                </a>
+                <!-- Category Card 3 -->
+                <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
+                    href="#">
+                    <img alt="Milk and cheese products"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Dairy products"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo5OZD3yXCxKx4xmT_RiAE053lxMzqASL_GXybzJLcVw6kGOzl-dGXj4nZtgyoDAorKiptkPFX6TTwrUZGx0NL8xACgZrYvrbCWrpB-IKNswpZONta4XHEzDbyj9w91Kf4G_HojxGysYxyttnTf1mXGCmcJOxyM1gojbKWURtUcYztoj5rB8WfEFzo1qiZFMmraiYS8kMnAJWpIVNCu_vptUV6igTLyHYTYhLGpc-pcLdTndoKtQ5J3C6iSRbgMm86uI9ij-T1O60" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <p class="text-white font-serif text-lg font-bold">Dairy</p>
+                    </div>
+                </a>
+                <!-- Category Card 4 -->
+                <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
+                    href="#">
+                    <img alt="Fresh bread and pastries"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Bakery items"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDANi2SKGkeDkzQdJpChX7vU8h15MPcZpnBQ0fydWYY937ZdJ7N76Dse65MaCiRXs9jaF_0T6BMSNCVgsIqneR7b1NDjZ5hGjsZIi1FDwxCjS_YcaRpIMolJ-mJcdFr4q8NoAPXAOya-nH95uc4Y2iTJ9Ox3mgl6Vj5jsejmkWLbmlzaEomAiOoRXQi89W3ty_V3w0SSey6pw_MZrk5iBvBZgz6esIaC_6l1erVHVG5ZXqiQTbkumNIOCYsztBXex8oZBI_dKFeq30" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <p class="text-white font-serif text-lg font-bold">Bakery</p>
+                    </div>
+                </a>
+                <!-- Category Card 5 -->
+                <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
+                    href="#">
+                    <img alt="Jars of pantry staples"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Pantry goods"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD-KEw7ZM-AMwek3nGbzREN4-6PO8Q5I-VTS7uFYrZUbGlxUfocyaFCRxXtFVB2Q9_InPRBYVpumXVZzwk3h8xDEK8DgJp2I4dnkZbvMAXXSFrYFmOblSB4LyyEy6fvtBsJ7X50kPmbhmZUf1ekC2Wya6YDl_vgGqC4xypTj8pmw-Jzg5fDFYHEdPSZlgPW4SjVbBmx4ynnrLpGrlZn8MFS5ut4YfBP_OrJRFmSEbVV2JhgrnGbL5Gm7glkx269ZMv5wcFpFcLphs" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <p class="text-white font-serif text-lg font-bold">Pantry</p>
+                    </div>
+                </a>
+                <!-- Category Card 6 -->
+                <a class="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
+                    href="#">
+                    <img alt="Healthy snack bowls"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Snacks"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcXsK7db-4SQBFd0iJRv92UZfTlKOwyqxOie8kjMOHVQwwA2Ss69YanWzat-FfAjNvqh9V8NnsmUqvtcEpCbk_hHAAqx_3U5KBcfxuo5OsK_dHJjWSOv_Ct4GyCMTsIo-fKuYTIEGBsWxhQYn4l--5oBISUHTD4p1ze0Jmc8SsG8AlzyAyFl-nr2839MRHKLYBz4NgFfAbiJjKKdn1jTtBoeYHg-UWydRXXa_5qD27p6PJ5YrNPdmUyAXxLNHIifBp2E6EfI9JC-8" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <p class="text-white font-serif text-lg font-bold">Snacks</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Products -->
+    <section
+        class="products-section py-20 px-6 lg:px-12 bg-orange-50/50 dark:bg-background-dark border-t border-orange-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <span class="products-eyebrow text-primary font-bold uppercase tracking-wider text-xs">Fresh
+                        Arrival</span>
+                    <h2
+                        class="products-title font-serif text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2">
+                        Weekly Highlights</h2>
+                </div>
+                <a class="text-primary font-bold hover:underline hidden sm:inline-block" href="#">View all products</a>
+            </div>
+            <div class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div
+                    class="product-card group bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 flex flex-col">
+                    <div class="relative bg-secondary rounded-xl aspect-square mb-4 overflow-hidden">
+                        <span
+                            class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">Organic</span>
+                        <img alt="Fresh avocado on table"
+                            class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
+                            data-alt="Avocados"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDIkbBOcuPcvLT3i1kzo_Jd5oJ1yV_pgTpWIEqmNgtQF9tGwVUz1O-4OEG6g92DljSzdaBFon6OEfv3vtROEowGfnV9Sn-IjOkusS-i12gtWz2T2rztlFmHgDh3NKTDi42mJE2DPWEtl9JJHzo_vHb2xQBk_CfPmdh9X2xa4mTGLVU_k3aomIF6-3zm5INj3bl7Z0VY_oHisM9UWz1c4h54vmbYc93NJzbI9k97MoVMZ7VvDK-6hx284j5jAPzpLMQllGQwAMCbx8" />
+                        <button
+                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                        </button>
+                    </div>
+                    <div class="mt-auto">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Hass Avocados</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-slate-500">per kg</span>
+                            <span class="text-primary font-bold text-lg">$4.50</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div
+                    class="product-card group bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 flex flex-col">
+                    <div class="relative bg-secondary rounded-xl aspect-square mb-4 overflow-hidden">
+                        <span
+                            class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">Organic</span>
+                        <img alt="Red delicious apples"
+                            class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
+                            data-alt="Red Apples"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEDXh24JZl5eFCj-v9Zp_4hToW0iADLBB4hURsNpushzkMofCR_hbLoLOjKenE0NdOpxVrpxGx1YsPltLA2m1l7TgQmgHK50mYvA6WvAvQ-XsbBbbZ5Q494r-k2BFgW8x1qOtl4-7lgYKWwc5gLWYmO-k77nOFPn1JPUJixM1QDrCrkEcBdDnAHbxkTJN02amygDvGupAdLcRIG6VUR6EgrbZD2dtwWmpHtcBmpz78Eazk_RB5rNidqPmmn36gkws9pYxEvQhmJeE" />
+                        <button
+                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                        </button>
+                    </div>
+                    <div class="mt-auto">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Honeycrisp Apples</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-slate-500">per kg</span>
+                            <span class="text-primary font-bold text-lg">$3.20</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div
+                    class="product-card group bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 flex flex-col">
+                    <div class="relative bg-secondary rounded-xl aspect-square mb-4 overflow-hidden">
+                        <span
+                            class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">Organic</span>
+                        <img alt="Fresh farm eggs in carton"
+                            class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
+                            data-alt="Farm Eggs"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW_6XJk2Z3Tu49aHB46z99PEbyLW3D0YRApybGot17fUHgC0MOq7ahUzJA3ne8Q5pmVDkqL3YnIb4W4MouUgt7NlP-0j066c9LenPwqIMwgdGq1bCUdwPimYS0BovNW5G_q2R6YdOEINQ0Rax3O7LsJkOS5s3tOqUwCoHH5JroF57hptxBHMGVBM-3opyZc9SmO-LhZD90pd3p2edCKhkdD3DQ4wbwOx9mEDjsSWGk11ObRLTi90X17BRC1lmSMPI1bPnl7VoyYWg" />
+                        <button
+                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                        </button>
+                    </div>
+                    <div class="mt-auto">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Free Range Eggs</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-slate-500">12 pack</span>
+                            <span class="text-primary font-bold text-lg">$5.99</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div
+                    class="product-card group bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 flex flex-col">
+                    <div class="relative bg-secondary rounded-xl aspect-square mb-4 overflow-hidden">
+                        <span
+                            class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">Organic</span>
+                        <img alt="Sourdough bread loaf"
+                            class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
+                            data-alt="Artisan Bread"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOD1fXGodX_KtQIqdB-GlDxTzk20N6_8PevrGTznVSy8qcLm9wJzI-BACoAp3ehaA_hzgWjQkoTV3wv_L0VQJOr8xFGL0wEmvA1dh2emh4PguxDKEQSttKqo6Rwz-jdnUpBhpjpRVf4EXQz9ougG8dOikCjAsUcO5PND5uk8gruDwQ2CNqaHAYCuE0FNMvn7zsWj8QSm4UgA0R8fvQHzABsIhbTPaRXZTOPHPCHR3cOhXx0GfPefX3tNbmaLX8nf2nvtqG5xSKYOQ" />
+                        <button
+                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                        </button>
+                    </div>
+                    <div class="mt-auto">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Sourdough Loaf</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-slate-500">per unit</span>
+                            <span class="text-primary font-bold text-lg">$6.50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Brand Story -->
+    <section class="brand-story-section py-20 px-6 lg:px-12 bg-white dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div class="w-full lg:w-1/2">
+                <div
+                    class="story-image-wrap relative w-full h-[600px] rounded-3xl overflow-hidden rounded-tr-[100px] rounded-bl-[100px]">
+                    <img alt="Farmer holding fresh vegetables in field" class="w-full h-full object-cover"
+                        data-alt="Farmer with vegetables"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI_rcDe2sBNUsVndERaPBimHQWXpA3HYpeu1klp7aEXKIABkNYVG9RZq429Obm_EkOAyILtLMFvO7-1kZCC2f4N4w1oiyb7-hCtX3-WANty6FqLox549B2Cpt_N1tFMzV0j2b55xTTGZD9qaPU3B6GLLyPB5sW3vKIxW2spic43kryA0e6KHuzmBAt_jdDHmOfOdvEqcmm1KlnwMIoMf_nIzGCcC2LyyQlvb5d_UeoHEiyZ8BeKh36q56BJWAMf-p3v6ponSOjgZE" />
+                    <div class="absolute inset-0 bg-primary/10"></div>
+                </div>
+            </div>
+            <div class="story-content w-full lg:w-1/2 space-y-8">
+                <span class="story-eyebrow text-primary font-bold uppercase tracking-wider text-sm">Our
+                    Philosophy</span>
+                <h2
+                    class="story-title font-serif text-4xl lg:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+                    We believe food should be <span class="text-primary">honest</span>.
+                </h2>
+                <div class="space-y-4 text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                    <p class="story-body">
+                        At Verde Market, we're not just selling groceries; we're cultivating a community rooted in
+                        sustainability and transparency. We work directly with local farmers who share our passion for
+                        ethical agriculture.
+                    </p>
+                    <p class="story-body">
+                        Every item on our virtual shelves has been handpicked for its quality, origin, and impact on our
+                        planet. No hidden preservatives, no confusing labels—just real, good food.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3 pt-4">
+                    <span
+                        class="px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Locally
+                        Sourced</span>
+                    <span
+                        class="px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Pesticide
+                        Free</span>
+                    <span
+                        class="px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Carbon
+                        Neutral</span>
+                </div>
+                <a class="inline-flex items-center text-slate-900 dark:text-white font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors mt-4"
+                    href="#">
+                    Read our full story <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Subscription Box -->
+    <section
+        class="verde-box-section py-20 px-6 lg:px-12 bg-primary dark:bg-primary-dark text-white rounded-none lg:rounded-[3rem] mx-0 lg:mx-4 my-8">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h2 class="verde-box-title font-serif text-4xl lg:text-6xl font-black leading-tight">
+                    The Verde Box.<br />Delivered weekly.
+                </h2>
+                <p class="verde-box-desc text-green-50 text-lg max-w-md">
+                    Customize your weekly delivery of fresh produce, pantry staples, and artisanal treats. Skip or
+                    cancel anytime.
+                </p>
+                <div class="pt-4">
+                    <button
+                        class="verde-box-cta bg-accent text-slate-900 hover:bg-yellow-400 transition-colors font-bold rounded-full h-14 px-8 text-base shadow-lg inline-flex items-center gap-2">
+                        Build My Box <span class="material-symbols-outlined">package_2</span>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                <!-- Abstract Illustration of Box -->
+                <div
+                    class="relative w-full max-w-md aspect-square bg-white/10 rounded-full flex items-center justify-center p-8 backdrop-blur-sm border border-white/20">
+                    <img alt="Open cardboard box overflowing with fresh vegetables"
+                        class="verde-box-image w-[90%] h-[90%] object-contain drop-shadow-2xl rounded-2xl"
+                        data-alt="Produce Box"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCybRW9uGZm-3felbSl6EepVHiWwh18FAECMYQCOd9A0OEFxw8G7zJQuhrJP4gNfTtvfQqUYfteNqgax6JRtwFQiR6IJWpi4n5loX0BsjVNV1pJtN0iJn3uFrhZE-I3qAGo1E8V6GVdcr7W01Oa7rxrxFk8nJrkgqUpM09vRZbF8fFO-g_kngyqKN5BaRDrNvhC0ZYgObT_n6sOviv-uBzfa5JWw_F0v6K1g4YiphL2jAaEizJEToItWMtvLltimdbROTzXiLv8g-s" />
+                    <div
+                        class="verde-box-badge absolute -top-4 -right-4 bg-white text-primary p-4 rounded-xl shadow-lg transform rotate-12">
+                        <span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Starting at</span>
+                        <span class="block text-2xl font-black">$29/wk</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonials-section py-20 px-6 lg:px-12 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto">
+            <h2
+                class="testimonials-title font-serif text-3xl font-bold text-center mb-12 text-slate-900 dark:text-white">
+                Community Love
+            </h2>
+            <div class="testimonials-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div
+                    class="testimonial-card bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 relative">
+                    <span
+                        class="material-symbols-outlined text-4xl text-primary/20 absolute top-8 left-8">format_quote</span>
+                    <div class="flex gap-1 text-accent mb-4 pt-8">
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300 font-medium text-lg mb-6 leading-relaxed">
+                        "The quality of the vegetables is unmatched. I love knowing exactly where my food comes from."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <img alt="Sarah J." class="w-10 h-10 rounded-full" data-alt="User avatar 3"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6aURQFdDHr46RfM9iBFKjcieBUbc1BM0XkdzTr4_4SpoJI8JkU9wllTBolt-WmnaEi5YupdIPxBGBdGkqe50LOkqm9ovhQl9mgx_3bkAXxcmqg1Pd8BS7QXkeL9Sds-Nba67u-sHh3c2ClgBFt_qvfVQE3lZuG54y_LymIV1cXHJGQ5LZbsKyS5GjIN9QeE2ACI3oAXkADflPji5QPzotZ4EoHM58dt1h6O5Wfq-2_Vjm97zvR3wA3BVABYp5nZDEwnByMTxR7Sk" />
+                        <div>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">Sarah Jenkins</p>
+                            <p class="text-xs text-slate-500">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div
+                    class="testimonial-card bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 relative">
+                    <span
+                        class="material-symbols-outlined text-4xl text-primary/20 absolute top-8 left-8">format_quote</span>
+                    <div class="flex gap-1 text-accent mb-4 pt-8">
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300 font-medium text-lg mb-6 leading-relaxed">
+                        "Finally, an organic delivery service that is reliable. The 'Build My Box' feature is a game
+                        changer for my meal prep."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <img alt="Michael T." class="w-10 h-10 rounded-full" data-alt="User avatar 4"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWyjlJdV7ROaBNQqMTRfLFT9iVeFDLytRb_BsZlzwmdMuv7_pzHfgibldvGH8cKgoVqRq9i_8HF_QV_d8hA_GXEq6o3QqI-Y_lDgCfSxxUgrMSCBgqkSEX1_q4Igj20IE6RhCyGIWMby9l-4mM-j33W37v6FQbOgHR-qOLXb1V7kLxf8iEFS-YCz633wP-NmSW88X_U--8sXouHA-1ZKRBoxGEFyMLywiqpuDWUKrpvX5TW1Sanl7DAgEQOyJVeYC1WTU10b8kW4w" />
+                        <div>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">Michael Torres</p>
+                            <p class="text-xs text-slate-500">Subscriber for 6 months</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div
+                    class="testimonial-card bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 relative">
+                    <span
+                        class="material-symbols-outlined text-4xl text-primary/20 absolute top-8 left-8">format_quote</span>
+                    <div class="flex gap-1 text-accent mb-4 pt-8">
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                        <span class="star material-symbols-outlined text-lg fill-current">star</span>
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300 font-medium text-lg mb-6 leading-relaxed">
+                        "Everything arrives fresh and chilled. The sustainability packaging makes me feel good about
+                        ordering."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <img alt="Emily R." class="w-10 h-10 rounded-full" data-alt="User avatar 5"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3l-OPW8kXCJuaa_c8fzmTuO00jNiRDk18x9GFTnRJh5QJ4SxYHcSdG4RyPinbkRVOqUoZUFHU9Trgcmt0X2vCPnCj2eTUGxRJJySwS9XQN4j-5CwF5e5Dn_xf_6l3FStzxW7DEuj0Enxd5xDks-ncVNhcB5KCOkaRNIeLtKFFMPNCVScOUBQoaf-f9GppiUfURBGGubI54FeWjTk4ns8In1aHbDr8FzebJbhzFdT0kuT4Usj_qcvX8Op3bHBN9IwQreOqFruv9wE" />
+                        <div>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">Emily Rose</p>
+                            <p class="text-xs text-slate-500">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Instagram Feed -->
+    <section class="social-section py-20 px-6 lg:px-12 bg-white dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="social-heading font-serif text-2xl font-bold text-slate-900 dark:text-white">@VerdeMarket
+                </h2>
+                <a class="text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                    Follow us <span class="material-symbols-outlined text-lg">arrow_outward</span>
+                </a>
+            </div>
+            <div class="social-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4">
+                <div class="social-item aspect-square bg-slate-100 rounded-xl overflow-hidden group">
+                    <img alt="Healthy salad bowl"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Salad bowl"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJvNlQi2JDeGaGg5Viuxui1ju1hD8pbJSYj9ZZl_bgTYZvGJ3BOUd-Ni6DeC1qWWSx0v5nTYDRiJANulBGedSVfcpJwDmH8DmMwRq2oQgEHgUa56AWwja_IZm8LGlvYV6g7NXYJArR35jO_gSOoN546OE59FJdwmn3D9wYsJ3-CBjPj-Zlc8PH5OKfgg8y8kRFsrYaGACkAC71PsnE5oRIeSQkPtHMhnR-4TDTbeOQgdKQLZpX-VtjoILULolEZY1uBt3t_eCzu40" />
+                </div>
+                <div class="social-item aspect-square bg-slate-100 rounded-xl overflow-hidden group">
+                    <img alt="Green smoothie"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Green smoothie"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCja6SppINO_fD0RZ6W3OpnRqxvNRCTvXVukuNqXRc-femIDylpv0nPAns0Cho7QALRcuhwt9WZ50HLRVExiZbl194EDzJL8rd6cC2sX-WLdFL7MFJePNgmNbgW3DYauDlW_FnxF5nDyNzF5RxNenrQahK64Y-Wp5XpbQ5KzQMnn4kXv31d9Xtk8HinaV7OI2RkXBfKNC8fw2ZsISTOwQnS0LPTOiKOPFuRnwaukuMxLUOXEf2Cki5uHXnCCmjY9rm9LKgF9vOVDdk" />
+                </div>
+                <div class="social-item aspect-square bg-slate-100 rounded-xl overflow-hidden group">
+                    <img alt="Preparing vegetables"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Cooking prep"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP6Bp9JUoe80v7O5iB6FrEjtZrrJLYqXT3MY3vLl9WLY8lQyE4-rFpRw5tQatZjjQedPsJBJ29AYe7i85dCUxnwAeFei86IdsxAm-QExAUETMtsgFcECKTcIS9gOn6fICrEzjOWAvG4KlCwS0BhtUUpTuiDWuoWYxIHnldmvKjfeBP_q4cR2xyOw1yDW5aA81Gp4pAY-Y_A1vCIJN13qPmEyau3yxgATS1DqBrNu_nZ-O0NMvIvViNCeNmZ7UlQaWYWtSkD4XqyB4" />
+                </div>
+                <div class="social-item aspect-square bg-slate-100 rounded-xl overflow-hidden group">
+                    <img alt="Farmer market stand"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Market stand"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuANquVRvVgFzjw_W58FPDWpJs3Ji_3W27ICNKBmq1FSCywWDgp3bchAQ94DR9qg0Xtt5C_C_1lSG5flLtOrOqhwVdOSyMFhz8ZF6MdU7aJPKRXp8n3X0rClb4fBatUNaZABoetjPIUeqdQNgGag9ymXc-qQdcznv3ADsU_qVAxseYTuNQ__PtUXtVZtrQ0XrtQi24Z7jJjNPFbVRMjo3pqUROHKemUrYvUyU0gTXdJvct0x7YnAbjV9LRefKD6nBH-f6Lg7_7LRadE" />
+                </div>
+                <div class="social-item aspect-square bg-slate-100 rounded-xl overflow-hidden group">
+                    <img alt="Fresh fruits arrangement"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Fruit arrangement"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoIkludMM9ORIew3EkRZi6nPzyts9zbLQ4NWi6noeoLvarzvkCSJaXE-7uvLvkU-okjMWnuLULc4MPI9Oc7ZQweDNLNINCZ0iRsYOAkLdkxn5zEaGv1j1OXNisdrLEhcYBNxj7NrN3x8S_iI6DAjCWDMTT9wGxoViLS82rriovtWTEG9vU91HtGBfWPdkzfoI-xrKWL-1CV95BgxZRILE1av781VnNkJYd4j9ePGMP0Cuws97cVWiJTFbRs68CrpRWhgewR2OJqpo" />
+                </div>
+                <div class="social-item aspect-square bg-slate-100 rounded-xl overflow-hidden group">
+                    <img alt="Person holding produce bag"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Holding produce"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGNw7RE1Xx0syVcZA8HkL7RYBs2xTG0MupsKYzAH-v1VItXN4hNQSr_SPwJPVmV17xWKrac3s8mFw_41gLoz5X-sGjbQW5kLeeA99qjppgStRe3-lnW6c9q6T0n_EowFu0O1TCJTy3d_JH47WXSp9FiVyGocPkFdlBBcKk9q_PwnrQwIH0apsszqfzYe2Xojv3M4l8OFxZUcZ6jgi7JBB30_QW-8BajqXVHEkS-fE13TQ0lI8edfA_bA0N7WSI8kNeZJh_ybaD3u4" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newsletter -->
+    <section
+        class="newsletter-section py-24 px-6 lg:px-12 bg-secondary dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="newsletter-title font-serif text-3xl font-bold text-slate-900 dark:text-white mb-4">Join the
+                green revolution</h2>
+            <p class="newsletter-sub text-slate-600 dark:text-slate-400 mb-8">Get 10% off your first order plus weekly
+                recipes and
+                sustainability tips.</p>
+            <form class="newsletter-form flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input
+                    class="flex-1 rounded-full border-slate-300 px-6 py-3 focus:border-primary focus:ring-primary dark:bg-slate-800 dark:border-slate-700 dark:text-white outline-none"
+                    placeholder="Enter your email address" type="email" />
+                <button
+                    class="bg-primary hover:bg-primary-dark text-white font-bold rounded-full px-8 py-3 transition-colors shadow-lg"
+                    type="button">Subscribe</button>
+            </form>
+            <p class="text-xs text-slate-400 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white pt-20 pb-10 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+            <div class="footer-logo lg:col-span-2">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="material-symbols-outlined text-3xl">eco</span>
+                    <h2 class="font-serif text-2xl font-bold">VERDE MARKET</h2>
+                </div>
+                <p class="text-slate-300 max-w-sm mb-6 leading-relaxed">
+                    Connecting conscious consumers with honest food. We are dedicated to building a sustainable food
+                    system, one delivery at a time.
+                </p>
+                <div class="footer-social flex gap-4">
+                    <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                        href="#">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                        href="#">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                        href="#">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="font-bold text-lg mb-6 text-white">Shop</h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li><a class="hover:text-white transition-colors" href="#">Vegetables</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Fruits</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Dairy &amp; Eggs</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Pantry</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Subscription Box</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="font-bold text-lg mb-6 text-white">Company</h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li><a class="hover:text-white transition-colors" href="verde-market-our-story.html">About Us</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Careers</a></li>
+                    <li><a class="hover:text-white transition-colors" href="verde-market-locations.html">Locations</a></li>
+                    <li><a class="hover:text-white transition-colors" href="verde-market-blog-journal.html">Blog</a></li>
+                    <li><a class="hover:text-white transition-colors" href="verde-market-sustainability.html">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="font-bold text-lg mb-6 text-white">Support</h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li><a class="hover:text-white transition-colors" href="#">Help Center</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Contact Us</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
+            <p>© 2024 Verde Market. All rights reserved.</p>
+            <p class="mt-2 md:mt-0">Designed with nature in mind.</p>
+        </div>
+    </footer>
+    <!-- GSAP / Lenis Libraries -->
+    <!-- 1. Lenis smooth scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <!-- 2. GSAP core -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- 3. GSAP plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+
+    <!-- Master Animation Script -->
+    <script>
+        // ============================================================
+        // VERDE MARKET — GSAP Master Animation File
+        // ============================================================
+
+        // Register all GSAP plugins first — always
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
+
+        // Custom eases used throughout Verde Market
+        CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1'); // Elastic settle
+        CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1'); // Smooth cubic
+        CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1'); // Snap + overshoot
+
+        // ── LENIS SMOOTH SCROLL ───────────────────────────────────────
+        const lenis = new Lenis({
+            duration: 1.4,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Expo out
+            orientation: 'vertical',
+            smoothWheel: true,
+        });
+
+        // Connect Lenis to GSAP ticker (critical — do not skip)
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+
+        // ScrollTrigger must use Lenis scroll position
+        lenis.on('scroll', ScrollTrigger.update);
+
+        // Expose lenis globally for smooth scroll-to links
+        window.lenis = lenis;
+
+        // ── SPLIT TEXT (no plugin needed) ────────────────────────────
+        function splitWords(selector) {
+            document.querySelectorAll(selector).forEach(el => {
+                const words = el.innerText.split(' ');
+                el.innerHTML = words
+                    .map(w => `<span class="word" style="display:inline-block; overflow:hidden;">
+                   <span class="word-inner" style="display:inline-block;">${w}</span>
+                 </span>`)
+                    .join(' ');
+            });
+        }
+
+        function splitLines(selector) {
+            document.querySelectorAll(selector).forEach(el => {
+                const spans = [];
+                el.innerText.split(' ').forEach(word => {
+                    const span = document.createElement('span');
+                    span.textContent = word + ' ';
+                    span.style.display = 'inline-block';
+                    el.appendChild(span);
+                    spans.push(span);
+                });
+                const lines = [];
+                let currentLine = [];
+                let lastTop = null;
+                spans.forEach(span => {
+                    const top = span.getBoundingClientRect().top;
+                    if (lastTop !== null && Math.abs(top - lastTop) > 5) {
+                        lines.push(currentLine);
+                        currentLine = [];
+                    }
+                    currentLine.push(span);
+                    lastTop = top;
+                });
+                if (currentLine.length) lines.push(currentLine);
+                el.innerHTML = lines.map(line =>
+                    `<span class="line" style="display:block; overflow:hidden;">
+         <span class="line-inner" style="display:block;">
+           ${line.map(s => s.outerHTML).join('')}
+         </span>
+       </span>`
+                ).join('');
+            });
+        }
+
+        // ── MAGNETIC HOVER EFFECT ─────────────────────────────────────
+        function addMagnet(selector, strength = 0.4) {
+            document.querySelectorAll(selector).forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const cx = rect.left + rect.width / 2;
+                    const cy = rect.top + rect.height / 2;
+                    const dx = (e.clientX - cx) * strength;
+                    const dy = (e.clientY - cy) * strength;
+                    gsap.to(el, { x: dx, y: dy, duration: 0.4, ease: 'power2.out' });
+                });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(el, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)' });
+                });
+            });
+        }
+
+        // ── NAVBAR ────────────────────────────────────────────────────
+        function initNavbar() {
+            const header = document.querySelector('header');
+            gsap.from(header, {
+                y: -80,
+                opacity: 0,
+                duration: 1,
+                ease: 'verdeSoft',
+                delay: 0.2,
+            });
+            ScrollTrigger.create({
+                start: 'top+=80 top',
+                onEnter: () => {
+                    gsap.to(header, {
+                        paddingTop: '10px',
+                        paddingBottom: '10px',
+                        boxShadow: '0 4px 24px rgba(46,107,80,0.12)',
+                        duration: 0.4,
+                        ease: 'verdeSoft',
+                    });
+                },
+                onLeaveBack: () => {
+                    gsap.to(header, {
+                        paddingTop: '16px',
+                        paddingBottom: '16px',
+                        boxShadow: 'none',
+                        duration: 0.4,
+                        ease: 'verdeSoft',
+                    });
+                },
+            });
+            gsap.from('header nav a', {
+                opacity: 0,
+                y: -10,
+                stagger: 0.08,
+                duration: 0.6,
+                ease: 'verdeSoft',
+                delay: 0.5,
+            });
+            gsap.from('header button:last-of-type', {
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.6,
+                ease: 'back.out(2)',
+                delay: 0.9,
+            });
+            addMagnet('header button:last-of-type', 0.3);
+        }
+
+        // ── HERO ──────────────────────────────────────────────────────
+        function initHero() {
+            gsap.from('.hero-badge', {
+                opacity: 0, y: 20, duration: 0.7, ease: 'verdeSoft', delay: 0.6,
+            });
+            splitWords('.hero-title');
+            gsap.from('.hero-title .word-inner', {
+                y: '110%',
+                opacity: 0,
+                rotationZ: 4,
+                stagger: 0.045,
+                duration: 0.9,
+                ease: 'verdeIn',
+                delay: 0.8,
+            });
+            gsap.from('.hero-underline', {
+                strokeDasharray: 200,
+                strokeDashoffset: 200,
+                duration: 1.2,
+                ease: 'power2.inOut',
+                delay: 1.8,
+            });
+            gsap.from('.hero-description', {
+                opacity: 0, y: 24, duration: 0.8, ease: 'verdeSoft', delay: 1.4,
+            });
+            gsap.from('.hero-ctas > button', {
+                opacity: 0, y: 16, scale: 0.95, stagger: 0.12, duration: 0.7, ease: 'back.out(2)', delay: 1.6,
+            });
+            gsap.from('.hero-badges > div', {
+                opacity: 0, x: -20, stagger: 0.15, duration: 0.6, ease: 'verdeSoft', delay: 2.0,
+            });
+            gsap.from('.hero-blob', {
+                scale: 0.7, opacity: 0, rotation: -8, duration: 1.4, ease: 'back.out(1.5)', delay: 0.5,
+            });
+            document.querySelectorAll('.hero-float-card').forEach((card, i) => {
+                gsap.to(card, {
+                    y: i % 2 === 0 ? -12 : 12,
+                    rotation: i % 2 === 0 ? 1.5 : -1.5,
+                    duration: 3 + i * 0.5,
+                    ease: 'sine.inOut',
+                    repeat: -1,
+                    yoyo: true,
+                });
+                gsap.from(card, {
+                    opacity: 0, scale: 0.6, y: 40, duration: 0.8, ease: 'back.out(2)', delay: 1.2 + i * 0.3,
+                });
+            });
+            gsap.to('.hero-blob', {
+                y: 60,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: 'section:first-of-type',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1.5,
+                },
+            });
+        }
+
+        // ── MARQUEE ───────────────────────────────────────────────────
+        function initMarquee() {
+            const strip = document.querySelector('.bg-primary.overflow-hidden.py-3');
+            const inner = strip?.querySelector('div');
+            if (!inner) return;
+            inner.classList.remove(...([...inner.classList].filter(c => c.includes('animate'))));
+            inner.style.animation = 'none';
+            inner.innerHTML = inner.innerHTML + inner.innerHTML;
+            const totalWidth = inner.scrollWidth / 2;
+            gsap.to(inner, {
+                x: -totalWidth,
+                duration: 24,
+                ease: 'none',
+                repeat: -1,
+                modifiers: {
+                    x: gsap.utils.unitize(x => parseFloat(x) % totalWidth),
+                },
+            });
+            strip.addEventListener('mouseenter', () => gsap.globalTimeline.timeScale(0.2));
+            strip.addEventListener('mouseleave', () => gsap.globalTimeline.timeScale(1));
+        }
+
+        // ── CATEGORIES ────────────────────────────────────────────────
+        function initCategories() {
+            splitLines('.categories-title');
+            gsap.from('.categories-title .line-inner', {
+                y: '105%',
+                stagger: 0.1,
+                duration: 0.9,
+                ease: 'verdeIn',
+                scrollTrigger: {
+                    trigger: '.categories-section',
+                    start: 'top 75%',
+                },
+            });
+            gsap.from('.categories-subtitle', {
+                opacity: 0, y: 20, duration: 0.8, ease: 'verdeSoft',
+                scrollTrigger: { trigger: '.categories-section', start: 'top 70%' },
+            });
+            gsap.from('.category-card', {
+                opacity: 0, y: 60, scale: 0.9, rotation: gsap.utils.wrap([-2, -1, 0, 1, 2, 3]),
+                stagger: { each: 0.08, from: 'start' },
+                duration: 0.9, ease: 'back.out(1.4)',
+                scrollTrigger: { trigger: '.categories-grid', start: 'top 80%' },
+            });
+            document.querySelectorAll('.category-card').forEach(card => {
+                const img = card.querySelector('img');
+                const label = card.querySelector('p');
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(img, { scale: 1.12, duration: 0.5, ease: 'power2.out' });
+                    gsap.to(label, { y: -4, duration: 0.3, ease: 'power2.out' });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(img, { scale: 1, duration: 0.5, ease: 'power2.inOut' });
+                    gsap.to(label, { y: 0, duration: 0.3, ease: 'power2.inOut' });
+                });
+            });
+        }
+
+        // ── PRODUCTS ──────────────────────────────────────────────────
+        function initProducts() {
+            gsap.from('.products-eyebrow', {
+                opacity: 0, x: -30, duration: 0.6, ease: 'verdeSoft',
+                scrollTrigger: { trigger: '.products-section', start: 'top 75%' },
+            });
+            gsap.from('.products-title', {
+                opacity: 0, y: 30, duration: 0.8, ease: 'verdeIn',
+                scrollTrigger: { trigger: '.products-section', start: 'top 72%' },
+            });
+            gsap.from('.product-card', {
+                opacity: 0, y: 80, rotationX: 15, scale: 0.92, stagger: 0.1, duration: 0.9, ease: 'back.out(1.2)',
+                scrollTrigger: { trigger: '.products-grid', start: 'top 82%' },
+            });
+            document.querySelectorAll('.product-card').forEach(card => {
+                const cartBtn = card.querySelector('button');
+                if (!cartBtn) return;
+                gsap.set(cartBtn, { opacity: 0, y: 8 });
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(cartBtn, { opacity: 1, y: 0, duration: 0.3, ease: 'back.out(2)' });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(cartBtn, { opacity: 0, y: 8, duration: 0.25, ease: 'power2.in' });
+                });
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const cx = rect.left + rect.width / 2;
+                    const cy = rect.top + rect.height / 2;
+                    const rotY = ((e.clientX - cx) / rect.width) * 8;
+                    const rotX = -((e.clientY - cy) / rect.height) * 8;
+                    gsap.to(card, {
+                        rotationY: rotY, rotationX: rotX, transformPerspective: 800, duration: 0.4, ease: 'power2.out',
+                    });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        rotationY: 0, rotationX: 0, duration: 0.6, ease: 'elastic.out(1, 0.6)',
+                    });
+                });
+            });
+        }
+
+        // ── BRAND STORY ───────────────────────────────────────────────
+        function initBrandStory() {
+            gsap.from('.story-image-wrap', {
+                clipPath: 'inset(0 100% 0 0)', duration: 1.2, ease: 'power4.inOut',
+                scrollTrigger: { trigger: '.brand-story-section', start: 'top 65%' },
+            });
+            gsap.from('.story-image-wrap img', {
+                scale: 1.15, duration: 1.4, ease: 'power4.out',
+                scrollTrigger: { trigger: '.brand-story-section', start: 'top 65%' },
+            });
+            gsap.from('.story-eyebrow', {
+                opacity: 0, y: 20, duration: 0.6, ease: 'verdeSoft',
+                scrollTrigger: { trigger: '.story-content', start: 'top 70%' },
+            });
+            splitWords('.story-title');
+            gsap.from('.story-title .word-inner', {
+                y: '110%', stagger: 0.04, duration: 0.9, ease: 'verdeIn',
+                scrollTrigger: { trigger: '.story-content', start: 'top 68%' },
+            });
+            document.querySelectorAll('.story-body').forEach(p => {
+                gsap.from(p, {
+                    opacity: 0, y: 20, duration: 0.8, ease: 'verdeSoft',
+                    scrollTrigger: { trigger: p, start: 'top 82%' },
+                });
+            });
+            gsap.from('.story-tag', {
+                opacity: 0, scale: 0.7, y: 10, stagger: 0.1, duration: 0.6, ease: 'back.out(2)',
+                scrollTrigger: { trigger: '.story-tags', start: 'top 85%' },
+            });
+            gsap.to('.story-image-wrap img', {
+                y: -60, ease: 'none',
+                scrollTrigger: { trigger: '.brand-story-section', start: 'top bottom', end: 'bottom top', scrub: 2 },
+            });
+        }
+
+        // ── VERDE BOX ─────────────────────────────────────────────────
+        function initVerdeBox() {
+            gsap.from('.verde-box-section', {
+                scale: 0.95, opacity: 0, duration: 1.0, ease: 'power3.out',
+                scrollTrigger: { trigger: '.verde-box-section', start: 'top 80%' },
+            });
+            splitWords('.verde-box-title');
+            gsap.from('.verde-box-title .word-inner', {
+                y: '110%', stagger: 0.06, duration: 0.9, ease: 'verdeIn',
+                scrollTrigger: { trigger: '.verde-box-section', start: 'top 72%' },
+            });
+            gsap.from(['.verde-box-desc', '.verde-box-cta'], {
+                opacity: 0, y: 24, stagger: 0.15, duration: 0.8, ease: 'verdeSoft',
+                scrollTrigger: { trigger: '.verde-box-section', start: 'top 70%' },
+            });
+            gsap.to('.verde-box-image', {
+                y: -18, rotation: 1, duration: 3.5, ease: 'sine.inOut', repeat: -1, yoyo: true,
+            });
+            gsap.from('.verde-box-image', {
+                x: 80, opacity: 0, scale: 0.85, duration: 1.1, ease: 'back.out(1.5)',
+                scrollTrigger: { trigger: '.verde-box-section', start: 'top 75%' },
+            });
+            gsap.from('.verde-box-badge', {
+                rotation: -180, scale: 0, duration: 0.8, ease: 'back.out(2)',
+                scrollTrigger: { trigger: '.verde-box-section', start: 'top 68%' },
+            });
+            gsap.to('.verde-box-badge', {
+                rotation: 360, duration: 12, ease: 'none', repeat: -1,
+            });
+        }
+
+        // ── TESTIMONIALS ──────────────────────────────────────────────
+        function initTestimonials() {
+            gsap.from('.testimonials-title', {
+                opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn',
+                scrollTrigger: { trigger: '.testimonials-section', start: 'top 75%' },
+            });
+            const cards = document.querySelectorAll('.testimonial-card');
+            cards.forEach((card, i) => {
+                const fromX = i === 0 ? -60 : i === 2 ? 60 : 0;
+                gsap.from(card, {
+                    opacity: 0, x: fromX, y: i === 1 ? 40 : 0, scale: 0.9, duration: 0.9, ease: 'back.out(1.3)',
+                    scrollTrigger: { trigger: '.testimonials-grid', start: 'top 80%' },
+                    delay: i * 0.12,
+                });
+            });
+            document.querySelectorAll('.testimonial-card').forEach(card => {
+                const stars = card.querySelectorAll('.star');
+                gsap.from(stars, {
+                    scale: 0, rotation: -20, stagger: 0.07, duration: 0.4, ease: 'back.out(3)',
+                    scrollTrigger: { trigger: card, start: 'top 85%' },
+                });
+            });
+            document.querySelectorAll('.testimonial-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, { y: -8, boxShadow: '0 20px 40px rgba(46,107,80,0.15)', duration: 0.3, ease: 'power2.out' });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, { y: 0, boxShadow: '', duration: 0.4, ease: 'power2.inOut' });
+                });
+            });
+        }
+
+        // ── SOCIAL GRID ───────────────────────────────────────────────
+        function initSocialGrid() {
+            gsap.from('.social-heading', {
+                opacity: 0, y: 30, duration: 0.8, ease: 'verdeSoft',
+                scrollTrigger: { trigger: '.social-section', start: 'top 78%' },
+            });
+            gsap.from('.social-item', {
+                opacity: 0, scale: 0.75, stagger: { each: 0.07, grid: 'auto', from: 'center' },
+                duration: 0.7, ease: 'back.out(1.5)',
+                scrollTrigger: { trigger: '.social-grid', start: 'top 82%' },
+            });
+            document.querySelectorAll('.social-item').forEach(item => {
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `position:absolute; inset:0; background:rgba(46,107,80,0.4); display:flex; align-items:center; justify-content:center; opacity:0; border-radius:inherit;`;
+                overlay.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07..."></path></svg>`;
+                item.style.position = 'relative';
+                item.appendChild(overlay);
+                item.addEventListener('mouseenter', () => {
+                    gsap.to(overlay, { opacity: 1, duration: 0.3 });
+                    gsap.to(item.querySelector('img'), { scale: 1.08, duration: 0.4, ease: 'power2.out' });
+                });
+                item.addEventListener('mouseleave', () => {
+                    gsap.to(overlay, { opacity: 0, duration: 0.3 });
+                    gsap.to(item.querySelector('img'), { scale: 1, duration: 0.4 });
+                });
+            });
+        }
+
+        // ── NEWSLETTER ────────────────────────────────────────────────
+        function initNewsletter() {
+            gsap.from(['.newsletter-title', '.newsletter-sub', '.newsletter-form'], {
+                opacity: 0, y: 40, stagger: 0.15, duration: 0.9, ease: 'verdeSoft',
+                scrollTrigger: { trigger: '.newsletter-section', start: 'top 80%' },
+            });
+            const input = document.querySelector('.newsletter-form input');
+            const btn = document.querySelector('.newsletter-form button');
+            if (input && btn) {
+                input.addEventListener('focus', () => {
+                    gsap.to(input, { paddingLeft: '24px', duration: 0.3, ease: 'power2.out' });
+                });
+                input.addEventListener('blur', () => {
+                    gsap.to(input, { paddingLeft: '', duration: 0.3 });
+                });
+                addMagnet('.newsletter-form button', 0.35);
+                btn.addEventListener('mouseenter', () => {
+                    gsap.to(btn, { scale: 1.05, duration: 0.25, ease: 'back.out(2)' });
+                });
+                btn.addEventListener('mouseleave', () => {
+                    gsap.to(btn, { scale: 1, duration: 0.35, ease: 'elastic.out(1, 0.5)' });
+                });
+            }
+        }
+
+        // ── FOOTER ────────────────────────────────────────────────────
+        function initFooter() {
+            gsap.from('.footer-logo', {
+                opacity: 0, y: 30, duration: 0.8, ease: 'verdeSoft',
+                scrollTrigger: { trigger: 'footer', start: 'top 90%' },
+            });
+            gsap.from('.footer-col', {
+                opacity: 0, y: 24, stagger: 0.1, duration: 0.7, ease: 'verdeSoft',
+                scrollTrigger: { trigger: 'footer', start: 'top 88%' },
+            });
+            gsap.from('.footer-social a', {
+                opacity: 0, scale: 0, stagger: 0.08, duration: 0.5, ease: 'back.out(2)',
+                scrollTrigger: { trigger: 'footer', start: 'top 88%' },
+            });
+            addMagnet('.footer-social a', 0.4);
+        }
+
+        // ── CUSTOM CURSOR ─────────────────────────────────────────────
+        function initCursor() {
+            if (window.innerWidth < 1024) return;
+            document.body.insertAdjacentHTML('afterbegin', `
+                <div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div>
+                <div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>
+            `);
+            const dot = document.querySelector('#cursor-dot');
+            const ring = document.querySelector('#cursor-ring');
+            document.addEventListener('mousemove', (e) => {
+                gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 });
+                gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' });
+            });
+            const hoverEls = 'a, button, .product-card, .category-card, .social-item';
+            document.querySelectorAll(hoverEls).forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    gsap.to(ring, { scale: 2.5, borderColor: '#2e6b50', opacity: 0.6, duration: 0.3 });
+                    gsap.to(dot, { scale: 0, duration: 0.2 });
+                });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(ring, { scale: 1, borderColor: 'rgba(46,107,80,0.5)', opacity: 1, duration: 0.3 });
+                    gsap.to(dot, { scale: 1, duration: 0.2 });
+                });
+            });
+            document.body.style.cursor = 'none';
+        }
+
+        // ── PRELOADER ─────────────────────────────────────────────────
+        function initPreloader() {
+            const preloader = document.querySelector('#preloader');
+            if (!preloader) return;
+            gsap.to('.pl-dot', {
+                y: -14, stagger: 0.15, duration: 0.4, ease: 'power2.out', repeat: -1, yoyo: true,
+            });
+            window.addEventListener('load', () => {
+                gsap.to(preloader, {
+                    yPercent: -100, duration: 0.9, ease: 'power4.inOut', delay: 0.5,
+                    onComplete: () => preloader.remove(),
+                });
+            });
+        }
+
+        // ── SCROLL-TO LINKS ───────────────────────────────────────────
+        function initScrollLinks() {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        lenis.scrollTo(target, { offset: -80, duration: 1.8 });
+                    }
+                });
+            });
+        }
+
+        // ── MASTER INIT ───────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            initPreloader();
+            initCursor();
+            initNavbar();
+            initHero();
+            initMarquee();
+            initCategories();
+            initProducts();
+            initBrandStory();
+            initVerdeBox();
+            initTestimonials();
+            initSocialGrid();
+            initNewsletter();
+            initFooter();
+            initScrollLinks();
+            setTimeout(() => ScrollTrigger.refresh(), 300);
+        });
+        window.addEventListener('resize', () => ScrollTrigger.refresh());
+    </script>
+</body>
+
+</html>
