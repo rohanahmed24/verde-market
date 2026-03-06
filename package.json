@@ -1,0 +1,13 @@
+{
+  "name": "verde-market",
+  "version": "1.0.0",
+  "description": "Verde Market — organic produce and subscription box site",
+  "private": true,
+  "scripts": {
+    "lint:html": "npx html-validate '**/*.html'",
+    "lint": "npm run lint:html"
+  },
+  "devDependencies": {
+    "html-validate": "^8.25.0"
+  }
+}

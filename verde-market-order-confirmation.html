@@ -1,11 +1,63 @@
 <!DOCTYPE html>
-<html lang=en>
-  <meta charset=utf-8>
-  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
-  <title>Verde Market Order Confirmation | Verde Market</title>
-  <style>
-    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
-  </style>
-  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
-  <p><b>404.</b> <ins>That’s an error.</ins>
-  <p>The requested URL <code>/download</code> was not found on this server.  <ins>That’s all we know.</ins>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Order Confirmation | Verde Market</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Fraunces:opsz,wght@9..144,300..900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2e6b50",
+                        "primary-dark": "#1f4a37",
+                        "secondary": "#e9f2ee",
+                        "background-light": "#f6f7f7",
+                        "background-dark": "#151d19",
+                    },
+                    fontFamily: { "display": ["Fraunces", "serif"], "sans": ["Manrope", "sans-serif"] },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
+    <header class="border-b border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 py-4 lg:px-12">
+        <div class="max-w-3xl mx-auto flex items-center justify-between">
+            <a class="flex items-center gap-3 text-primary" href="index.html">
+                <span class="material-symbols-outlined text-3xl">eco</span>
+                <h2 class="font-serif text-2xl font-bold tracking-tight text-primary dark:text-white">VERDE MARKET</h2>
+            </a>
+            <nav class="flex items-center gap-6 text-sm font-medium">
+                <a class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
+                <a class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+    <main class="flex-1 flex items-center justify-center px-6 py-16">
+        <div class="max-w-lg w-full text-center">
+            <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                <span class="material-symbols-outlined text-4xl text-primary">check_circle</span>
+            </div>
+            <h1 class="font-serif text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3">Thank you for your order</h1>
+            <p class="text-slate-600 dark:text-slate-400 mb-8">Your Verde Box subscription is confirmed. We'll send you an email with delivery details shortly.</p>
+            <div class="bg-secondary dark:bg-slate-800/50 rounded-2xl p-6 mb-8 text-left">
+                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Order reference</p>
+                <p class="font-mono font-bold text-slate-900 dark:text-white mt-1">VM-2024-7842</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a class="inline-flex items-center justify-center rounded-full bg-primary hover:bg-primary-dark text-white font-bold px-8 py-3 transition-colors" href="verde-market-subscriber-dashboard.html">View my subscription</a>
+                <a class="inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-semibold px-8 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="verde-market-shop-page.html">Continue shopping</a>
+            </div>
+        </div>
+    </main>
+    <footer class="py-6 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+        <p>© 2024 Verde Market. All rights reserved.</p>
+    </footer>
+</body>
+</html>

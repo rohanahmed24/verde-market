@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -29,20 +28,20 @@
 <style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col antialiased">
 <!-- Top Navigation -->
-<header class="bg-white dark:bg-[#2c2214] border-b border-primary/20 sticky top-0 z-50">
+<header class="bg-white dark:bg-[#2c2214] border-b border-primary/20 sticky top-0 z-50" aria-label="Site header">
 <div class="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
-<div class="flex items-center gap-3">
+<a class="flex items-center gap-3 hover:opacity-90 transition-opacity" href="index.html">
 <span class="material-symbols-outlined text-primary text-3xl">eco</span>
 <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Verde Market</h1>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Shop</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Subscription</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About Us</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</a>
+<nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="build-my-box-select-plan.html">Subscription</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="verde-market-our-story.html">About Us</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="verde-market-locations.html">Contact</a>
 </nav>
 <div class="flex items-center gap-4">
-<button class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-slate-900 dark:text-slate-100 hover:bg-primary/20 transition-colors">
+<button type="button" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-slate-900 dark:text-slate-100 hover:bg-primary/20 transition-colors" aria-label="Cart">
 <span class="material-symbols-outlined text-xl">shopping_cart</span>
 </button>
 <div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="User profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFVVkd84LbWIR-U3QAQo-q_DXYcgeHgLoeC7sFz1dMiPHi4m8IHSEtGPDNyigdTjT5oUI_0He3jTepqjODWMCPWoGDkcXwbp5Qh95bgKGErlNDoEm296GjLhNteOcc53rQrjQZpoQsbltu-CjPoWvX29l2wm89BK3DfV844ZoblmGiqvYto4GJ92OldSNa7LxK94PJNNPozLVVDRKoip0zt_sftvUdV83HzM1GaChQnrzMCp6jdffLt-dlJNBh8DoNxPrfG_jEAwg');">
@@ -50,12 +49,12 @@
 </div>
 </div>
 </header>
-<main class="flex-grow max-w-[1200px] mx-auto w-full px-6 py-8">
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-6 py-8" aria-label="Checkout content">
 <!-- Breadcrumbs -->
-<nav class="flex items-center gap-2 text-sm mb-6 text-slate-500 dark:text-slate-400">
-<a class="hover:text-primary transition-colors" href="#">Home</a>
+<nav class="flex items-center gap-2 text-sm mb-6 text-slate-500 dark:text-slate-400" aria-label="Breadcrumb">
+<a class="hover:text-primary transition-colors" href="index.html">Home</a>
 <span class="material-symbols-outlined text-sm">chevron_right</span>
-<a class="hover:text-primary transition-colors" href="#">Build My Box</a>
+<a class="hover:text-primary transition-colors" href="build-my-box-select-plan.html">Build My Box</a>
 <span class="material-symbols-outlined text-sm">chevron_right</span>
 <span class="font-semibold text-slate-900 dark:text-slate-100">Finalize Subscription</span>
 </nav>
@@ -179,10 +178,10 @@
 <span class="font-medium">Zero-waste packaging</span>
 </div>
 <!-- CTA -->
-<button class="w-full bg-primary hover:bg-primary/90 text-[#231b0f] font-bold text-lg py-4 px-6 rounded-lg transition-colors flex justify-center items-center gap-2">
+<a class="w-full bg-primary hover:bg-primary/90 text-[#231b0f] font-bold text-lg py-4 px-6 rounded-lg transition-colors flex justify-center items-center gap-2" href="verde-market-order-confirmation.html">
                             Start My Subscription
                             <span class="material-symbols-outlined">arrow_forward</span>
-</button>
+</a>
 <p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-4">
                             You can pause or cancel your subscription at any time.
                         </p>

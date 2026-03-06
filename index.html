@@ -13,9 +13,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -119,10 +116,10 @@
     <!-- Top Navigation -->
     <header
         class="sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 py-4 lg:px-12">
-        <div class="flex items-center gap-3 text-primary">
+        <a class="flex items-center gap-3 text-primary" href="index.html">
             <span class="material-symbols-outlined text-3xl">eco</span>
             <h2 class="font-serif text-2xl font-bold tracking-tight text-primary dark:text-white">VERDE MARKET</h2>
-        </div>
+        </a>
         <nav class="hidden lg:flex items-center gap-8">
             <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
                 href="verde-market-shop-page.html">Shop</a>
@@ -136,11 +133,9 @@
                 href="verde-market-locations.html">Locations</a>
         </nav>
         <div class="flex items-center gap-4">
-            <button
-                class="hidden lg:flex cursor-pointer items-center justify-center rounded-full bg-primary hover:bg-primary-dark transition-colors h-10 px-6 text-white text-sm font-bold tracking-wide shadow-lg shadow-primary/20">
-                Start Fresh
-            </button>
-            <button class="lg:hidden text-slate-900 dark:text-white">
+            <a class="hidden lg:flex cursor-pointer items-center justify-center rounded-full bg-primary hover:bg-primary-dark transition-colors h-10 px-6 text-white text-sm font-bold tracking-wide shadow-lg shadow-primary/20"
+                href="build-my-box-select-plan.html">Start Fresh</a>
+            <button class="lg:hidden text-slate-900 dark:text-white" type="button" aria-label="Open menu">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
@@ -156,8 +151,8 @@
                 <h1
                     class="hero-title font-serif text-5xl lg:text-7xl font-black leading-[1.1] text-text-dark dark:text-white">
                     Fresh from the farm, straight to <span class="relative whitespace-nowrap z-10">your door<svg
-                            class="absolute -bottom-2 left-0 w-full h-3 text-primary z-[-1]" preserveaspectratio="none"
-                            viewbox="0 0 100 10">
+                            class="absolute -bottom-2 left-0 w-full h-3 text-primary z-[-1]" preserveAspectRatio="none"
+                            viewBox="0 0 100 10">
                             <path class="hero-underline" d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor"
                                 stroke-width="3"></path>
                         </svg></span>.
@@ -169,12 +164,9 @@
                 </p>
             </div>
             <div class="hero-ctas flex flex-wrap gap-4 mt-2">
-                <button
-                    class="flex items-center justify-center rounded-full bg-primary hover:bg-primary-dark transition-all h-14 px-8 text-white text-base font-bold shadow-xl shadow-primary/30">
-                    Start Shopping
-                </button>
-                <button
-                    class="flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all h-14 px-8 text-slate-900 dark:text-white text-base font-semibold">
+                <a class="flex items-center justify-center rounded-full bg-primary hover:bg-primary-dark transition-all h-14 px-8 text-white text-base font-bold shadow-xl shadow-primary/30"
+                    href="verde-market-shop-page.html">Start Shopping</a>
+                <button class="flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all h-14 px-8 text-slate-900 dark:text-white text-base font-semibold" type="button">
                     <span class="material-symbols-outlined mr-2 text-lg">play_circle</span> Watch Video
                 </button>
             </div>
@@ -265,7 +257,7 @@
             <div class="categories-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 <!-- Category Card 1 -->
                 <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
-                    href="#">
+                    href="verde-market-shop-page.html">
                     <img alt="Fresh mixed vegetables"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         data-alt="Fresh vegetables"
@@ -277,7 +269,7 @@
                 </a>
                 <!-- Category Card 2 -->
                 <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
-                    href="#">
+                    href="verde-market-shop-page.html">
                     <img alt="Assorted fresh fruits"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         data-alt="Fresh fruits"
@@ -289,7 +281,7 @@
                 </a>
                 <!-- Category Card 3 -->
                 <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
-                    href="#">
+                    href="verde-market-shop-page.html">
                     <img alt="Milk and cheese products"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         data-alt="Dairy products"
@@ -301,7 +293,7 @@
                 </a>
                 <!-- Category Card 4 -->
                 <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
-                    href="#">
+                    href="verde-market-shop-page.html">
                     <img alt="Fresh bread and pastries"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         data-alt="Bakery items"
@@ -313,7 +305,7 @@
                 </a>
                 <!-- Category Card 5 -->
                 <a class="category-card group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
-                    href="#">
+                    href="verde-market-shop-page.html">
                     <img alt="Jars of pantry staples"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         data-alt="Pantry goods"
@@ -325,7 +317,7 @@
                 </a>
                 <!-- Category Card 6 -->
                 <a class="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-xl transition-all duration-300"
-                    href="#">
+                    href="verde-market-shop-page.html">
                     <img alt="Healthy snack bowls"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         data-alt="Snacks"
@@ -350,7 +342,7 @@
                         class="products-title font-serif text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2">
                         Weekly Highlights</h2>
                 </div>
-                <a class="text-primary font-bold hover:underline hidden sm:inline-block" href="#">View all products</a>
+                <a class="text-primary font-bold hover:underline hidden sm:inline-block" href="verde-market-shop-page.html">View all products</a>
             </div>
             <div class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Product 1 -->
@@ -363,8 +355,9 @@
                             class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
                             data-alt="Avocados"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDIkbBOcuPcvLT3i1kzo_Jd5oJ1yV_pgTpWIEqmNgtQF9tGwVUz1O-4OEG6g92DljSzdaBFon6OEfv3vtROEowGfnV9Sn-IjOkusS-i12gtWz2T2rztlFmHgDh3NKTDi42mJE2DPWEtl9JJHzo_vHb2xQBk_CfPmdh9X2xa4mTGLVU_k3aomIF6-3zm5INj3bl7Z0VY_oHisM9UWz1c4h54vmbYc93NJzbI9k97MoVMZ7VvDK-6hx284j5jAPzpLMQllGQwAMCbx8" />
-                        <button
-                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                        <button type="button"
+                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg"
+                            aria-label="Add to cart">
                             <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
                         </button>
                     </div>
@@ -386,8 +379,9 @@
                             class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
                             data-alt="Red Apples"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEDXh24JZl5eFCj-v9Zp_4hToW0iADLBB4hURsNpushzkMofCR_hbLoLOjKenE0NdOpxVrpxGx1YsPltLA2m1l7TgQmgHK50mYvA6WvAvQ-XsbBbbZ5Q494r-k2BFgW8x1qOtl4-7lgYKWwc5gLWYmO-k77nOFPn1JPUJixM1QDrCrkEcBdDnAHbxkTJN02amygDvGupAdLcRIG6VUR6EgrbZD2dtwWmpHtcBmpz78Eazk_RB5rNidqPmmn36gkws9pYxEvQhmJeE" />
-                        <button
-                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                        <button type="button"
+                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg"
+                            aria-label="Add to cart">
                             <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
                         </button>
                     </div>
@@ -409,8 +403,9 @@
                             class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
                             data-alt="Farm Eggs"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW_6XJk2Z3Tu49aHB46z99PEbyLW3D0YRApybGot17fUHgC0MOq7ahUzJA3ne8Q5pmVDkqL3YnIb4W4MouUgt7NlP-0j066c9LenPwqIMwgdGq1bCUdwPimYS0BovNW5G_q2R6YdOEINQ0Rax3O7LsJkOS5s3tOqUwCoHH5JroF57hptxBHMGVBM-3opyZc9SmO-LhZD90pd3p2edCKhkdD3DQ4wbwOx9mEDjsSWGk11ObRLTi90X17BRC1lmSMPI1bPnl7VoyYWg" />
-                        <button
-                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                        <button type="button"
+                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg"
+                            aria-label="Add to cart">
                             <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
                         </button>
                     </div>
@@ -432,8 +427,9 @@
                             class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
                             data-alt="Artisan Bread"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOD1fXGodX_KtQIqdB-GlDxTzk20N6_8PevrGTznVSy8qcLm9wJzI-BACoAp3ehaA_hzgWjQkoTV3wv_L0VQJOr8xFGL0wEmvA1dh2emh4PguxDKEQSttKqo6Rwz-jdnUpBhpjpRVf4EXQz9ougG8dOikCjAsUcO5PND5uk8gruDwQ2CNqaHAYCuE0FNMvn7zsWj8QSm4UgA0R8fvQHzABsIhbTPaRXZTOPHPCHR3cOhXx0GfPefX3tNbmaLX8nf2nvtqG5xSKYOQ" />
-                        <button
-                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                        <button type="button"
+                            class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg"
+                            aria-label="Add to cart">
                             <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
                         </button>
                     </div>
@@ -478,19 +474,19 @@
                         planet. No hidden preservatives, no confusing labels—just real, good food.
                     </p>
                 </div>
-                <div class="flex flex-wrap gap-3 pt-4">
+                <div class="story-tags flex flex-wrap gap-3 pt-4">
                     <span
-                        class="px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Locally
+                        class="story-tag px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Locally
                         Sourced</span>
                     <span
-                        class="px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Pesticide
+                        class="story-tag px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Pesticide
                         Free</span>
                     <span
-                        class="px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Carbon
+                        class="story-tag px-4 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">Carbon
                         Neutral</span>
                 </div>
                 <a class="inline-flex items-center text-slate-900 dark:text-white font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors mt-4"
-                    href="#">
+                    href="verde-market-our-story.html">
                     Read our full story <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
                 </a>
             </div>
@@ -509,10 +505,10 @@
                     cancel anytime.
                 </p>
                 <div class="pt-4">
-                    <button
-                        class="verde-box-cta bg-accent text-slate-900 hover:bg-yellow-400 transition-colors font-bold rounded-full h-14 px-8 text-base shadow-lg inline-flex items-center gap-2">
+                    <a class="verde-box-cta bg-accent text-slate-900 hover:bg-yellow-400 transition-colors font-bold rounded-full h-14 px-8 text-base shadow-lg inline-flex items-center gap-2"
+                        href="build-my-box-select-plan.html">
                         Build My Box <span class="material-symbols-outlined">package_2</span>
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
@@ -701,27 +697,27 @@
                 </p>
                 <div class="footer-social flex gap-4">
                     <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                        href="#">
+                        href="#" aria-label="Facebook">
                         <span class="sr-only">Facebook</span>
-                        <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                             <path
                                 d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
                             </path>
                         </svg>
                     </a>
                     <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                        href="#">
+                        href="#" aria-label="Twitter">
                         <span class="sr-only">Twitter</span>
-                        <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                             <path
                                 d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
                             </path>
                         </svg>
                     </a>
                     <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                        href="#">
+                        href="#" aria-label="Instagram">
                         <span class="sr-only">Instagram</span>
-                        <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                             <path
                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
                             </path>
@@ -732,11 +728,8 @@
             <div class="footer-col">
                 <h3 class="font-bold text-lg mb-6 text-white">Shop</h3>
                 <ul class="space-y-4 text-slate-300">
-                    <li><a class="hover:text-white transition-colors" href="#">Vegetables</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Fruits</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Dairy &amp; Eggs</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Pantry</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Subscription Box</a></li>
+                    <li><a class="hover:text-white transition-colors" href="verde-market-shop-page.html">All Products</a></li>
+                    <li><a class="hover:text-white transition-colors" href="build-my-box-select-plan.html">Subscription Box</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -931,12 +924,7 @@
         }
 
         // ── HERO ──────────────────────────────────────────────────────
-        function initHero() { if (!document.querySelector('.hero-badge')) return;
-            if (document.querySelector('.hero-badge')) {
-                gsap.from('.hero-badge', {
-                    opacity: 0, y: 20, duration: 0.7, ease: 'verdeSoft', delay: 0.6,
-                });
-            }
+        function initHero() {
             splitWords('.hero-title');
             gsap.from('.hero-title .word-inner', {
                 y: '110%',
@@ -1093,7 +1081,8 @@
         }
 
         // ── BRAND STORY ───────────────────────────────────────────────
-        function initBrandStory() { if (!document.querySelector('.story-image')) return;
+        function initBrandStory() {
+            if (!document.querySelector('.story-image-wrap')) return;
             gsap.from('.story-image-wrap', {
                 clipPath: 'inset(0 100% 0 0)', duration: 1.2, ease: 'power4.inOut',
                 scrollTrigger: { trigger: '.brand-story-section', start: 'top 65%' },
@@ -1312,10 +1301,12 @@
         // ── SCROLL-TO LINKS ───────────────────────────────────────────
         function initScrollLinks() {
             document.querySelectorAll('a[href^="#"]').forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href || href === '#') return;
                 link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const target = document.querySelector(link.getAttribute('href'));
+                    const target = document.querySelector(href);
                     if (target) {
+                        e.preventDefault();
                         lenis.scrollTo(target, { offset: -80, duration: 1.8 });
                     }
                 });

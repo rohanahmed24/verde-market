@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -35,22 +34,22 @@
 <style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
 <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-10 py-4 bg-background-light dark:bg-background-dark sticky top-0 z-50">
-<div class="flex items-center gap-4 text-slate-900 dark:text-slate-100">
+<a class="flex items-center gap-4 text-slate-900 dark:text-slate-100 hover:opacity-90 transition-opacity" href="index.html">
 <div class="size-6 text-primary">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z"></path>
 </svg>
 </div>
 <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Verde Market</h2>
-</div>
+</a>
 <nav class="flex flex-1 justify-end gap-8 items-center">
 <div class="flex items-center gap-9 hidden md:flex">
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Shop</a>
-<a class="text-sm font-bold leading-normal text-primary" href="#">Build My Box</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Our Story</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Contact</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
+<a class="text-sm font-bold leading-normal text-primary" href="build-my-box-select-plan.html">Build My Box</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-our-story.html">Our Story</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-locations.html">Contact</a>
 </div>
-<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<button type="button" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
 <span>Cart (0)</span>
 </button>
 </nav>
@@ -101,7 +100,7 @@
 <span>Free local delivery</span>
 </div>
 </div>
-<button class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-background-dark transition-all border border-primary/20 group-hover:bg-primary group-hover:text-background-dark">
+<button type="button" class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-background-dark transition-all border border-primary/20 group-hover:bg-primary group-hover:text-background-dark">
                     Select Personal
                 </button>
 </div>
@@ -137,7 +136,7 @@
 <span>Free local delivery</span>
 </div>
 </div>
-<button class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary text-background-dark font-bold hover:bg-primary/90 transition-all shadow-md">
+<button type="button" class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary text-background-dark font-bold hover:bg-primary/90 transition-all shadow-md">
                     Selected
                 </button>
 </div>
@@ -171,7 +170,7 @@
 <span>Free local delivery</span>
 </div>
 </div>
-<button class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-background-dark transition-all border border-primary/20 group-hover:bg-primary group-hover:text-background-dark">
+<button type="button" class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-background-dark transition-all border border-primary/20 group-hover:bg-primary group-hover:text-background-dark">
                     Select Harvest
                 </button>
 </div>
@@ -194,10 +193,10 @@
 </div>
 </div>
 <div class="w-full max-w-xl mt-8 pt-8 border-t border-primary/20 flex justify-center">
-<button class="flex w-full sm:w-auto min-w-[240px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary text-background-dark text-lg font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform">
+<a class="flex w-full sm:w-auto min-w-[240px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary text-background-dark text-lg font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform" href="build-my-box-customize-contents.html">
                 Continue to Customize
                 <span class="material-symbols-outlined ml-2">arrow_forward</span>
-</button>
+</a>
 </div>
 </main>
 <footer class="mt-16 py-8 border-t border-primary/20 text-center text-sm text-slate-500 dark:text-slate-400">

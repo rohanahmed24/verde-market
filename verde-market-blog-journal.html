@@ -6,7 +6,6 @@
 <title>Verde Market Blog Journal | Verde Market</title>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
         tailwind.config = {
@@ -44,18 +43,18 @@
 <!-- TopNavBar -->
 <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-neutral-200 dark:border-b-neutral-800 px-10 py-3 mb-8">
 <div class="flex items-center gap-8">
-<div class="flex items-center gap-4 text-neutral-900 dark:text-neutral-100">
+<a class="flex items-center gap-4 text-neutral-900 dark:text-neutral-100 hover:opacity-90 transition-opacity" href="index.html">
 <div class="size-6 text-primary">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
 </svg>
 </div>
 <h2 class="text-neutral-900 dark:text-neutral-100 text-2xl font-bold leading-tight tracking-[-0.015em]">Verde Market</h2>
-</div>
+</a>
 <nav class="flex items-center gap-9 hidden md:flex">
-<a class="text-neutral-700 dark:text-neutral-300 hover:text-primary text-base font-medium leading-normal transition-colors" href="#">Shop</a>
-<a class="text-primary text-base font-medium leading-normal border-b-2 border-primary pb-1" href="#">Journal</a>
-<a class="text-neutral-700 dark:text-neutral-300 hover:text-primary text-base font-medium leading-normal transition-colors" href="#">About</a>
+<a class="text-neutral-700 dark:text-neutral-300 hover:text-primary text-base font-medium leading-normal transition-colors" href="verde-market-shop-page.html">Shop</a>
+<a class="text-primary text-base font-medium leading-normal border-b-2 border-primary pb-1" href="verde-market-blog-journal.html">Journal</a>
+<a class="text-neutral-700 dark:text-neutral-300 hover:text-primary text-base font-medium leading-normal transition-colors" href="verde-market-our-story.html">About</a>
 </nav>
 </div>
 <div class="flex flex-1 justify-end gap-6 items-center">
@@ -67,10 +66,10 @@
 <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-neutral-900 dark:text-neutral-100 focus:outline-0 focus:ring-0 border-none bg-transparent placeholder:text-neutral-500 dark:placeholder:text-neutral-400 px-4 h-full text-sm font-normal leading-normal" placeholder="Search articles..." value=""/>
 </div>
 </label>
-<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-primary text-neutral-900 hover:bg-opacity-90 transition-opacity text-sm font-bold leading-normal tracking-[0.015em]">
+<button type="button" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-primary text-neutral-900 hover:bg-opacity-90 transition-opacity text-sm font-bold leading-normal tracking-[0.015em]">
 <span class="truncate">Subscribe</span>
 </button>
-<button class="text-neutral-900 dark:text-neutral-100 hover:text-primary flex items-center justify-center size-10 rounded-full bg-neutral-100 dark:bg-neutral-800">
+<button type="button" class="text-neutral-900 dark:text-neutral-100 hover:text-primary flex items-center justify-center size-10 rounded-full bg-neutral-100 dark:bg-neutral-800">
 <span class="material-symbols-outlined">person</span>
 </button>
 </div>

@@ -8,7 +8,6 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
         tailwind.config = {
@@ -33,10 +32,10 @@
 <!-- Navigation / Header -->
 <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-<div class="flex items-center gap-2">
+<a class="flex items-center gap-2 hover:opacity-90 transition-opacity" href="index.html">
 <span class="material-symbols-outlined text-primary text-3xl">eco</span>
 <span class="font-bold text-xl tracking-tight">Verde Market</span>
-</div>
+</a>
 <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
 <span class="text-slate-400 dark:text-slate-500">1. Choose Box</span>
 <span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-sm">chevron_right</span>
@@ -47,7 +46,7 @@
 <span>4. Checkout</span>
 </div>
 <div class="flex items-center gap-4">
-<button class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<button type="button" class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
 <span class="material-symbols-outlined">help</span>
 </button>
 </div>
@@ -85,11 +84,11 @@
 <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$2.00 / bunch</p>
 </div>
 <div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg">remove</span>
 </button>
 <span class="font-medium text-sm">2</span>
-<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg">add</span>
 </button>
 </div>
@@ -105,11 +104,11 @@
 <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$3.50 / head</p>
 </div>
 <div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled="">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled>
 <span class="material-symbols-outlined text-lg">remove</span>
 </button>
 <span class="font-medium text-sm text-slate-400">0</span>
-<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg">add</span>
 </button>
 </div>
@@ -125,11 +124,11 @@
 <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$4.00 / bag</p>
 </div>
 <div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg">remove</span>
 </button>
 <span class="font-medium text-sm">1</span>
-<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg">add</span>
 </button>
 </div>
@@ -145,11 +144,11 @@
 <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$3.00 / lb</p>
 </div>
 <div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled="">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled>
 <span class="material-symbols-outlined text-lg">remove</span>
 </button>
 <span class="font-medium text-sm text-slate-400">0</span>
-<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg">add</span>
 </button>
 </div>
@@ -165,11 +164,11 @@
 <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$1.50 / lb</p>
 </div>
 <div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled="">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled>
 <span class="material-symbols-outlined text-lg">remove</span>
 </button>
 <span class="font-medium text-sm text-slate-400">0</span>
-<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg">add</span>
 </button>
 </div>
@@ -185,11 +184,11 @@
 <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$1.20 / lb</p>
 </div>
 <div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled="">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled>
 <span class="material-symbols-outlined text-lg">remove</span>
 </button>
 <span class="font-medium text-sm text-slate-400">0</span>
-<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
+<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg">add</span>
 </button>
 </div>
@@ -197,7 +196,7 @@
 </div>
 </div>
 <div class="py-6 flex justify-center">
-<button class="px-6 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<button type="button" class="px-6 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                      Load More
                  </button>
 </div>
@@ -230,11 +229,11 @@
 <p class="text-slate-500 dark:text-slate-400 text-sm">$4.00</p>
 </div>
 <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-lg p-1 shrink-0">
-<button class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
+<button type="button" class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
 <span class="material-symbols-outlined text-[16px]">remove</span>
 </button>
 <span class="text-sm font-medium w-3 text-center">2</span>
-<button class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
+<button type="button" class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
 <span class="material-symbols-outlined text-[16px]">add</span>
 </button>
 </div>
@@ -247,11 +246,11 @@
 <p class="text-slate-500 dark:text-slate-400 text-sm">$4.00</p>
 </div>
 <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-lg p-1 shrink-0">
-<button class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
+<button type="button" class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
 <span class="material-symbols-outlined text-[16px]">remove</span>
 </button>
 <span class="text-sm font-medium w-3 text-center">1</span>
-<button class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
+<button type="button" class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
 <span class="material-symbols-outlined text-[16px]">add</span>
 </button>
 </div>
@@ -263,10 +262,10 @@
 <span class="text-slate-600 dark:text-slate-400 font-medium">Estimated Total</span>
 <span class="text-2xl font-bold">$8.00</span>
 </div>
-<button class="w-full py-3 px-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 shadow-sm shadow-primary/20">
+<a class="w-full py-3 px-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 shadow-sm shadow-primary/20" href="build-my-box-checkout-finalize.html">
                         Review Schedule
                         <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-</button>
+</a>
 <p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-3">You won't be charged yet.</p>
 </div>
 </div>
