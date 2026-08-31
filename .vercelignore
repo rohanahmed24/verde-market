@@ -1,0 +1,12 @@
+/design-audit/
+/design-references/
+/*.png
+/README.md
+/skills-lock.json
+/.htmlvalidate.json
+/.cache/
+/dist/
+/node_modules/
+/.git/
+/.vercel/
+/.env*

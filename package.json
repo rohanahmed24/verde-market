@@ -3,11 +3,32 @@
   "version": "1.0.0",
   "description": "Verde Market — organic produce and subscription box site",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "lint:html": "npx html-validate '**/*.html'",
-    "lint": "npm run lint:html"
+    "dev": "npm run build && node scripts/preview-site.mjs",
+    "build:css": "tailwindcss -i styles/tailwind.css -o assets/css/verde-tailwind.css --minify",
+    "build": "npm run build:css && node scripts/build-site.mjs",
+    "preview": "node scripts/preview-site.mjs",
+    "assets:sync": "node scripts/sync-delivery-assets.mjs",
+    "check:delivery": "node scripts/check-delivery.mjs",
+    "test:ui": "node --test scripts/test-ui.mjs scripts/test-ui-audit.mjs",
+    "test:commerce": "node --test scripts/test-commerce.cjs scripts/test-commerce-audit.cjs",
+    "test:content": "node --test scripts/test-content.mjs",
+    "test:delivery": "node --test scripts/test-delivery.mjs scripts/test-delivery-paths.mjs scripts/test-delivery-runtime.mjs scripts/test-build-output.mjs",
+    "test": "npm run test:commerce && npm run test:content && npm run test:ui && npm run test:delivery",
+    "lint:html": "html-validate \"*.html\"",
+    "lint:site": "node scripts/check-site.mjs",
+    "lint": "npm run lint:html && npm run lint:site",
+    "check": "npm run build && npm run lint && npm run check:delivery && npm test"
   },
   "devDependencies": {
-    "html-validate": "^8.25.0"
+    "html-validate": "^10.17.0",
+    "jsdom": "30.0.1",
+    "serve": "14.2.6",
+    "serve-handler": "6.1.7",
+    "sharp": "0.35.4",
+    "tailwindcss": "3.4.17"
   }
 }

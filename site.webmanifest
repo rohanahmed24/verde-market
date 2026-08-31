@@ -1,0 +1,23 @@
+{
+  "name": "Verde Market",
+  "short_name": "Verde",
+  "description": "A polished organic grocery and produce-box storefront concept.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f7f7",
+  "theme_color": "#174936",
+  "icons": [
+    {
+      "src": "assets/icons/verde-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/verde-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

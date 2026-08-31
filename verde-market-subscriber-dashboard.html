@@ -2,74 +2,246 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subscriber Dashboard | Verde Market</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Fraunces:opsz,wght@9..144,300..900&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#2e6b50",
-                        "primary-dark": "#1f4a37",
-                        "secondary": "#e9f2ee",
-                        "background-light": "#f6f7f7",
-                        "background-dark": "#151d19",
-                    },
-                    fontFamily: { "display": ["Fraunces", "serif"], "sans": ["Manrope", "sans-serif"] },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
-                },
-            },
+    <meta name="description" content="A polished account-dashboard concept for managing a Verde Market produce subscription." />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/verde-market-subscriber-dashboard" />
+    <link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style>
+        .delivery-panel {
+            background: #174936;
         }
-    </script>
+
+        .dashboard-tool {
+            transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+        }
+
+        .dashboard-tool:hover {
+            background: #e7f3ec;
+            border-color: rgba(39, 103, 73, 0.35);
+            transform: translateY(-0.15rem);
+        }
+
+        @media (max-width: 767px) {
+            .orders-table,
+            .orders-table tbody,
+            .orders-table tr,
+            .orders-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .orders-table thead {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+
+            .orders-table tr {
+                border-top: 1px solid rgba(39, 103, 73, 0.12);
+                padding-block: 0.75rem;
+            }
+
+            .orders-table td {
+                display: flex;
+                justify-content: space-between;
+                gap: 1rem;
+                padding-block: 0.35rem;
+                text-align: right;
+            }
+
+            .orders-table td::before {
+                content: attr(data-label);
+                color: #607068;
+                font-weight: 700;
+                text-align: left;
+            }
+        }
+    </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
-    <header class="sticky top-0 z-50 border-b border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 py-4 lg:px-12">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a class="flex items-center gap-3 text-primary" href="index.html">
-                <span class="material-symbols-outlined text-3xl">eco</span>
-                <h2 class="font-serif text-2xl font-bold tracking-tight text-primary dark:text-white">VERDE MARKET</h2>
+<body class="min-h-screen bg-cream font-sans text-[#102a22] antialiased">
+    <a class="verde-skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="sticky top-0 z-50 border-b border-[#276749]/15 bg-cream/95 px-4 py-3 backdrop-blur-md sm:px-6 lg:px-10">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4">
+            <a class="flex items-center gap-3" href="index.html" aria-label="Verde Market home">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-citrus" aria-hidden="true"><span class="material-symbols-outlined">eco</span></span>
+                <span class="font-display text-xl font-bold tracking-tight sm:text-2xl">Verde Market</span>
             </a>
-            <nav class="hidden lg:flex items-center gap-8">
-                <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
-                <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="verde-market-our-story.html">Our Story</a>
-                <a class="text-primary font-medium text-sm border-b-2 border-primary pb-1" href="verde-market-subscriber-dashboard.html">My Box</a>
-                <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="verde-market-locations.html">Locations</a>
+            <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Main navigation">
+                <a class="transition-colors hover:text-primary" href="verde-market-shop-page.html">Shop</a>
+                <a class="transition-colors hover:text-primary" href="build-my-box-select-plan.html">Build a Box</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-our-story.html">Our Story</a>
+                <a class="text-primary" href="verde-market-subscriber-dashboard.html" aria-current="page">My subscription</a>
             </nav>
-            <a class="rounded-full bg-primary hover:bg-primary-dark text-white text-sm font-bold px-5 py-2.5 transition-colors" href="build-my-box-select-plan.html">Manage subscription</a>
+            <div class="flex items-center gap-2">
+                <a data-edit-plan class="hidden rounded-full bg-primary px-4 py-2 text-sm font-extrabold text-white transition-colors hover:bg-forest sm:inline-flex" href="build-my-box-select-plan?edit=subscription">Change plan</a>
+                <button class="verde-cart-trigger" type="button" aria-label="Shopping cart" aria-haspopup="dialog" aria-expanded="false"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span></button>
+            </div>
         </div>
     </header>
-    <main class="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-12 py-10">
-        <h1 class="font-serif text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-2">My Verde Box</h1>
-        <p class="text-slate-600 dark:text-slate-400 mb-8">Manage your subscription and upcoming deliveries.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <section class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm">
-                <h2 class="font-bold text-lg text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">local_shipping</span>
-                    Next delivery
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 text-sm mb-1">Wednesday, March 12, 2025</p>
-                <p class="text-slate-500 dark:text-slate-500 text-sm">The Family Box · Weekly</p>
+
+    <main id="main-content" class="px-4 py-8 sm:px-6 sm:py-10 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+                <div>
+                    <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-primary">Subscriber preview</p>
+                    <h1 class="font-display text-4xl font-bold leading-none tracking-tight sm:text-5xl">Your harvest, under control.</h1>
+                    <p class="mt-4 max-w-2xl text-base leading-7 text-[#5a6962]">Review the next delivery, tailor your box, and make schedule changes from one calm place.</p>
+                </div>
+                <p class="rounded-full bg-[#fff9dc] px-4 py-2 text-xs font-bold text-[#635514]">Interactive portfolio demo · changes stay in this browser</p>
+            </div>
+
+            <p id="dashboard-announcement" class="sr-only" aria-live="polite"></p>
+            <section id="dashboard-subscription-empty" class="mb-6 rounded-2xl border border-[#276749]/15 bg-mint p-6" hidden>
+                <h2 class="font-display text-2xl font-bold">Your first box is still ahead.</h2>
+                <p class="mt-2 text-sm leading-6 text-[#607068]">No subscription is active in this browser. Complete a box checkout to save a plan and schedule deliveries. A market basket is a one-time order.</p>
+                <a class="mt-4 inline-flex min-h-11 items-center font-bold text-primary hover:underline" href="build-my-box-select-plan.html">Build your first box</a>
             </section>
-            <section class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm">
-                <h2 class="font-bold text-lg text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">package_2</span>
-                    Current plan
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 text-sm mb-1">The Family Box — $85/box</p>
-                <p class="text-slate-500 dark:text-slate-500 text-sm">Billed weekly</p>
+            <div id="dashboard-feedback" class="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#276749]/20 bg-mint px-5 py-4" hidden>
+                <p id="dashboard-feedback-text" class="text-sm font-semibold text-forest"></p>
+                <button id="dashboard-undo" class="min-h-10 rounded-full border border-primary bg-white px-4 text-xs font-bold text-primary hover:bg-forest hover:text-white" type="button">Undo change</button>
+            </div>
+
+            <div data-subscription-panel class="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)]">
+                <section class="delivery-panel flex min-h-[25rem] flex-col justify-between overflow-hidden rounded-[2rem] p-6 text-white shadow-[0_28px_80px_rgba(20,73,53,0.22)] sm:p-8" aria-labelledby="delivery-heading">
+                    <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-start">
+                        <div>
+                            <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-citrus">Next delivery</p>
+                            <h2 id="delivery-heading" class="mt-3 font-display text-4xl font-bold leading-none sm:text-5xl"><span id="dashboard-delivery-date">Friday</span></h2>
+                            <p id="delivery-state" class="mt-3 text-sm text-white/70">Packing window opens 48 hours before delivery.</p>
+                        </div>
+                        <button id="skip-delivery" class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/35 px-5 text-sm font-extrabold text-white transition-colors hover:bg-white hover:text-forest disabled:opacity-50" type="button">
+                            Skip this delivery
+                        </button>
+                    </div>
+
+                    <div>
+                        <div class="grid grid-cols-3 gap-px overflow-hidden rounded-2xl bg-white/15 text-center">
+                            <div class="bg-white/8 p-4"><strong id="countdown-days" class="block font-display text-3xl text-citrus">5</strong><span class="text-[0.65rem] font-extrabold uppercase tracking-[0.13em] text-white/60">Days</span></div>
+                            <div class="bg-white/8 p-4"><strong id="dashboard-slot-count" class="block font-display text-3xl text-citrus">0</strong><span class="text-[0.65rem] font-extrabold uppercase tracking-[0.13em] text-white/60">Picks</span></div>
+                            <div class="bg-white/8 p-4"><strong id="dashboard-cadence-short" class="block font-display text-3xl text-citrus">1w</strong><span class="text-[0.65rem] font-extrabold uppercase tracking-[0.13em] text-white/60">Cadence</span></div>
+                        </div>
+                        <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+                            <a class="flex min-h-12 flex-1 items-center justify-center rounded-full bg-citrus px-5 text-sm font-extrabold text-forest transition-transform hover:-translate-y-0.5" href="build-my-box-customize-contents?edit=subscription">Customize next box</a>
+                            <button id="pause-plan" class="flex min-h-12 flex-1 items-center justify-center rounded-full bg-white/10 px-5 text-sm font-extrabold text-white transition-colors hover:bg-white/20" type="button" aria-pressed="false">Pause plan</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="overflow-hidden rounded-[2rem] border border-[#276749]/15 bg-white shadow-[0_20px_60px_rgba(20,73,53,0.08)]" aria-labelledby="box-heading">
+                    <div class="h-52 bg-cover bg-center" role="img" aria-label="A seasonal produce box" style="background-image: url('assets/images/harvest-a97b960b8099.webp')"></div>
+                    <div class="p-6">
+                        <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">Your current box</p>
+                        <h2 id="box-heading" class="mt-2 font-display text-3xl font-bold"><span id="dashboard-plan-name">The Family Box</span></h2>
+                        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs font-bold text-[#607068]">
+                            <span id="dashboard-frequency" class="rounded-full bg-mint px-3 py-1">Weekly</span>
+                            <span id="dashboard-price" class="rounded-full bg-mint px-3 py-1">$85 per box</span>
+                        </div>
+                        <a data-edit-plan class="mt-6 flex min-h-12 w-full items-center justify-center rounded-full border border-primary px-5 text-sm font-extrabold text-primary transition-colors hover:bg-mint" href="build-my-box-select-plan?edit=subscription">Edit plan</a>
+                    </div>
+                </section>
+            </div>
+
+            <section data-subscription-panel class="mt-6 rounded-[2rem] border border-[#276749]/15 bg-white p-6 sm:p-8" aria-labelledby="tools-heading">
+                <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+                    <div>
+                        <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">Self-service</p>
+                        <h2 id="tools-heading" class="mt-2 font-display text-3xl font-bold">Subscription tools</h2>
+                    </div>
+                    <p class="text-sm text-[#607068]">The important actions, without the support ticket.</p>
+                </div>
+                <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    <button class="dashboard-tool flex min-h-24 items-center gap-4 rounded-2xl border border-[#276749]/15 p-4 text-left disabled:opacity-50" type="button" data-dashboard-tool="skip">
+                        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined">event_busy</span></span>
+                        <span><strong class="block text-sm">Skip next box</strong><span class="mt-1 block text-xs leading-5 text-[#607068]">Move delivery by one cadence</span></span>
+                    </button>
+                    <button class="dashboard-tool flex min-h-24 items-center gap-4 rounded-2xl border border-[#276749]/15 p-4 text-left" type="button" data-dashboard-tool="pause">
+                        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined">pause_circle</span></span>
+                        <span><strong id="dashboard-pause-label" class="block text-sm">Pause your plan</strong><span class="mt-1 block text-xs leading-5 text-[#607068]">Update subscription status</span></span>
+                    </button>
+                    <a class="dashboard-tool flex min-h-24 items-center gap-4 rounded-2xl border border-[#276749]/15 p-4" href="build-my-box-customize-contents?edit=subscription">
+                        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined">tune</span></span>
+                        <span><strong class="block text-sm">Edit preferences</strong><span class="mt-1 block text-xs leading-5 text-[#607068]">Swap next box contents</span></span>
+                    </a>
+                    <a class="dashboard-tool flex min-h-24 items-center gap-4 rounded-2xl border border-[#276749]/15 p-4" href="verde-market-shop-page.html">
+                        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined">add_shopping_cart</span></span>
+                        <span><strong class="block text-sm">Shop add-ons</strong><span class="mt-1 block text-xs leading-5 text-[#607068]">Add local pantry favorites</span></span>
+                    </a>
+                </div>
             </section>
-        </div>
-        <div class="flex flex-wrap gap-4">
-            <a class="inline-flex items-center justify-center rounded-full bg-primary hover:bg-primary-dark text-white font-bold px-6 py-3 transition-colors" href="build-my-box-customize-contents.html">Customize next box</a>
-            <a class="inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-semibold px-6 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="verde-market-shop-page.html">Shop add-ons</a>
+
+            <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)]">
+                <section class="overflow-hidden rounded-[2rem] border border-[#276749]/15 bg-white" aria-labelledby="orders-heading">
+                    <div class="flex items-center justify-between gap-4 p-6 sm:p-8">
+                        <div>
+                            <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">History</p>
+                            <h2 id="orders-heading" class="mt-2 font-display text-3xl font-bold">Recent demo order</h2>
+                        </div>
+                        <span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">receipt_long</span>
+                    </div>
+                    <div class="px-6 pb-6 sm:px-8 sm:pb-8">
+                        <div id="dashboard-order-empty" class="rounded-xl border border-dashed border-[#276749]/25 p-6 text-center" hidden>
+                            <p class="font-display text-xl font-bold">Your first harvest starts here.</p>
+                            <p class="mt-2 text-sm leading-6 text-[#607068]">Complete a demo checkout to see its saved reference, items, and total.</p>
+                            <a class="mt-4 inline-flex min-h-10 items-center text-sm font-bold text-primary hover:underline" href="verde-market-shop-page.html">Explore the market</a>
+                        </div>
+                        <table id="dashboard-order-table" class="orders-table w-full border-collapse text-sm">
+                            <thead>
+                                <tr class="border-y border-[#276749]/12 text-left text-[0.68rem] font-extrabold uppercase tracking-[0.12em] text-[#607068]">
+                                    <th class="py-3 pr-4" scope="col">Placed</th>
+                                    <th class="py-3 pr-4" scope="col">Reference</th>
+                                    <th class="py-3 pr-4" scope="col">Plan</th>
+                                    <th class="py-3 pr-4" scope="col">Total</th>
+                                    <th class="py-3 text-right" scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="dashboard-order-date" class="py-5 pr-4" data-label="Placed">Demo session</td>
+                                    <td id="dashboard-order-number" class="py-5 pr-4 font-mono font-bold" data-label="Reference">VM-DEMO</td>
+                                    <td id="dashboard-order-plan" class="py-5 pr-4" data-label="Plan">The Family Box</td>
+                                    <td id="dashboard-order-total" class="py-5 pr-4 font-bold" data-label="Total">$0.00</td>
+                                    <td class="py-5 text-right" data-label="Status"><span class="rounded-full bg-mint px-3 py-1 text-xs font-extrabold text-primary">Simulated</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="rounded-[2rem] border border-[#276749]/15 bg-mint p-6 sm:p-8" aria-labelledby="impact-heading">
+                    <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">Concept preview</p>
+                    <h2 id="impact-heading" class="mt-2 font-display text-3xl font-bold">Impact, made visible.</h2>
+                    <p class="mt-3 text-sm leading-6 text-[#607068]">A production version could help members understand packaging returns and local sourcing without inventing vague eco claims.</p>
+                    <dl class="mt-7 grid grid-cols-2 gap-3">
+                        <div class="rounded-2xl bg-white p-4"><dt class="text-xs font-bold text-[#607068]">Reusable crate</dt><dd class="mt-2 font-display text-2xl font-bold text-primary">Ready</dd></div>
+                        <div class="rounded-2xl bg-white p-4"><dt class="text-xs font-bold text-[#607068]">Delivery route</dt><dd class="mt-2 font-display text-2xl font-bold text-primary">Local</dd></div>
+                    </dl>
+                </section>
+            </div>
         </div>
     </main>
-    <footer class="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
-        <p>© 2024 Verde Market. All rights reserved.</p>
+
+    <footer class="mt-12 border-t border-[#276749]/15 px-4 py-7 text-center text-xs text-[#607068]">
+        <p>© 2026 Verde Market. A portfolio concept for thoughtful local grocery delivery.</p>
     </footer>
+
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script src="assets/js/verde-polish.js" defer></script>
 </body>
 </html>

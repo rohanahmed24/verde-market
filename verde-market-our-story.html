@@ -1,232 +1,831 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Our Story — Rooted in Local Food | Verde Market</title>
+    <meta name="description" content="Meet the growers and trace Verde Market's farm-to-table journey from responsible harvest to local delivery." />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/verde-market-our-story" />
+<link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Our Story | Verde Market" />
+    <meta property="og:description" content="A local-food story shaped by growers, seasons, and shorter supply chains." />
+    <meta property="og:image" content="https://verde-market.vercel.app/assets/verde-market-social-preview.jpg" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style id="story-page-styles">
+        .story-page {
+            background: var(--verde-cream);
+            color: var(--verde-ink);
+            min-height: 100vh;
+        }
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Verde Market Our Story | Verde Market</title>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#11d452",
-                        "background-light": "#f6f8f6",
-                        "background-dark": "#102216",
-                    },
-                    fontFamily: {
-                        "display": ["Epilogue", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
-                },
-            },
+        .story-shell {
+            margin-inline: auto;
+            width: min(calc(100% - 2rem), 76rem);
+        }
+
+        .story-header {
+            background: color-mix(in srgb, var(--verde-cream) 92%, transparent);
+            border-bottom: 1px solid var(--verde-line);
+            position: sticky;
+            top: 0;
+            z-index: 70;
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+        }
+
+        .story-header__inner {
+            align-items: center;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: space-between;
+            min-height: 5rem;
+        }
+
+        .story-brand {
+            align-items: center;
+            color: var(--verde-forest-deep);
+            display: inline-flex;
+            flex: 0 0 auto;
+            font-family: "Fraunces", serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            gap: 0.65rem;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .story-brand__mark {
+            align-items: center;
+            border: 1px solid var(--verde-line);
+            border-radius: 50%;
+            display: inline-flex;
+            height: 2.25rem;
+            justify-content: center;
+            width: 2.25rem;
+        }
+
+        .story-nav {
+            align-items: center;
+            display: flex;
+            gap: clamp(1.25rem, 2.4vw, 2.2rem);
+            margin-left: auto;
+        }
+
+        .story-nav a {
+            color: #355249;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .story-actions {
+            align-items: center;
+            display: flex;
+            gap: 0.55rem;
+        }
+
+        .story-icon-action {
+            align-items: center;
+            background: transparent;
+            border: 0;
+            border-radius: 999px;
+            color: var(--verde-ink);
+            display: inline-flex;
+            height: 2.75rem;
+            justify-content: center;
+            width: 2.75rem;
+        }
+
+        .story-menu-action {
+            display: none;
+        }
+
+        .story-start {
+            align-items: center;
+            background: var(--verde-forest-deep);
+            border-radius: 999px;
+            box-shadow: 0 10px 24px rgba(23, 73, 54, 0.18);
+            color: white;
+            display: inline-flex;
+            font-size: 0.8rem;
+            font-weight: 800;
+            min-height: 2.75rem;
+            padding: 0.65rem 1.2rem;
+            text-decoration: none;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .story-start:hover {
+            box-shadow: 0 14px 30px rgba(23, 73, 54, 0.24);
+            transform: translateY(-2px);
+        }
+
+        .story-hero {
+            display: grid;
+            gap: clamp(2rem, 5vw, 5rem);
+            grid-template-columns: minmax(0, 0.92fr) minmax(23rem, 1.08fr);
+            min-height: min(47rem, calc(100vh - 5rem));
+            padding-block: clamp(3rem, 8vw, 7rem);
+        }
+
+        .story-hero__copy {
+            align-self: center;
+            max-width: 35rem;
+        }
+
+        .story-hero h1 {
+            color: var(--verde-ink);
+            font-size: clamp(3.6rem, 6.7vw, 6rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 0.91;
+            margin: 0;
+            text-wrap: balance;
+        }
+
+        .story-hero h1 em {
+            color: var(--verde-forest);
+            font-weight: 500;
+        }
+
+        .story-hero__lead {
+            color: #49635a;
+            font-size: clamp(1rem, 1.35vw, 1.15rem);
+            line-height: 1.75;
+            margin: 1.75rem 0 0;
+            max-width: 33rem;
+        }
+
+        .story-hero__actions {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.15rem;
+            margin-top: 2rem;
+        }
+
+        .story-primary,
+        .story-secondary {
+            align-items: center;
+            border-radius: 999px;
+            display: inline-flex;
+            font-size: 0.86rem;
+            font-weight: 800;
+            gap: 0.55rem;
+            justify-content: center;
+            min-height: 3.1rem;
+            padding: 0.75rem 1.35rem;
+            text-decoration: none;
+        }
+
+        .story-primary {
+            background: var(--verde-forest-deep);
+            box-shadow: 0 14px 30px rgba(23, 73, 54, 0.2);
+            color: white;
+        }
+
+        .story-secondary {
+            background: transparent;
+            border: 1px solid var(--verde-line);
+            color: var(--verde-forest-deep);
+        }
+
+        button.story-secondary {
+            cursor: pointer;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .story-hero__media {
+            align-self: stretch;
+            background-position: center;
+            background-size: cover;
+            border-radius: clamp(1.5rem, 4vw, 3.5rem) 1rem clamp(1.5rem, 4vw, 3.5rem) 1rem;
+            box-shadow: var(--verde-shadow);
+            min-height: 35rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-hero__media::after {
+            background: linear-gradient(180deg, transparent 50%, rgba(9, 35, 25, 0.45));
+            content: "";
+            inset: 0;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .story-hero__note {
+            align-items: center;
+            background: rgba(251, 250, 245, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.64);
+            border-radius: 1rem;
+            bottom: 1.25rem;
+            box-shadow: 0 18px 45px rgba(9, 35, 25, 0.22);
+            color: var(--verde-forest-deep);
+            display: flex;
+            font-size: 0.76rem;
+            font-weight: 800;
+            gap: 0.7rem;
+            left: 1.25rem;
+            padding: 0.85rem 1rem;
+            position: absolute;
+            right: 1.25rem;
+            z-index: 1;
+        }
+
+        .story-manifesto {
+            background: var(--verde-forest-deep);
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-manifesto::before {
+            color: rgba(226, 245, 111, 0.16);
+            content: "“";
+            font-family: "Fraunces", serif;
+            font-size: 24rem;
+            left: -1rem;
+            line-height: 0.8;
+            position: absolute;
+            top: -1rem;
+        }
+
+        .story-manifesto__inner {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            padding-block: clamp(4rem, 9vw, 8rem);
+            position: relative;
+        }
+
+        .story-manifesto__label {
+            color: var(--verde-citrus);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .story-manifesto blockquote {
+            font-family: "Fraunces", serif;
+            font-size: clamp(2rem, 4.7vw, 4.7rem);
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            line-height: 1.06;
+            margin: 0;
+            max-width: 60rem;
+            text-wrap: balance;
+        }
+
+        .story-section {
+            padding-block: clamp(4.5rem, 9vw, 8.5rem);
+        }
+
+        .story-section__intro {
+            display: grid;
+            gap: 1.5rem 4rem;
+            grid-template-columns: minmax(0, 0.82fr) minmax(18rem, 0.45fr);
+            margin-bottom: clamp(3rem, 6vw, 5.5rem);
+        }
+
+        .story-section__intro h2 {
+            font-size: clamp(2.65rem, 5.4vw, 5rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 0.98;
+            margin: 0;
+            text-wrap: balance;
+        }
+
+        .story-section__intro p {
+            align-self: end;
+            color: #526b62;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .story-journey {
+            counter-reset: journey;
+            display: grid;
+            gap: 0;
+            grid-template-columns: repeat(4, 1fr);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .story-journey li {
+            border-left: 1px solid var(--verde-line);
+            counter-increment: journey;
+            min-height: 22rem;
+            padding: 0 1.5rem 2rem;
+            position: relative;
+        }
+
+        .story-journey li:last-child {
+            border-right: 1px solid var(--verde-line);
+        }
+
+        .story-journey li::before {
+            color: var(--verde-forest);
+            content: "0" counter(journey);
+            display: block;
+            font-family: "Fraunces", serif;
+            font-size: 1.7rem;
+            margin-bottom: clamp(4rem, 8vw, 8rem);
+        }
+
+        .story-journey__season {
+            color: var(--verde-clay);
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .story-journey h3 {
+            font-size: 1.55rem;
+            letter-spacing: -0.03em;
+            line-height: 1.08;
+            margin: 0 0 0.8rem;
+        }
+
+        .story-journey p {
+            color: #5a7068;
+            font-size: 0.91rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .story-growers {
+            background: #edf4ef;
+        }
+
+        .story-grower-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .story-grower {
+            background: var(--verde-cream);
+            border: 1px solid rgba(39, 103, 73, 0.11);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            transition: transform 240ms ease, box-shadow 240ms ease;
+        }
+
+        .story-grower:hover {
+            box-shadow: 0 24px 55px rgba(23, 73, 54, 0.12);
+            transform: translateY(-6px);
+        }
+
+        .story-grower img {
+            aspect-ratio: 4 / 4.35;
+            display: block;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .story-grower__copy {
+            padding: 1.5rem;
+        }
+
+        .story-grower__role {
+            color: var(--verde-forest);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .story-grower h3 {
+            font-size: 1.7rem;
+            letter-spacing: -0.035em;
+            margin: 0.35rem 0 0.7rem;
+        }
+
+        .story-grower p {
+            color: #5a7068;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .story-next {
+            align-items: center;
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .story-next h2 {
+            font-size: clamp(2.5rem, 5vw, 4.8rem);
+            letter-spacing: -0.03em;
+            line-height: 0.98;
+            margin: 0;
+            max-width: 45rem;
+        }
+
+        .story-next p {
+            color: #5a7068;
+            line-height: 1.7;
+            margin: 1rem 0 0;
+            max-width: 36rem;
+        }
+
+        .story-footer {
+            background: var(--verde-ink);
+            color: #d7e8df;
+            padding-block: 3rem 1.5rem;
+        }
+
+        .story-footer__grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: minmax(15rem, 1.6fr) repeat(2, minmax(9rem, 0.6fr));
+        }
+
+        .story-footer h2,
+        .story-footer h3 {
+            color: white;
+            margin: 0 0 0.75rem;
+        }
+
+        .story-footer p {
+            color: #a9c2b6;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 26rem;
+        }
+
+        .story-footer ul {
+            display: grid;
+            gap: 0.6rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .story-footer a {
+            color: #d7e8df;
+            font-size: 0.86rem;
+            text-decoration: none;
+        }
+
+        .story-footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            font-size: 0.76rem;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+        }
+
+        .story-primary:hover { background: var(--verde-ink); }
+        .story-secondary:hover,
+        .story-icon-action:hover { background: var(--verde-mint); }
+        .story-footer a:hover { color: white; text-decoration: underline; text-underline-offset: 0.2em; }
+        .story-grower:focus-within { box-shadow: 0 24px 55px rgba(23, 73, 54, 0.12); }
+        .story-hero h1 { line-height: 0.99; }
+
+        @media (max-width: 1023px) {
+            .story-nav,
+            .story-start {
+                display: none;
+            }
+
+            .story-menu-action {
+                display: inline-flex;
+            }
+
+            .story-hero {
+                grid-template-columns: 1fr 0.92fr;
+            }
+
+            .story-journey {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .story-journey li:nth-child(2) {
+                border-right: 1px solid var(--verde-line);
+            }
+
+            .story-journey li::before {
+                margin-bottom: 3rem;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .story-shell {
+                width: min(calc(100% - 1.25rem), 76rem);
+            }
+
+            .story-header__inner {
+                min-height: 4.5rem;
+            }
+
+            .story-brand {
+                font-size: 1.05rem;
+            }
+
+            .story-brand__mark,
+            .story-icon-action {
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+
+            .story-actions {
+                gap: 0.25rem;
+            }
+
+            .story-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding-block: 2.5rem 3.5rem;
+            }
+
+            .story-hero h1 {
+                font-size: clamp(3.25rem, 16vw, 5.2rem);
+            }
+
+            .story-hero__media {
+                min-height: 29rem;
+            }
+
+            .story-manifesto__inner,
+            .story-section__intro,
+            .story-next,
+            .story-footer__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-manifesto__inner {
+                gap: 1rem;
+            }
+
+            .story-journey {
+                grid-template-columns: 1fr;
+            }
+
+            .story-journey li,
+            .story-journey li:nth-child(2),
+            .story-journey li:last-child {
+                border-left: 0;
+                border-right: 0;
+                border-top: 1px solid var(--verde-line);
+                min-height: auto;
+                padding: 1.5rem 0 2rem 4.5rem;
+            }
+
+            .story-journey li::before {
+                left: 0;
+                margin: 0;
+                position: absolute;
+                top: 1.25rem;
+            }
+
+            .story-grower-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-grower {
+                display: grid;
+                grid-template-columns: minmax(8rem, 0.7fr) minmax(0, 1fr);
+            }
+
+            .story-grower img {
+                aspect-ratio: auto;
+                height: 100%;
+                min-height: 18rem;
+            }
+
+            .story-footer__bottom {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .story-account-action {
+                display: none;
+            }
+
+            .story-hero__actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .story-primary,
+            .story-secondary {
+                width: 100%;
+            }
+
+            .story-hero__media {
+                min-height: 23rem;
+            }
+
+            .story-grower {
+                display: block;
+            }
+
+            .story-grower img {
+                aspect-ratio: 4 / 3;
+                min-height: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .story-grower,
+            .story-start {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body class="story-page">
+    <div class="story-page">
+        <header class="story-header">
+            <div class="story-shell story-header__inner">
+                <a class="story-brand" href="index.html" aria-label="Verde Market home">
+                    <span class="story-brand__mark"><span class="material-symbols-outlined" aria-hidden="true">eco</span></span>
+                    <span>Verde Market</span>
+                </a>
+                <nav class="story-nav" aria-label="Primary navigation">
+                    <a href="verde-market-shop-page.html">Shop</a>
+                    <a href="verde-market-our-story.html" aria-current="page">Our Story</a>
+                    <a href="verde-market-sustainability.html">Sustainability</a>
+                    <a href="verde-market-blog-journal.html">Journal</a>
+                    <a href="verde-market-locations.html">Locations</a>
+                </nav>
+                <div class="story-actions">
+                    <button class="story-icon-action" type="button" aria-label="Cart">
+                        <span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span>
+                    </button>
+                    <button class="story-icon-action story-account-action" type="button" aria-label="Account">
+                        <span class="material-symbols-outlined" aria-hidden="true">person</span>
+                    </button>
+                    <button class="story-icon-action story-menu-action" type="button" aria-label="Menu">
+                        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+                    </button>
+                    <a class="story-start" href="build-my-box-select-plan.html">Start Fresh</a>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section class="story-shell story-hero" aria-labelledby="story-title">
+                <div class="story-hero__copy">
+                    <h1 id="story-title">Rooted in soil.<br /><em>Grown with care.</em></h1>
+                    <p class="story-hero__lead">Verde began with a simple question: what if better groceries also built a better local food system? Today, we connect thoughtful growers with households that care about flavor, fairness, and the land beneath every harvest.</p>
+                    <div class="story-hero__actions">
+                        <a class="story-primary" href="#growers">Meet our growers <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></a>
+                        <button class="story-secondary" type="button" data-story-dialog><span class="material-symbols-outlined" aria-hidden="true">auto_stories</span> Explore the harvest story</button>
+                    </div>
+                </div>
+                <div class="story-hero__media" role="img" aria-label="A vibrant basket filled with freshly harvested organic vegetables" style="background-image: url('assets/images/harvest-a9dd10f09480.webp');">
+                    <div class="story-hero__note"><span class="material-symbols-outlined" aria-hidden="true">verified</span> Farm-led · season-first · locally delivered</div>
+                </div>
+            </section>
+
+            <section class="story-manifesto" aria-labelledby="mission-heading">
+                <div class="story-shell story-manifesto__inner">
+                    <p class="story-manifesto__label" id="mission-heading">Our mission</p>
+                    <blockquote>Bridge the distance between conscientious farmers and mindful eaters—so every box celebrates the true flavor of the earth.</blockquote>
+                </div>
+            </section>
+
+            <section class="story-shell story-section" aria-labelledby="journey-heading">
+                <div class="story-section__intro">
+                    <h2 id="journey-heading">From living soil to your kitchen table.</h2>
+                    <p>A shorter supply chain means produce can be harvested closer to ripeness, growers can be paid more fairly, and every handoff can be handled with intention.</p>
+                </div>
+                <ol class="story-journey">
+                    <li>
+                        <span class="story-journey__season">Spring</span>
+                        <h3>Seed planting</h3>
+                        <p>Heritage seeds are selected for flavor and resilience, then planted in nutrient-rich organic soil.</p>
+                    </li>
+                    <li>
+                        <span class="story-journey__season">Summer</span>
+                        <h3>Careful cultivation</h3>
+                        <p>Sun, responsible watering, and patient crop care help plants thrive without harmful pesticides.</p>
+                    </li>
+                    <li>
+                        <span class="story-journey__season">Late summer</span>
+                        <h3>Peak harvest</h3>
+                        <p>Skilled hands pick each crop at the moment its flavor, texture, and nutrition are at their best.</p>
+                    </li>
+                    <li>
+                        <span class="story-journey__season">Year-round</span>
+                        <h3>Local delivery</h3>
+                        <p>Low-waste packing and thoughtful neighborhood routes bring the farm directly to your kitchen.</p>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="story-growers" id="growers" aria-labelledby="growers-heading">
+                <div class="story-shell story-section">
+                    <div class="story-section__intro">
+                        <h2 id="growers-heading">Meet the people behind the harvest.</h2>
+                        <p>Soil knowledge, careful timing, and years of craft shape every ingredient before it reaches a Verde box.</p>
+                    </div>
+                    <div class="story-grower-grid">
+                        <article class="story-grower">
+                            <img src="assets/images/harvest-9cfd5945f585.webp" alt="Elena Rostova smiling inside a greenhouse" loading="lazy" decoding="async" width="512" height="512" />
+                            <div class="story-grower__copy">
+                                <span class="story-grower__role">Head horticulturist</span>
+                                <h3>Elena Rostova</h3>
+                                <p>With 15 years in organic cultivation, Elena helps every plant reach its potential through natural methods.</p>
+                            </div>
+                        </article>
+                        <article class="story-grower">
+                            <img src="assets/images/harvest-2916fd62f072.webp" alt="Marcus Chen standing in a cultivated field" loading="lazy" decoding="async" width="512" height="512" />
+                            <div class="story-grower__copy">
+                                <span class="story-grower__role">Soil specialist</span>
+                                <h3>Marcus Chen</h3>
+                                <p>Marcus believes great food begins beneath the surface and leads Verde's composting and soil regeneration work.</p>
+                            </div>
+                        </article>
+                        <article class="story-grower">
+                            <img src="assets/images/harvest-ca86b00c920b.webp" alt="Sarah Jenkins holding a basket of vegetables" loading="lazy" decoding="async" width="512" height="512" />
+                            <div class="story-grower__copy">
+                                <span class="story-grower__role">Harvest manager</span>
+                                <h3>Sarah Jenkins</h3>
+                                <p>Sarah teaches harvest teams to read each crop and pick at the precise moment for the best possible taste.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="story-shell story-section story-next" aria-labelledby="story-next-heading">
+                <div>
+                    <h2 id="story-next-heading">Good food should leave the land better.</h2>
+                    <p>See how compostable packing, regenerative partners, and smarter routes turn that belief into everyday practice.</p>
+                </div>
+                <a class="story-primary" href="verde-market-sustainability.html">Explore our impact <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+            </section>
+        </main>
+
+        <footer class="story-footer">
+            <div class="story-shell">
+                <div class="story-footer__grid">
+                    <div>
+                        <h2>Verde Market</h2>
+                        <p>Seasonal groceries, thoughtfully grown and delivered with a shorter journey from farm to table.</p>
+                    </div>
+                    <div>
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><a href="verde-market-shop-page.html">Shop the harvest</a></li>
+                            <li><a href="verde-market-blog-journal.html">The Verde Journal</a></li>
+                            <li><a href="verde-market-locations.html">Market locations</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Our work</h3>
+                        <ul>
+                            <li><a href="verde-market-our-story.html">Our story</a></li>
+                            <li><a href="verde-market-sustainability.html">Sustainability</a></li>
+                            <li><a href="build-my-box-select-plan.html">Build a box</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="story-footer__bottom">
+                    <p>© 2026 Verde Market. Portfolio experience.</p>
+                    <p>Grown close. Shared thoughtfully.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/vendor/gsap-3.12.5.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger-3.12.5.min.js"></script>
+    <script>
+        if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from(".story-hero__copy > *", { opacity: 0, y: 28, duration: 0.8, stagger: 0.1, ease: "power3.out" });
+            gsap.from(".story-hero__media", { opacity: 0, scale: 0.97, duration: 1.1, ease: "power3.out" });
+            gsap.utils.toArray(".story-section__intro, .story-grower, .story-journey li, .story-next").forEach(function (element) {
+                gsap.from(element, { opacity: 0, y: 30, duration: 0.75, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 88%", once: true } });
+            });
         }
     </script>
-<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-4 md:px-10 py-3">
-<a class="flex items-center gap-4 text-slate-900 dark:text-slate-100 hover:opacity-90 transition-opacity" href="index.html">
-<div class="size-6 text-primary">
-<span class="material-symbols-outlined text-[24px]">local_florist</span>
-</div>
-<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em]">Verde Market</h2>
-</a>
-<div class="flex flex-1 justify-end gap-8">
-<div class="hidden md:flex items-center gap-9">
-<a class="text-slate-900 dark:text-slate-100 text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
-<a class="text-primary text-sm font-medium leading-normal" href="verde-market-our-story.html">Our Story</a>
-<a class="text-slate-900 dark:text-slate-100 text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-blog-journal.html">Journal</a>
-<a class="text-slate-900 dark:text-slate-100 text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-locations.html">Contact</a>
-</div>
-<div class="flex gap-2">
-<button type="button" class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Cart">
-<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
-</button>
-<button type="button" class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Account">
-<span class="material-symbols-outlined text-[20px]">person</span>
-</button>
-</div>
-</div>
-</header>
-<main class="@container">
-<!-- Hero Section -->
-<div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row mt-8">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-3xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full overflow-hidden relative shadow-lg" data-alt="Vibrant organic vegetables in a wooden basket" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_qZctprqC_iM9I1PUMPrgCJS2Cu8657T_K9a6R2Y57LYK5aTExPJdovg9veXvT1gDD46amqe_Hk-fYPPinsYo9T_nz2B_BPrA_ov3nbYXryuvWcx_-sA7iu-PvgXyWrJ-BHyDHY8uVIddKxZ45Y1Zr26_0YK-J12AYqKEmW9co7uVLYE0bSju-dLZOZ0lselv5ypsI5yXMY7rwySnZZs9nUMn4ZnekXrlj87gR2KlT1keANxHUn-UuvbRajE-OEWu0DLilMahuTc");'>
-<div class="absolute inset-0 bg-black/20 dark:bg-black/40"></div>
-</div>
-<div class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center pl-0 md:pl-8">
-<div class="flex flex-col gap-4 text-left">
-<h1 class="text-slate-900 dark:text-slate-100 text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] italic">
-                                        Rooted in Nature, Grown with Care
-                                    </h1>
-<h2 class="text-slate-600 dark:text-slate-300 text-base font-normal leading-relaxed @[480px]:text-lg @[480px]:font-normal @[480px]:leading-relaxed max-w-xl">
-                                        Discover the story behind Verde Market, where passion for organic farming meets a commitment to quality and sustainability. We believe in food that nourishes both body and soul.
-                                    </h2>
-</div>
-<a class="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-slate-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors shadow-md" href="verde-market-shop-page.html">
-<span class="truncate">Shop Fresh Produce</span>
-</a>
-</div>
-</div>
-<!-- Mission Statement -->
-<div class="py-16 px-4 md:px-20 text-center">
-<p class="text-2xl md:text-4xl text-slate-800 dark:text-slate-200 font-medium leading-snug italic max-w-4xl mx-auto">
-                                "Our mission is to bridge the gap between conscientious farmers and mindful eaters, creating a sustainable ecosystem that celebrates the true flavors of the earth."
-                            </p>
-</div>
-<!-- The Farm to Table Journey -->
-<div class="py-12">
-<h2 class="text-slate-900 dark:text-slate-100 text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-8 text-center">The Farm to Table Journey</h2>
-<div class="max-w-2xl mx-auto px-4">
-<div class="grid grid-cols-[60px_1fr] gap-x-6 relative">
-<!-- Line -->
-<div class="absolute left-[33px] top-6 bottom-6 w-0.5 bg-slate-200 dark:bg-slate-700"></div>
-<!-- Step 1 -->
-<div class="flex flex-col items-center gap-1 pt-3 relative z-10">
-<div class="w-12 h-12 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-2 shadow-sm border border-primary/30 bg-background-light dark:bg-background-dark">
-<span class="material-symbols-outlined text-[24px]">potted_plant</span>
-</div>
-</div>
-<div class="flex flex-1 flex-col py-3 pb-10">
-<p class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-normal mb-1">Seed Planting</p>
-<p class="text-primary text-sm font-semibold leading-normal uppercase tracking-wider mb-2">Spring</p>
-<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">It all begins with heritage seeds, selected for flavor and resilience, planted in nutrient-rich, organic soil.</p>
-</div>
-<!-- Step 2 -->
-<div class="flex flex-col items-center gap-1 relative z-10">
-<div class="w-12 h-12 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-2 shadow-sm border border-primary/30 bg-background-light dark:bg-background-dark">
-<span class="material-symbols-outlined text-[24px]">light_mode</span>
-</div>
-</div>
-<div class="flex flex-1 flex-col py-3 pb-10">
-<p class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-normal mb-1">Careful Cultivation</p>
-<p class="text-primary text-sm font-semibold leading-normal uppercase tracking-wider mb-2">Summer</p>
-<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">Nurtured by the sun and sustainable watering practices, our crops grow without the use of harmful pesticides.</p>
-</div>
-<!-- Step 3 -->
-<div class="flex flex-col items-center gap-1 relative z-10">
-<div class="w-12 h-12 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-2 shadow-sm border border-primary/30 bg-background-light dark:bg-background-dark">
-<span class="material-symbols-outlined text-[24px]">shopping_basket</span>
-</div>
-</div>
-<div class="flex flex-1 flex-col py-3 pb-10">
-<p class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-normal mb-1">Harvest Time</p>
-<p class="text-primary text-sm font-semibold leading-normal uppercase tracking-wider mb-2">Late Summer</p>
-<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">Picked at the peak of ripeness by skilled hands to ensure maximum flavor and nutritional value.</p>
-</div>
-<!-- Step 4 -->
-<div class="flex flex-col items-center gap-1 pb-3 relative z-10">
-<div class="w-12 h-12 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-2 shadow-sm border border-primary/30 bg-background-light dark:bg-background-dark">
-<span class="material-symbols-outlined text-[24px]">local_shipping</span>
-</div>
-</div>
-<div class="flex flex-1 flex-col py-3">
-<p class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-normal mb-1">Delivery to Your Table</p>
-<p class="text-primary text-sm font-semibold leading-normal uppercase tracking-wider mb-2">Year-round</p>
-<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">Packed with care in eco-friendly materials and delivered quickly to bring the farm directly to your kitchen.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Meet the Farmers -->
-<div class="py-16 px-4 bg-slate-50 dark:bg-slate-900/50 rounded-3xl my-8">
-<h2 class="text-slate-900 dark:text-slate-100 text-3xl font-bold leading-tight tracking-[-0.015em] pb-10 text-center">Meet the Farmers</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-<!-- Farmer 1 -->
-<div class="flex flex-col items-center text-center group">
-<div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-white dark:border-slate-800 shadow-xl group-hover:scale-105 transition-transform duration-300">
-<img alt="Smiling female farmer in a greenhouse" class="w-full h-full object-cover" data-alt="Portrait of farmer Elena" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB457jW2y_qQwEgqitfQmyvOSFW4vbmElMlrYkqIn8dyDBRSloiUpWA2M9pNljxN1eY_KD4z6JSui420KpUNrKz4oINb59OPaSkzSzVzryp2HtSCh_4Q2VUrft8UaBqY6AyCtYJh8gXPBnZ4Mu9b2SmwoO2Bu-h_8O2GyKWCf6ZBP2-UzVIbFwQkA1o2bLFjqIiFFalor_KhvYVKqJ4wwpk783LleukWPOa56rc99f_XdZ9OXRF9IqpB9pH2R48gToQDu6iF9u6aKI"/>
-</div>
-<h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-1">Elena Rostova</h3>
-<p class="text-primary font-medium mb-3">Head Horticulturist</p>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">With 15 years in organic cultivation, Elena ensures every plant reaches its full potential through natural methods.</p>
-</div>
-<!-- Farmer 2 -->
-<div class="flex flex-col items-center text-center group">
-<div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-white dark:border-slate-800 shadow-xl group-hover:scale-105 transition-transform duration-300">
-<img alt="Male farmer standing in a field" class="w-full h-full object-cover" data-alt="Portrait of farmer Marcus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEJJ9mwqppGCMZ94-0J8eY-7pFulZuArtA-1U7v99G7GjsDUsLBMsUfwA3gKG7t7JwKztHG5ihSXguNE5H00V64Ndz8PPdc3v5-ZkD4nIDu1TiKrHwXAq95YrVP4wJmIyG8NB6n0RzO66-8oR5E6eqAqWFInVcTX-N9NYd19RJe-1if1kd0uxqV3HGDAlM0hwOA-sym2apyQGAHppyvccHAmCSRqjXZQ7LoU6BF2H642Kz1dTDF1vceq-xNnN_I-V2f39SXh4AqEo"/>
-</div>
-<h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-1">Marcus Chen</h3>
-<p class="text-primary font-medium mb-3">Soil Specialist</p>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Marcus believes great food starts beneath the surface. He manages our composting and soil regeneration programs.</p>
-</div>
-<!-- Farmer 3 -->
-<div class="flex flex-col items-center text-center group">
-<div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-white dark:border-slate-800 shadow-xl group-hover:scale-105 transition-transform duration-300">
-<img alt="Young female farmer holding vegetables" class="w-full h-full object-cover" data-alt="Portrait of farmer Sarah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcyzEOrRZdRJ8htSjnPIFnu_DkdOKO1UjhWLFmjShCxJmMbu3Mqy-f0ZhSNhBwZ74U2BqOqw-zhy5ILnt3008scPdrivGhTdWzcV0f-PSZD08Vu7HmyeDE2K_Vpuj9OudbtQ-QHQZPACTuThz9BiF7v8hY7avJMl3-mc_fb4jv-hFwhsgtNmDZDLqmyssJcJhal6Sgxjn6y2k4553HdyrJfCQGOM47vDaudtPzuVMTorzEtsnJviA9VM1eeMBPKzyPOXuGSk9fASI"/>
-</div>
-<h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-1">Sarah Jenkins</h3>
-<p class="text-primary font-medium mb-3">Harvest Manager</p>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Sarah leads our harvesting teams, teaching them to pick produce at the precise moment for optimal taste.</p>
-</div>
-</div>
-</div>
-</main>
-</div>
-</div>
-<!-- Simple Footer -->
-<footer class="mt-auto py-8 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 dark:text-slate-400 text-sm">
-<p>© 2024 Verde Market. All rights reserved.</p>
-</footer>
-</div>
-</div>
-
-<!-- GSAP / Lenis Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script>
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
-    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
-    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
-    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
-
-    let lenis;
-    try {
-        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-        lenis.on('scroll', ScrollTrigger.update);
-    } catch(e) {
-        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
-        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
-    }
-    window.lenis = lenis;
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('header, nav[role="navigation"]');
-        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
-
-        document.querySelectorAll('h1, h2').forEach((el, i) => {
-            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
-        });
-
-        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
-        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
-
-        const imgs = document.querySelectorAll('img');
-        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
-
-        const btns = document.querySelectorAll('button, [class*="btn"]');
-        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
-
-        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
-            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
-            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
-            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
-            document.body.style.cursor = 'none';
-        }
-    });
-}
-</script>
-</body></html>
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script src="assets/js/verde-polish.js" defer></script>
+</body>
+</html>

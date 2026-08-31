@@ -1,253 +1,906 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Find a Verde Market Near You</title>
+    <meta name="description" content="Search Verde Market neighborhood locations, compare store details, and open accessible directions." />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/verde-market-locations" />
+<link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Locations | Verde Market" />
+    <meta property="og:description" content="Find a neighborhood market, pickup point, or fresh delivery route." />
+    <meta property="og:image" content="https://verde-market.vercel.app/assets/verde-market-social-preview.jpg" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style id="locations-page-styles">
+        .locations-page {
+            background: var(--verde-cream);
+            color: var(--verde-ink);
+            min-height: 100vh;
+        }
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Verde Market Locations | Verde Market</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#17cf73",
-                        "background-light": "#f6f8f7",
-                        "background-dark": "#112119",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
+        .locations-shell {
+            margin-inline: auto;
+            width: min(calc(100% - 2rem), 76rem);
         }
-    </script>
-<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
-<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-primary/10 px-10 py-4 bg-white dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
-<a class="flex items-center gap-4 text-slate-900 dark:text-slate-100 hover:opacity-90 transition-opacity" href="index.html">
-<div class="size-6 text-primary">
-<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z"></path>
-</svg>
-</div>
-<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Verde Market</h2>
-</a>
-<div class="flex flex-1 justify-end gap-8">
-<nav class="flex items-center gap-9 hidden md:flex">
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-our-story.html">About</a>
-<a class="text-sm font-medium leading-normal text-primary" href="verde-market-locations.html">Locations</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-sustainability.html">Sustainability</a>
-</nav>
-<div class="flex gap-3">
-<button type="button" class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 hover:bg-primary/20 text-primary transition-colors" aria-label="Cart">
-<span class="material-symbols-outlined">shopping_cart</span>
-</button>
-<button type="button" class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 hover:bg-primary/20 text-primary transition-colors" aria-label="Account">
-<span class="material-symbols-outlined">person</span>
-</button>
-</div>
-</div>
-</header>
-<main class="flex-1 max-w-[1440px] w-full mx-auto p-6 md:p-10 flex flex-col gap-6">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-4">
-<div>
-<h1 class="text-4xl font-black leading-tight tracking-[-0.033em] mb-2">Find a Verde Market near you</h1>
-<p class="text-slate-500 dark:text-slate-400">Discover premium organic food at our physical locations.</p>
-</div>
-<div class="w-full md:w-96 relative">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-<span class="material-symbols-outlined">search</span>
-</div>
-<input class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border border-primary/20 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-slate-900 dark:text-slate-100 placeholder-slate-400" placeholder="Find your local Verde" type="text"/>
-</div>
-</div>
-<div class="flex flex-col lg:flex-row gap-8 h-[calc(100vh-250px)] min-h-[600px]">
-<!-- Map Area -->
-<div class="w-full lg:w-2/3 h-full rounded-2xl overflow-hidden shadow-sm relative group">
-<div class="w-full h-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Interactive map showing Verde Market locations" data-location="New York, NY" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnMvzODSHBBi8eto-33IrCd1Z9yCUByeMqRJJbEExEOywmwVTPiKzzmuhLGBSM59Z3KpKwitvaaTwqk4IzZ-LkpQyeNXtLyknkGzRq0hC1mcNePWjpqtGpeVWsHRQLtytxAqArRBh-K0FZTx6v5jKEvtIpjRZYnbabQGTvJtUXTH7vfDHIOXDnIkln2sIXpzZRjnoN2ga7_2-b8QvV3oBCY2krb7VHzXf1LV5dxPi83-HMHIjHn-yilDpapuEqGiMibmoDsXSpOB0");'></div>
-<!-- Mock Map Pins -->
-<div class="absolute top-1/4 left-1/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group/pin">
-<span class="material-symbols-outlined text-4xl text-primary drop-shadow-md">location_on</span>
-<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max px-3 py-1 bg-white dark:bg-slate-800 text-sm font-medium rounded-lg shadow-lg opacity-0 group-hover/pin:opacity-100 transition-opacity pointer-events-none">Downtown</div>
-</div>
-<div class="absolute top-1/2 left-2/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group/pin">
-<span class="material-symbols-outlined text-4xl text-primary drop-shadow-md">location_on</span>
-<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max px-3 py-1 bg-white dark:bg-slate-800 text-sm font-medium rounded-lg shadow-lg opacity-0 group-hover/pin:opacity-100 transition-opacity pointer-events-none">Brooklyn</div>
-</div>
-</div>
-<!-- Locations List -->
-<div class="w-full lg:w-1/3 h-full overflow-y-auto pr-2 space-y-4 custom-scrollbar">
-<!-- Location Card 1 -->
-<div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-primary/5 hover:border-primary/30 transition-colors group">
-<div class="flex items-start justify-between mb-3">
-<div class="flex items-center gap-3">
-<div class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined">storefront</span>
-</div>
-<div>
-<h3 class="text-lg font-bold">Verde Market - Downtown</h3>
-<p class="text-sm text-primary font-medium">Open Now</p>
-</div>
-</div>
-</div>
-<div class="space-y-2 text-sm text-slate-600 dark:text-slate-400 mb-4 ml-13">
-<div class="flex items-start gap-2">
-<span class="material-symbols-outlined text-base mt-0.5">location_on</span>
-<p>123 Organic Way<br/>New York, NY 10001</p>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base">schedule</span>
-<p>8:00 AM - 9:00 PM</p>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base">call</span>
-<p>(555) 123-4567</p>
-</div>
-</div>
-<div class="flex gap-3 ml-13">
-<button type="button" class="flex-1 py-2 px-4 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors text-center">Directions</button>
-<button type="button" class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-center">Store Info</button>
-</div>
-</div>
-<!-- Location Card 2 -->
-<div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-primary/5 hover:border-primary/30 transition-colors group">
-<div class="flex items-start justify-between mb-3">
-<div class="flex items-center gap-3">
-<div class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">
-<span class="material-symbols-outlined">storefront</span>
-</div>
-<div>
-<h3 class="text-lg font-bold">Verde Market - Brooklyn</h3>
-<p class="text-sm text-amber-500 font-medium">Closes Soon</p>
-</div>
-</div>
-</div>
-<div class="space-y-2 text-sm text-slate-600 dark:text-slate-400 mb-4 ml-13">
-<div class="flex items-start gap-2">
-<span class="material-symbols-outlined text-base mt-0.5">location_on</span>
-<p>456 Green Avenue<br/>Brooklyn, NY 11201</p>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base">schedule</span>
-<p>8:00 AM - 8:00 PM</p>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base">call</span>
-<p>(555) 987-6543</p>
-</div>
-</div>
-<div class="flex gap-3 ml-13">
-<button type="button" class="flex-1 py-2 px-4 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors text-center">Directions</button>
-<button type="button" class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-center">Store Info</button>
-</div>
-</div>
-<!-- Location Card 3 -->
-<div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-primary/5 hover:border-primary/30 transition-colors group opacity-75">
-<div class="flex items-start justify-between mb-3">
-<div class="flex items-center gap-3">
-<div class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">
-<span class="material-symbols-outlined">storefront</span>
-</div>
-<div>
-<h3 class="text-lg font-bold">Verde Market - Queens</h3>
-<p class="text-sm text-slate-500 font-medium">Closed</p>
-</div>
-</div>
-</div>
-<div class="space-y-2 text-sm text-slate-600 dark:text-slate-400 mb-4 ml-13">
-<div class="flex items-start gap-2">
-<span class="material-symbols-outlined text-base mt-0.5">location_on</span>
-<p>789 Natural Blvd<br/>Queens, NY 11101</p>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base">schedule</span>
-<p>9:00 AM - 7:00 PM</p>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base">call</span>
-<p>(555) 456-7890</p>
-</div>
-</div>
-<div class="flex gap-3 ml-13">
-<button type="button" class="flex-1 py-2 px-4 bg-primary/20 text-primary rounded-lg text-sm font-bold hover:bg-primary/30 transition-colors text-center">Directions</button>
-<button type="button" class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-center">Store Info</button>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
-<style>
-        /* Custom scrollbar for a cleaner look */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+
+        .locations-header {
+            background: color-mix(in srgb, var(--verde-cream) 92%, transparent);
+            border-bottom: 1px solid var(--verde-line);
+            position: sticky;
+            top: 0;
+            z-index: 70;
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
+
+        .locations-header__inner {
+            align-items: center;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: space-between;
+            min-height: 5rem;
+        }
+
+        .locations-brand {
+            align-items: center;
+            color: var(--verde-forest-deep);
+            display: inline-flex;
+            flex: 0 0 auto;
+            font-family: "Fraunces", serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            gap: 0.65rem;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .locations-brand__mark {
+            align-items: center;
+            border: 1px solid var(--verde-line);
+            border-radius: 50%;
+            display: inline-flex;
+            height: 2.25rem;
+            justify-content: center;
+            width: 2.25rem;
+        }
+
+        .locations-nav {
+            align-items: center;
+            display: flex;
+            gap: clamp(1.25rem, 2.4vw, 2.2rem);
+            margin-left: auto;
+        }
+
+        .locations-nav a {
+            color: #355249;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .locations-actions {
+            align-items: center;
+            display: flex;
+            gap: 0.55rem;
+        }
+
+        .locations-icon-action {
+            align-items: center;
             background: transparent;
+            border: 0;
+            border-radius: 999px;
+            color: var(--verde-ink);
+            display: inline-flex;
+            height: 2.75rem;
+            justify-content: center;
+            width: 2.75rem;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgba(156, 163, 175, 0.3);
-            border-radius: 10px;
+
+        .locations-menu-action {
+            display: none;
         }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgba(156, 163, 175, 0.2);
+
+        .locations-start,
+        .locations-button {
+            align-items: center;
+            border-radius: 999px;
+            display: inline-flex;
+            font-size: 0.8rem;
+            font-weight: 800;
+            gap: 0.45rem;
+            justify-content: center;
+            min-height: 2.75rem;
+            padding: 0.65rem 1.2rem;
+            text-decoration: none;
+        }
+
+        .locations-start,
+        .locations-button--primary {
+            background: var(--verde-forest-deep);
+            color: white;
+        }
+
+        .locations-button--secondary {
+            background: transparent;
+            border: 1px solid var(--verde-line);
+            color: var(--verde-forest-deep);
+        }
+
+        button.locations-button {
+            font-family: "Manrope", sans-serif;
+        }
+
+        .locations-hero {
+            align-items: stretch;
+            display: grid;
+            gap: clamp(2rem, 5vw, 5rem);
+            grid-template-columns: minmax(19rem, 0.7fr) minmax(0, 1.3fr);
+            padding-block: clamp(3rem, 7vw, 6rem) 2rem;
+        }
+
+        .locations-hero__copy {
+            align-self: center;
+        }
+
+        .locations-kicker {
+            color: var(--verde-forest);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .locations-hero h1 {
+            font-size: clamp(3.45rem, 6vw, 6.2rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 0.92;
+            margin: 0.9rem 0 1.2rem;
+            text-wrap: balance;
+        }
+
+        .locations-hero__copy > p {
+            color: #566d65;
+            line-height: 1.7;
+            margin: 0;
+            max-width: 31rem;
+        }
+
+        .locations-search {
+            margin-top: 1.8rem;
+            position: relative;
+        }
+
+        .locations-search input {
+            background: white;
+            border: 1px solid var(--verde-line);
+            border-radius: 999px;
+            color: var(--verde-ink);
+            min-height: 3.35rem;
+            padding: 0.8rem 3.25rem 0.8rem 1.1rem;
+            width: 100%;
+        }
+
+        .locations-search .material-symbols-outlined {
+            color: var(--verde-forest);
+            pointer-events: none;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .locations-map {
+            background-color: #dce6e1;
+            background-position: center;
+            background-size: cover;
+            border: 1px solid rgba(39, 103, 73, 0.12);
+            border-radius: 1rem 2.5rem 1rem 2.5rem;
+            box-shadow: var(--verde-shadow);
+            min-height: 29rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .locations-map::after {
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-radius: inherit;
+            content: "";
+            inset: 0.65rem;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .locations-pin {
+            align-items: center;
+            background: var(--verde-forest-deep);
+            border: 3px solid white;
+            border-radius: 50% 50% 50% 0;
+            box-shadow: 0 10px 24px rgba(16, 42, 34, 0.28);
+            color: white;
+            display: flex;
+            height: 2.65rem;
+            justify-content: center;
+            position: absolute;
+            transform: rotate(-45deg);
+            width: 2.65rem;
+            z-index: 2;
+        }
+
+        .locations-pin span {
+            font-size: 1rem;
+            transform: rotate(45deg);
+        }
+
+        .locations-pin--downtown {
+            left: 35%;
+            top: 30%;
+        }
+
+        .locations-pin--brooklyn {
+            left: 66%;
+            top: 58%;
+        }
+
+        .locations-pin--queens {
+            left: 78%;
+            top: 25%;
+        }
+
+        .locations-section {
+            padding-block: 2rem clamp(4.5rem, 8vw, 7.5rem);
+        }
+
+        .locations-section__intro {
+            align-items: end;
+            border-bottom: 1px solid var(--verde-line);
+            display: flex;
+            gap: 2rem;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+        .locations-section__intro h2 {
+            font-size: clamp(2.5rem, 4.7vw, 4.6rem);
+            letter-spacing: -0.03em;
+            line-height: 0.98;
+            margin: 0;
+        }
+
+        .locations-section__intro p {
+            color: #5b7269;
+            margin: 0;
+        }
+
+        .locations-lower {
+            align-items: start;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: minmax(0, 1fr) 17rem;
+        }
+
+        .locations-card-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .location-card {
+            background: white;
+            border: 1px solid rgba(39, 103, 73, 0.13);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            overflow: hidden;
+            transition: box-shadow 220ms ease, transform 220ms ease;
+        }
+
+        .location-card:hover {
+            box-shadow: 0 24px 48px rgba(23, 73, 54, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .location-card__image {
+            aspect-ratio: 16 / 8.5;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .location-card__image::after {
+            background: linear-gradient(180deg, transparent 56%, rgba(9, 35, 25, 0.35));
+            content: "";
+            inset: 0;
+            position: absolute;
+        }
+
+        .location-card__body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 1.25rem;
+        }
+
+        .location-card__heading {
+            align-items: start;
+            display: flex;
+            gap: 0.75rem;
+            justify-content: space-between;
+        }
+
+        .location-card h3 {
+            font-size: 1.35rem;
+            letter-spacing: -0.03em;
+            line-height: 1.08;
+            margin: 0;
+        }
+
+        .location-status {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+        }
+
+        .location-status--open {
+            color: var(--verde-forest);
+        }
+
+        .location-status--soon {
+            color: #a75432;
+        }
+
+        .location-status--closed {
+            color: #6b7d76;
+        }
+
+        .location-card__details {
+            display: grid;
+            gap: 0.65rem;
+            margin: 1.25rem 0;
+        }
+
+        .location-detail {
+            align-items: start;
+            color: #536b62;
+            display: grid;
+            font-size: 0.82rem;
+            gap: 0.6rem;
+            grid-template-columns: 1.15rem 1fr;
+            line-height: 1.55;
+        }
+
+        .location-detail .material-symbols-outlined {
+            color: var(--verde-forest);
+            font-size: 1rem;
+            margin-top: 0.15rem;
+        }
+
+        .location-detail a {
+            color: inherit;
+            text-decoration-color: rgba(39, 103, 73, 0.35);
+            text-underline-offset: 0.18rem;
+        }
+
+        .location-card__actions {
+            display: grid;
+            gap: 0.55rem;
+            grid-template-columns: 1fr 1fr;
+            margin-top: auto;
+        }
+
+        .location-card__actions .locations-button {
+            padding-inline: 0.7rem;
+            width: 100%;
+        }
+
+        .locations-more {
+            background: #edf4ef;
+            border: 1px solid rgba(39, 103, 73, 0.1);
+            border-radius: 1rem;
+            padding: 1.4rem;
+        }
+
+        .locations-more h2 {
+            font-size: 1.5rem;
+            margin: 0 0 1.25rem;
+        }
+
+        .locations-more ul {
+            display: grid;
+            gap: 1.2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .locations-more a {
+            align-items: start;
+            color: var(--verde-ink);
+            display: grid;
+            gap: 0.75rem;
+            grid-template-columns: 2rem 1fr;
+            text-decoration: none;
+        }
+
+        .locations-more__icon {
+            align-items: center;
+            background: white;
+            border-radius: 50%;
+            color: var(--verde-forest);
+            display: inline-flex;
+            height: 2rem;
+            justify-content: center;
+            width: 2rem;
+        }
+
+        .locations-more__icon .material-symbols-outlined {
+            font-size: 1rem;
+        }
+
+        .locations-more strong {
+            display: block;
+            font-size: 0.83rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .locations-more small {
+            color: #62786f;
+            display: block;
+            line-height: 1.5;
+        }
+
+        .locations-footer {
+            background: var(--verde-ink);
+            color: #d7e8df;
+            padding-block: 3rem 1.5rem;
+        }
+
+        .locations-footer__grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: minmax(15rem, 1.6fr) repeat(2, minmax(9rem, 0.6fr));
+        }
+
+        .locations-footer h2,
+        .locations-footer h3 {
+            color: white;
+            margin: 0 0 0.75rem;
+        }
+
+        .locations-footer p {
+            color: #a9c2b6;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 26rem;
+        }
+
+        .locations-footer ul {
+            display: grid;
+            gap: 0.6rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .locations-footer a {
+            color: #d7e8df;
+            font-size: 0.86rem;
+            text-decoration: none;
+        }
+
+        .locations-footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            font-size: 0.76rem;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+        }
+
+        .visually-hidden {
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+
+        .locations-hero h1 { line-height: 1; }
+        .locations-start:hover,
+        .locations-button--primary:hover { background: var(--verde-ink); }
+        .locations-button--secondary:hover,
+        .locations-icon-action:hover { background: var(--verde-mint); }
+        .locations-button .material-symbols-outlined { font-size: 1rem; }
+        .locations-pin:hover,
+        .locations-pin:focus-visible { background: var(--verde-forest); }
+        .locations-more a:hover strong { text-decoration: underline; text-underline-offset: 0.2em; }
+        .locations-footer a:hover { color: white; text-decoration: underline; text-underline-offset: 0.2em; }
+        .location-card:target { border-color: var(--verde-forest); box-shadow: 0 0 0 3px var(--verde-mint); }
+        .location-card:focus-within { box-shadow: 0 24px 48px rgba(23, 73, 54, 0.12); }
+        .location-status--preview { color: #60766e; }
+        .location-sample-label { display: block; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+        .location-detail address { font-style: normal; }
+        .location-info { min-width: 0; }
+        .location-info summary { cursor: pointer; list-style: none; }
+        .location-info summary::-webkit-details-marker { display: none; }
+        .location-info[open] { grid-column: 1 / -1; }
+        .location-info[open] summary { justify-content: space-between; }
+        .location-info[open] summary .material-symbols-outlined { transform: rotate(180deg); }
+        .location-info>div { margin-top: 0.8rem; border-left: 2px solid var(--verde-line); padding-left: 0.85rem; }
+        .location-info strong { font-size: 0.82rem; }
+        .location-info p { color: #536b62; font-size: 0.8rem; line-height: 1.65; margin: 0.4rem 0 0; }
+        .location-info .location-info__note { font-size: 0.72rem; }
+        .locations-reset { background: transparent; border: 0; color: var(--verde-forest-deep); font-size: 0.8rem; font-weight: 800; margin-left: 0.5rem; min-height: 2.75rem; padding: 0.65rem 0.4rem; text-decoration: underline; text-underline-offset: 0.2em; }
+        .locations-reset:hover { color: var(--verde-ink); }
+        #location-results-count { display: inline-block; font-size: 0.85rem; margin-top: 0.5rem; }
+        #location-empty h3 { font-size: 1.7rem; margin: 0 0 0.75rem; }
+        #location-empty p { font-size: 0.9rem; line-height: 1.65; margin: 0 0 1.25rem; }
+
+        @media (max-width: 1100px) {
+            .locations-card-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .locations-nav,
+            .locations-start {
+                display: none;
+            }
+
+            .locations-menu-action {
+                display: inline-flex;
+            }
+
+            .locations-hero {
+                grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr);
+            }
+
+            .locations-lower {
+                grid-template-columns: 1fr;
+            }
+
+            .locations-more ul {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .locations-shell {
+                width: min(calc(100% - 1.25rem), 76rem);
+            }
+
+            .locations-header__inner {
+                min-height: 4.5rem;
+            }
+
+            .locations-brand {
+                font-size: 1.05rem;
+            }
+
+            .locations-brand__mark,
+            .locations-icon-action {
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+
+            .locations-actions {
+                gap: 0.25rem;
+            }
+
+            .locations-hero {
+                grid-template-columns: 1fr;
+                padding-top: 2.5rem;
+            }
+
+            .locations-hero h1 {
+                font-size: clamp(3.25rem, 15vw, 5.1rem);
+            }
+
+            .locations-map {
+                min-height: 24rem;
+            }
+
+            .locations-section__intro {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .locations-card-grid,
+            .locations-footer__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .location-card {
+                display: grid;
+                grid-template-columns: minmax(9rem, 0.75fr) minmax(0, 1fr);
+            }
+
+            .location-card__image {
+                aspect-ratio: auto;
+                min-height: 100%;
+            }
+
+            .locations-more ul {
+                grid-template-columns: 1fr;
+            }
+
+            .locations-footer__bottom {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .locations-account-action {
+                display: none;
+            }
+
+            .location-card {
+                display: block;
+            }
+
+            .location-card__image {
+                aspect-ratio: 16 / 9;
+                min-height: 0;
+            }
+
+            .location-card__actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .location-card {
+                transition: none;
+            }
         }
     </style>
+</head>
+<body class="locations-page" data-location-search-managed="true">
+    <div class="locations-page">
+        <header class="locations-header">
+            <div class="locations-shell locations-header__inner">
+                <a class="locations-brand" href="index.html" aria-label="Verde Market home">
+                    <span class="locations-brand__mark"><span class="material-symbols-outlined" aria-hidden="true">eco</span></span>
+                    <span>Verde Market</span>
+                </a>
+                <nav class="locations-nav" aria-label="Primary navigation">
+                    <a href="verde-market-shop-page.html">Shop</a>
+                    <a href="verde-market-our-story.html">Our Story</a>
+                    <a href="verde-market-sustainability.html">Sustainability</a>
+                    <a href="verde-market-blog-journal.html">Journal</a>
+                    <a href="verde-market-locations.html" aria-current="page">Locations</a>
+                </nav>
+                <div class="locations-actions">
+                    <button class="locations-icon-action" type="button" aria-label="Cart"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span></button>
+                    <button class="locations-icon-action locations-account-action" type="button" aria-label="Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></button>
+                    <button class="locations-icon-action locations-menu-action" type="button" aria-label="Menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+                    <a class="locations-start" href="build-my-box-select-plan.html">Start Fresh</a>
+                </div>
+            </div>
+        </header>
 
-<!-- GSAP / Lenis Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script>
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
-    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
-    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
-    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
+        <main id="main-content">
+            <section class="locations-shell locations-hero" aria-labelledby="locations-title">
+                <div class="locations-hero__copy">
+                    <span class="locations-kicker">Neighborhood markets</span>
+                    <h1 id="locations-title">Find a Verde Market near you.</h1>
+                    <p>Fresh food is always closer to home when growers, pickup points, and neighborhood routes work together.</p>
+                    <div class="locations-search">
+                        <label class="visually-hidden" for="location-search-input">Search Verde Market locations</label>
+                        <input id="location-search-input" data-location-search name="q" type="search" placeholder="Try Brooklyn or 11201…" aria-controls="location-list" maxlength="80" autocomplete="off" />
+                        <span class="material-symbols-outlined" aria-hidden="true">search</span>
+                    </div>
+                </div>
+                <section class="locations-map" aria-label="Map showing Verde Market locations across New York City" data-location="New York, NY" style="background-image: url('assets/images/harvest-b3a61bb5efc4.webp');">
+                    <a class="locations-pin locations-pin--downtown" href="#location-downtown" aria-label="Jump to Verde Market Downtown"><span class="material-symbols-outlined" aria-hidden="true">storefront</span></a>
+                    <a class="locations-pin locations-pin--brooklyn" href="#location-brooklyn" aria-label="Jump to Verde Market Brooklyn"><span class="material-symbols-outlined" aria-hidden="true">storefront</span></a>
+                    <a class="locations-pin locations-pin--queens" href="#location-queens" aria-label="Jump to Verde Market Queens"><span class="material-symbols-outlined" aria-hidden="true">storefront</span></a>
+                </section>
+            </section>
 
-    let lenis;
-    try {
-        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-        lenis.on('scroll', ScrollTrigger.update);
-    } catch(e) {
-        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
-        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
-    }
-    window.lenis = lenis;
+            <section class="locations-shell locations-section" aria-labelledby="location-list-heading">
+                <div class="locations-section__intro">
+                    <h2 id="location-list-heading">Three ways to shop locally.</h2>
+                    <p>Three concept neighborhoods, not operating stores.<br /><span id="location-results-count" role="status" aria-live="polite" aria-atomic="true">3 of 3 neighborhood previews</span> <button class="locations-reset" type="button" data-location-reset hidden>Clear search</button></p>
+                </div>
+                <div class="locations-lower">
+                    <div class="locations-card-grid" id="location-list">
+                        <article class="location-card" id="location-downtown" data-location-card="Verde Market Downtown, 123 Organic Way, New York, NY 10001">
+                            <div class="location-card__image" role="img" aria-label="Verde Market Downtown storefront" style="background-image: url('assets/images/harvest-a9dd10f09480.webp');"></div>
+                            <div class="location-card__body">
+                                <div class="location-card__heading">
+                                    <div><h3>Verde Market — Downtown</h3><span class="location-status location-status--preview">Neighborhood preview</span></div>
+                                </div>
+                                <div class="location-card__details">
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">location_on</span><address><span class="location-sample-label">Sample address</span>123 Organic Way<br />New York, NY 10001</address></div>
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">schedule</span><span>Sample hours · Mon–Sun · 8:00 AM–9:00 PM</span></div>
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">info</span><span>Demo location · no phone service</span></div>
+                                </div>
+                                <div class="location-card__actions">
+                                    <a class="locations-button locations-button--primary" href="https://www.google.com/maps/search/?api=1&amp;query=New%20York%20NY%2010001" target="_blank" rel="noopener noreferrer" aria-label="View the Downtown area in Google Maps (opens a new tab)">View area <span class="material-symbols-outlined" aria-hidden="true">north_east</span></a>
+                                    <details class="location-info"><summary class="locations-button locations-button--secondary">Store info <span class="material-symbols-outlined" aria-hidden="true">expand_more</span></summary><div><strong>Planning your visit</strong><p>Pickup windows, step-free access, and exact collection instructions would be confirmed here before a live service launches.</p><p class="location-info__note">Portfolio preview only. No real pickup or reservations are available.</p></div></details>
+                                </div>
+                            </div>
+                        </article>
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('header, nav[role="navigation"]');
-        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
+                        <article class="location-card" id="location-brooklyn" data-location-card="Verde Market Brooklyn, 456 Green Avenue, Brooklyn, NY 11201">
+                            <div class="location-card__image" role="img" aria-label="Verde Market Brooklyn storefront" style="background-image: url('assets/images/harvest-104879d7f48d.webp');"></div>
+                            <div class="location-card__body">
+                                <div class="location-card__heading">
+                                    <div><h3>Verde Market — Brooklyn</h3><span class="location-status location-status--preview">Neighborhood preview</span></div>
+                                </div>
+                                <div class="location-card__details">
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">location_on</span><address><span class="location-sample-label">Sample address</span>456 Green Avenue<br />Brooklyn, NY 11201</address></div>
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">schedule</span><span>Sample hours · Mon–Sun · 8:00 AM–8:00 PM</span></div>
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">info</span><span>Demo location · no phone service</span></div>
+                                </div>
+                                <div class="location-card__actions">
+                                    <a class="locations-button locations-button--primary" href="https://www.google.com/maps/search/?api=1&amp;query=Brooklyn%20NY%2011201" target="_blank" rel="noopener noreferrer" aria-label="View the Brooklyn area in Google Maps (opens a new tab)">View area <span class="material-symbols-outlined" aria-hidden="true">north_east</span></a>
+                                    <details class="location-info"><summary class="locations-button locations-button--secondary">Store info <span class="material-symbols-outlined" aria-hidden="true">expand_more</span></summary><div><strong>Planning your visit</strong><p>A live neighborhood market would list its collection point, cycle access, and the latest available pickup windows here.</p><p class="location-info__note">Portfolio preview only. No real pickup or reservations are available.</p></div></details>
+                                </div>
+                            </div>
+                        </article>
 
-        document.querySelectorAll('h1, h2').forEach((el, i) => {
-            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
-        });
+                        <article class="location-card" id="location-queens" data-location-card="Verde Market Queens, 789 Natural Boulevard, Queens, NY 11101">
+                            <div class="location-card__image" role="img" aria-label="Verde Market Queens storefront" style="background-image: url('assets/images/harvest-a521093acb08.webp');"></div>
+                            <div class="location-card__body">
+                                <div class="location-card__heading">
+                                    <div><h3>Verde Market — Queens</h3><span class="location-status location-status--preview">Neighborhood preview</span></div>
+                                </div>
+                                <div class="location-card__details">
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">location_on</span><address><span class="location-sample-label">Sample address</span>789 Natural Boulevard<br />Queens, NY 11101</address></div>
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">schedule</span><span>Sample hours · Mon–Sun · 9:00 AM–7:00 PM</span></div>
+                                    <div class="location-detail"><span class="material-symbols-outlined" aria-hidden="true">info</span><span>Demo location · no phone service</span></div>
+                                </div>
+                                <div class="location-card__actions">
+                                    <a class="locations-button locations-button--primary" href="https://www.google.com/maps/search/?api=1&amp;query=Queens%20NY%2011101" target="_blank" rel="noopener noreferrer" aria-label="View the Queens area in Google Maps (opens a new tab)">View area <span class="material-symbols-outlined" aria-hidden="true">north_east</span></a>
+                                    <details class="location-info"><summary class="locations-button locations-button--secondary">Store info <span class="material-symbols-outlined" aria-hidden="true">expand_more</span></summary><div><strong>Planning your visit</strong><p>Before a live launch, this panel would confirm collection hours, accessibility, and how to change a pickup reservation.</p><p class="location-info__note">Portfolio preview only. No real pickup or reservations are available.</p></div></details>
+                                </div>
+                            </div>
+                        </article>
+                        <div class="verde-empty-state" id="location-empty" hidden><h3>No neighborhood matches yet.</h3><p>Try Brooklyn, Queens, New York, or one of the sample postcodes.</p><button class="locations-button locations-button--primary" type="button" data-location-reset>Show all neighborhoods</button></div>
+                    </div>
 
-        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
-        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
+                    <aside class="locations-more" aria-labelledby="more-local-heading">
+                        <h2 id="more-local-heading">More ways to shop local</h2>
+                        <ul>
+                            <li><a href="#location-list"><span class="locations-more__icon"><span class="material-symbols-outlined" aria-hidden="true">storefront</span></span><span><strong>Local markets</strong><small>Compare nearby opening hours and pickup options.</small></span></a></li>
+                            <li><a href="verde-market-blog-journal?topic=farm-news#journal-grid"><span class="locations-more__icon"><span class="material-symbols-outlined" aria-hidden="true">event</span></span><span><strong>Community events</strong><small>Meet growers through farm stories and seasonal events.</small></span></a></li>
+                            <li><a href="verde-market-shop-page.html"><span class="locations-more__icon"><span class="material-symbols-outlined" aria-hidden="true">nutrition</span></span><span><strong>Fresh delivery</strong><small>Shop the current harvest for delivery to your door.</small></span></a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+        </main>
 
-        const imgs = document.querySelectorAll('img');
-        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
+        <footer class="locations-footer">
+            <div class="locations-shell">
+                <div class="locations-footer__grid">
+                    <div>
+                        <h2>Verde Market</h2>
+                        <p>Neighborhood markets, thoughtful growers, and a shorter route to better everyday food.</p>
+                    </div>
+                    <div>
+                        <h3>Visit</h3>
+                        <ul>
+                            <li><a href="#location-downtown">Downtown</a></li>
+                            <li><a href="#location-brooklyn">Brooklyn</a></li>
+                            <li><a href="#location-queens">Queens</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><a href="verde-market-shop-page.html">Shop the harvest</a></li>
+                            <li><a href="verde-market-our-story.html">Our story</a></li>
+                            <li><a href="verde-market-sustainability.html">Sustainability</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="locations-footer__bottom">
+                    <p>© 2026 Verde Market. Portfolio experience.</p>
+                    <p>Fresh food, closer to home.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
-        const btns = document.querySelectorAll('button, [class*="btn"]');
-        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
-
-        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
-            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
-            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
-            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
-            document.body.style.cursor = 'none';
+    <script src="assets/vendor/gsap-3.12.5.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger-3.12.5.min.js"></script>
+    <script>
+        if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from(".locations-hero > *", { opacity: 0, y: 26, duration: 0.82, stagger: 0.12, ease: "power3.out" });
+            gsap.from(".location-card", { opacity: 0, y: 30, duration: 0.72, stagger: 0.08, ease: "power3.out", scrollTrigger: { trigger: ".locations-card-grid", start: "top 88%", once: true } });
         }
-    });
-}
-</script>
-</body></html>
+    </script>
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script>
+        (() => {
+            function initNeighborhoodSearch() {
+                const input = document.getElementById("location-search-input");
+                const count = document.getElementById("location-results-count");
+                const empty = document.getElementById("location-empty");
+                const cards = Array.from(document.querySelectorAll("[data-location-card]"));
+                const resetButtons = Array.from(document.querySelectorAll("[data-location-reset]"));
+                if (!input || !count || !empty || !cards.length) return;
+                const linkedCard = () => {
+                    let id;
+                    try { id = decodeURIComponent(window.location.hash.slice(1)); }
+                    catch { return null; }
+                    const target = document.getElementById(id);
+                    return target?.matches("[data-location-card]") ? target : null;
+                };
+
+                const render = (syncURL = false, clearCardHash = false, push = false) => {
+                    const query = input.value.trim().toLowerCase();
+                    let visible = 0;
+                    cards.forEach((card) => {
+                        const matches = !query || card.textContent.toLowerCase().includes(query);
+                        card.classList.toggle("verde-hidden", !matches);
+                        if (matches) visible += 1;
+                    });
+                    count.textContent = visible + " of " + cards.length + " neighborhood previews";
+                    empty.hidden = visible > 0;
+                    resetButtons.forEach((button) => { button.hidden = !query; });
+                    if (syncURL) {
+                        const url = new URL(window.location.href);
+                        if (input.value.trim()) url.searchParams.set("q", input.value.trim());
+                        else url.searchParams.delete("q");
+                        if (clearCardHash && linkedCard()) url.hash = "";
+                        if (url.href !== window.location.href) window.history[push ? "pushState" : "replaceState"]({}, "", url);
+                    }
+                };
+                const reset = (push = false) => { input.value = ""; render(true, false, push); };
+                input.addEventListener("input", () => render(true, true));
+                resetButtons.forEach((button) => button.addEventListener("click", () => {
+                    reset(true);
+                    input.focus();
+                }));
+                document.querySelectorAll('a[href^="#location-"]').forEach((link) => {
+                    link.addEventListener("click", () => {
+                        const target = document.getElementById(link.hash.slice(1));
+                        if (target?.classList.contains("verde-hidden")) {
+                            // Reveal before native anchor navigation. The hash handler clears
+                            // only the new history entry so Back can restore this search.
+                            input.value = "";
+                            render();
+                        }
+                    });
+                });
+                const restore = () => {
+                    input.value = (new URL(window.location.href).searchParams.get("q") || "").slice(0, 80);
+                    render();
+                    const target = linkedCard();
+                    if (target?.classList.contains("verde-hidden")) reset();
+                    if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
+                };
+                window.addEventListener("popstate", restore);
+                window.addEventListener("hashchange", restore);
+                restore();
+            }
+            if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initNeighborhoodSearch);
+            else initNeighborhoodSearch();
+        })();
+    </script>
+    <script src="assets/js/verde-polish.js" defer></script>
+</body>
+</html>

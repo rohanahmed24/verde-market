@@ -1,245 +1,291 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Build My Box Checkout Finalize | Verde Market</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ffb947",
-                        "background-light": "#f8f7f5",
-                        "background-dark": "#231b0f",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Demo Checkout | Verde Market</title>
+    <meta name="description" content="Review delivery and simulated payment details for the Verde Market portfolio checkout flow." />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/build-my-box-checkout-finalize" />
+    <link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style>
+        .checkout-field {
+            min-height: 3.25rem;
+            width: 100%;
+            border: 1px solid rgba(39, 103, 73, 0.2);
+            border-radius: 0.85rem;
+            background: #fbfaf5;
+            padding: 0.75rem 0.9rem;
+            color: #102a22;
+            transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
         }
-    </script>
-<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col antialiased">
-<!-- Top Navigation -->
-<header class="bg-white dark:bg-[#2c2214] border-b border-primary/20 sticky top-0 z-50" aria-label="Site header">
-<div class="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
-<a class="flex items-center gap-3 hover:opacity-90 transition-opacity" href="index.html">
-<span class="material-symbols-outlined text-primary text-3xl">eco</span>
-<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Verde Market</h1>
-</a>
-<nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="build-my-box-select-plan.html">Subscription</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="verde-market-our-story.html">About Us</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="verde-market-locations.html">Contact</a>
-</nav>
-<div class="flex items-center gap-4">
-<button type="button" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-slate-900 dark:text-slate-100 hover:bg-primary/20 transition-colors" aria-label="Cart">
-<span class="material-symbols-outlined text-xl">shopping_cart</span>
-</button>
-<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="User profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFVVkd84LbWIR-U3QAQo-q_DXYcgeHgLoeC7sFz1dMiPHi4m8IHSEtGPDNyigdTjT5oUI_0He3jTepqjODWMCPWoGDkcXwbp5Qh95bgKGErlNDoEm296GjLhNteOcc53rQrjQZpoQsbltu-CjPoWvX29l2wm89BK3DfV844ZoblmGiqvYto4GJ92OldSNa7LxK94PJNNPozLVVDRKoip0zt_sftvUdV83HzM1GaChQnrzMCp6jdffLt-dlJNBh8DoNxPrfG_jEAwg');">
-</div>
-</div>
-</div>
-</header>
-<main class="flex-grow max-w-[1200px] mx-auto w-full px-6 py-8" aria-label="Checkout content">
-<!-- Breadcrumbs -->
-<nav class="flex items-center gap-2 text-sm mb-6 text-slate-500 dark:text-slate-400" aria-label="Breadcrumb">
-<a class="hover:text-primary transition-colors" href="index.html">Home</a>
-<span class="material-symbols-outlined text-sm">chevron_right</span>
-<a class="hover:text-primary transition-colors" href="build-my-box-select-plan.html">Build My Box</a>
-<span class="material-symbols-outlined text-sm">chevron_right</span>
-<span class="font-semibold text-slate-900 dark:text-slate-100">Finalize Subscription</span>
-</nav>
-<!-- Header -->
-<div class="mb-8">
-<h2 class="text-3xl md:text-4xl font-bold mb-2">Finalize Subscription</h2>
-<p class="text-slate-500 dark:text-slate-400">Step 3 of 3: Complete your checkout</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-<!-- Left Column: Forms -->
-<div class="lg:col-span-7 space-y-8">
-<!-- Shipping Details -->
-<section class="bg-white dark:bg-[#2c2214] rounded-xl p-6 shadow-sm border border-primary/10">
-<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">local_shipping</span>
-                        Shipping Details
-                    </h3>
-<form class="space-y-5">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-<div>
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">First Name</label>
-<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="Jane" type="text"/>
-</div>
-<div>
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Last Name</label>
-<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="Doe" type="text"/>
-</div>
-</div>
-<div>
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Street Address</label>
-<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="123 Organic Way" type="text"/>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-<div class="md:col-span-2">
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">City</label>
-<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="Portland" type="text"/>
-</div>
-<div>
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Zip Code</label>
-<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="97204" type="text"/>
-</div>
-</div>
-<div>
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Delivery Instructions (Optional)</label>
-<textarea class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400 resize-none h-24" placeholder="Leave at the front porch..."></textarea>
-</div>
-</form>
-</section>
-<!-- Payment Details -->
-<section class="bg-white dark:bg-[#2c2214] rounded-xl p-6 shadow-sm border border-primary/10">
-<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">credit_card</span>
-                        Payment Method
-                    </h3>
-<form class="space-y-5">
-<div>
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Card Number</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">credit_card</span>
-<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] pl-12 pr-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="0000 0000 0000 0000" type="text"/>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-5">
-<div>
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Expiration Date</label>
-<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="MM/YY" type="text"/>
-</div>
-<div>
-<label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">CVC</label>
-<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-[#1f170d] px-4 py-3 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400" placeholder="123" type="text"/>
-</div>
-</div>
-</form>
-</section>
-</div>
-<!-- Right Column: Order Summary -->
-<div class="lg:col-span-5">
-<div class="bg-white dark:bg-[#2c2214] rounded-xl shadow-lg border border-primary/20 sticky top-24 overflow-hidden">
-<!-- Product Image -->
-<div class="h-48 w-full bg-cover bg-center relative" data-alt="Box of fresh organic vegetables" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgCc-aNeQN2lQX5e6GLfspeiz2RrKrq8e0EY0aTwFAHzffMI1u0Ls_FBh5XEGdu8QpPAR3QNbWqzyCfSo6SJwGVm5NPxtHnOiI_5ieQJQa5RIgdS3JAmVcXNL98jIW3iERtuffk-PSKBPrTQMfRsJie1DtnB2a80D12CIYuGQdippS5Yt4pMlBWOjurG9ZN-BpxUr31K-yMBVfVxPrd8wcXBCsCiyYwL9lPZtv1WbyXeweivZ1oS7ZbQk0mtT7ER4s8hjTvJAvPiM');">
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-4 left-4 right-4">
-<h3 class="text-white text-xl font-bold">The Verde Box</h3>
-<p class="text-white/90 text-sm">Weekly Seasonal Organic Harvest</p>
-</div>
-</div>
-<div class="p-6">
-<!-- Delivery Info -->
-<div class="flex items-start gap-3 p-4 bg-primary/10 rounded-lg mb-6">
-<span class="material-symbols-outlined text-primary mt-0.5">calendar_month</span>
-<div>
-<p class="font-semibold text-sm">First delivery date</p>
-<p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Coming this Friday, Oct 12</p>
-</div>
-</div>
-<!-- Price Breakdown -->
-<div class="space-y-3 mb-6 border-b border-primary/10 pb-6">
-<div class="flex justify-between text-sm">
-<span class="text-slate-600 dark:text-slate-400">Weekly Box (Medium)</span>
-<span class="font-medium">$45.00</span>
-</div>
-<div class="flex justify-between text-sm">
-<span class="text-slate-600 dark:text-slate-400">Shipping</span>
-<span class="text-green-600 dark:text-green-400 font-medium">Free</span>
-</div>
-<div class="flex justify-between text-sm">
-<span class="text-slate-600 dark:text-slate-400">Estimated Taxes</span>
-<span class="font-medium">$2.50</span>
-</div>
-</div>
-<!-- Total -->
-<div class="flex justify-between items-end mb-8">
-<div>
-<p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Total per week</p>
-<p class="text-3xl font-bold text-slate-900 dark:text-slate-100">$47.50</p>
-</div>
-</div>
-<!-- Sustainability Badge -->
-<div class="flex items-center gap-2 mb-6 text-sm text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-full w-fit">
-<span class="material-symbols-outlined text-lg">recycling</span>
-<span class="font-medium">Zero-waste packaging</span>
-</div>
-<!-- CTA -->
-<a class="w-full bg-primary hover:bg-primary/90 text-[#231b0f] font-bold text-lg py-4 px-6 rounded-lg transition-colors flex justify-center items-center gap-2" href="verde-market-order-confirmation.html">
-                            Start My Subscription
-                            <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-<p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-4">
-                            You can pause or cancel your subscription at any time.
-                        </p>
-</div>
-</div>
-</div>
-</div>
-</main>
 
-<!-- GSAP / Lenis Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script>
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
-    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
-    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
-    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
+        .checkout-field:hover {
+            border-color: rgba(39, 103, 73, 0.4);
+        }
 
-    let lenis;
-    try {
-        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-        lenis.on('scroll', ScrollTrigger.update);
-    } catch(e) {
-        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
-        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
-    }
-    window.lenis = lenis;
+        .checkout-field:focus {
+            border-color: #276749;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(39, 103, 73, 0.1);
+        }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('header, nav[role="navigation"]');
-        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
+        textarea.checkout-field {
+            min-height: 6.5rem;
+            resize: vertical;
+        }
 
-        document.querySelectorAll('h1, h2').forEach((el, i) => {
-            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+        .demo-controls .verde-secondary-action {
+            width: auto;
+            margin: 0;
+            border: 1px solid rgba(39, 103, 73, 0.24);
+            background: #ffffff;
+            color: #174936;
+            padding-inline: 1.25rem;
+        }
+
+        .checkout-page > section:first-child > .verde-demo-note {
+            max-width: 80rem;
+            margin: 1rem auto 0;
+        }
+
+        @media (max-width: 639px) {
+            .progress-label {
+                font-size: 0.68rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-cream font-sans text-[#102a22] antialiased">
+    <a class="verde-skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="sticky top-0 z-50 border-b border-[#276749]/15 bg-cream/95 px-4 py-3 backdrop-blur-md sm:px-6 lg:px-10">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4">
+            <a class="flex items-center gap-3" href="index.html" aria-label="Verde Market home">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-citrus" aria-hidden="true"><span class="material-symbols-outlined">eco</span></span>
+                <span class="font-display text-xl font-bold tracking-tight sm:text-2xl">Verde Market</span>
+            </a>
+            <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Main navigation">
+                <a class="transition-colors hover:text-primary" href="verde-market-shop-page.html">Shop</a>
+                <a class="text-primary" href="build-my-box-select-plan.html">Build a Box</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-our-story.html">Our Story</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-locations.html">Locations</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <a class="hidden rounded-full border border-[#276749]/20 px-4 py-2 text-sm font-bold transition-colors hover:bg-mint sm:inline-flex" href="verde-market-subscriber-dashboard.html">My subscription</a>
+                <button class="verde-cart-trigger" type="button" aria-label="Shopping cart" aria-haspopup="dialog" aria-expanded="false"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="checkout-page">
+        <section class="border-b border-[#276749]/10 px-4 pb-9 pt-7 sm:px-6 lg:px-10">
+            <div class="mx-auto max-w-7xl">
+                <nav id="checkout-progress" class="mx-auto mb-10 max-w-3xl" aria-label="Subscription progress">
+                    <ol class="grid grid-cols-4 gap-1">
+                        <li class="relative text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined text-lg">check</span></span>
+                            <a class="progress-label mt-2 block font-semibold text-primary hover:underline" href="build-my-box-select-plan.html">Choose your box</a>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-primary" aria-hidden="true"></span>
+                        </li>
+                        <li class="relative text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined text-lg">check</span></span>
+                            <a class="progress-label mt-2 block font-semibold text-primary hover:underline" href="build-my-box-customize-contents.html">Customize harvest</a>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-primary" aria-hidden="true"></span>
+                        </li>
+                        <li class="relative text-center" aria-current="step">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs font-extrabold text-white">3</span>
+                            <span class="progress-label mt-2 block font-bold text-primary">Checkout</span>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-[#276749]/20" aria-hidden="true"></span>
+                        </li>
+                        <li class="text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full border border-[#276749]/20 bg-white text-xs font-extrabold text-[#607068]">4</span>
+                            <span class="progress-label mt-2 block font-semibold text-[#607068]">Confirmed</span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <nav id="basket-checkout-progress" class="mb-8 flex items-center gap-3 text-sm text-[#607068]" aria-label="Checkout progress" hidden>
+                    <a class="font-semibold text-primary hover:underline" href="verde-market-shop-page.html">Market</a>
+                    <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span>
+                    <span class="font-bold text-forest" aria-current="step">Review checkout</span>
+                </nav>
+
+                <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-primary">Final review</p>
+                <h1 id="checkout-heading" class="font-display text-4xl font-bold leading-none tracking-tight sm:text-5xl">Everything looks fresh.</h1>
+                <p id="checkout-intro" class="mt-4 max-w-2xl text-base leading-7 text-[#5a6962]">Review your delivery and enter test details to complete the Verde Market portfolio flow.</p>
+            </div>
+        </section>
+
+        <section class="px-4 py-8 sm:px-6 lg:px-10" aria-label="Demo checkout notice">
+            <div class="mx-auto max-w-7xl">
+                <div class="demo-controls flex flex-col items-start justify-between gap-4 rounded-2xl border border-[#ead67b] bg-[#fff9dc] p-5 sm:flex-row sm:items-center">
+                    <div class="flex gap-3">
+                        <span class="material-symbols-outlined mt-0.5 text-[#6e5d15]" aria-hidden="true">shield_lock</span>
+                        <p class="text-sm leading-6 text-[#635514]"><strong class="block">This is a simulated checkout.</strong>No payment is processed, and the test details stay in this browser.</p>
+                    </div>
+                    <button id="demo-fill" class="verde-secondary-action shrink-0" type="button" disabled>Fill secure demo details</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-4 pb-16 sm:px-6 lg:px-10" aria-label="Checkout form and order summary">
+            <form id="checkout-form" class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1fr)_25rem] lg:items-start" novalidate>
+                <div id="checkout-empty" class="rounded-[1.5rem] border border-[#276749]/15 bg-white p-8 text-center lg:col-span-2" hidden>
+                    <span class="material-symbols-outlined text-4xl text-primary" aria-hidden="true">shopping_basket</span>
+                    <h2 class="mt-4 font-display text-3xl font-bold">A fresh start.</h2>
+                    <p id="checkout-empty-copy" class="mx-auto mt-3 max-w-lg text-sm leading-7 text-[#607068]">Add something fresh before checking out.</p>
+                    <a id="checkout-return" class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-6 text-sm font-bold text-white hover:bg-forest" href="verde-market-shop-page.html">Browse the market</a>
+                </div>
+                <p id="checkout-error-summary" class="rounded-xl border border-[#a13d26]/25 bg-[#fff5ef] p-4 text-sm font-semibold text-[#a13d26] lg:col-span-2" aria-live="polite" tabindex="-1" hidden></p>
+                <div id="checkout-form-details" class="grid gap-6">
+                    <fieldset class="rounded-[1.5rem] border border-[#276749]/15 bg-white p-5 shadow-[0_18px_50px_rgba(20,73,53,0.07)] sm:p-7">
+                        <legend class="px-2 font-display text-2xl font-bold">Delivery details</legend>
+                        <p class="mb-6 mt-1 text-sm leading-6 text-[#607068]">Required fields are marked with an asterisk.</p>
+                        <div class="grid gap-5 sm:grid-cols-2">
+                            <div>
+                                <label class="mb-2 block text-sm font-bold" for="first-name">First name <span aria-hidden="true">*</span></label>
+                                <input id="first-name" class="checkout-field" type="text" name="firstName" autocomplete="given-name" placeholder="Jane" required />
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-bold" for="last-name">Last name <span aria-hidden="true">*</span></label>
+                                <input id="last-name" class="checkout-field" type="text" name="lastName" autocomplete="family-name" placeholder="Doe" required />
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="mb-2 block text-sm font-bold" for="street-address">Street address <span aria-hidden="true">*</span></label>
+                                <input id="street-address" class="checkout-field" type="text" name="address" autocomplete="address-line1" placeholder="18 Garden Lane" required />
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-bold" for="city">City <span aria-hidden="true">*</span></label>
+                                <input id="city" class="checkout-field" type="text" name="city" autocomplete="address-level2" placeholder="Portland" required />
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-bold" for="postal-code">Postal code <span aria-hidden="true">*</span></label>
+                                <input id="postal-code" class="checkout-field" type="text" name="postalCode" autocomplete="postal-code" inputmode="numeric" placeholder="97204" required />
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="mb-2 block text-sm font-bold" for="delivery-note">Delivery note <span class="font-medium text-[#718078]">(optional)</span></label>
+                                <textarea id="delivery-note" class="checkout-field" name="deliveryNote" placeholder="Gate code, safe drop location, or allergy note"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="rounded-[1.5rem] border border-[#276749]/15 bg-white p-5 shadow-[0_18px_50px_rgba(20,73,53,0.07)] sm:p-7">
+                        <legend class="px-2 font-display text-2xl font-bold">Test payment details</legend>
+                        <div class="mb-6 mt-1 flex gap-3 rounded-xl bg-mint p-4 text-sm leading-6 text-forest" id="payment-help">
+                            <span class="material-symbols-outlined shrink-0" aria-hidden="true">info</span>
+                            <p>Only the test card <strong>4242 4242 4242 4242</strong> is accepted. Use a future expiry and fictional CVC. Never enter real card details.</p>
+                        </div>
+                        <div class="grid gap-5 sm:grid-cols-2">
+                            <div class="sm:col-span-2">
+                                <label class="mb-2 block text-sm font-bold" for="card-number">Card number <span aria-hidden="true">*</span></label>
+                                <input id="card-number" class="checkout-field" type="text" name="cardNumber" autocomplete="off" inputmode="numeric" maxlength="19" spellcheck="false" placeholder="4242 4242 4242 4242" aria-describedby="payment-help" required />
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-bold" for="expiry">Expiry <span aria-hidden="true">*</span></label>
+                                <input id="expiry" class="checkout-field" type="text" name="expiry" autocomplete="off" inputmode="numeric" maxlength="5" placeholder="MM/YY" required />
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-bold" for="cvc">CVC <span aria-hidden="true">*</span></label>
+                                <input id="cvc" class="checkout-field" type="text" name="cvc" autocomplete="off" inputmode="numeric" maxlength="4" placeholder="123" required />
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <aside id="checkout-order-summary" class="sticky top-24 overflow-hidden rounded-[1.5rem] border border-[#276749]/15 bg-white shadow-[0_24px_70px_rgba(20,73,53,0.13)]" aria-labelledby="order-summary-heading">
+                    <div class="relative h-52 bg-cover bg-center" style="background-image: url('assets/images/harvest-a97b960b8099.webp')">
+                        <div class="absolute inset-0 bg-[#102a22]/45" aria-hidden="true"></div>
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-citrus">Order summary</p>
+                            <h2 id="order-summary-heading" class="mt-1 font-display text-2xl font-bold">Your seasonal box</h2>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="mb-6 flex gap-3 rounded-xl bg-mint p-4">
+                            <span class="material-symbols-outlined text-primary" aria-hidden="true">calendar_month</span>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#607068]">First delivery</p>
+                                <p id="checkout-delivery-date" class="mt-1 font-bold">This coming Friday</p>
+                            </div>
+                        </div>
+
+                        <dl class="grid gap-4 border-b border-[#276749]/12 pb-6 text-sm">
+                            <div class="flex items-start justify-between gap-5" data-box-checkout>
+                                <dt class="text-[#607068]">Plan</dt>
+                                <dd id="checkout-plan-name" class="text-right font-bold">The Family Box</dd>
+                            </div>
+                            <div class="flex items-start justify-between gap-5" data-box-checkout>
+                                <dt class="text-[#607068]">Cadence</dt>
+                                <dd id="checkout-frequency" class="text-right font-bold">Weekly</dd>
+                            </div>
+                            <div class="flex items-start justify-between gap-5" data-box-checkout>
+                                <dt class="text-[#607068]">Preference slots</dt>
+                                <dd id="checkout-box-count" class="text-right font-bold">0 of 8 selected</dd>
+                            </div>
+                            <div class="flex items-start justify-between gap-5" data-box-checkout>
+                                <dt class="text-[#607068]">Plan price</dt>
+                                <dd id="checkout-plan-price" class="text-right font-bold">$85.00</dd>
+                            </div>
+                            <div class="flex items-start justify-between gap-5">
+                                <dt class="text-[#607068]">Delivery</dt>
+                                <dd class="text-right font-bold text-primary">Included</dd>
+                            </div>
+                        </dl>
+
+                        <p id="checkout-preference-list" class="mt-4 text-xs leading-6 text-[#607068]" data-box-checkout></p>
+                        <section id="checkout-items-section" class="mt-5 border-b border-[#276749]/12 pb-3" aria-labelledby="checkout-items-heading">
+                            <div class="flex items-center justify-between gap-3">
+                                <h3 id="checkout-items-heading" class="text-base font-bold">Basket items</h3>
+                                <span id="checkout-item-count" class="text-xs text-[#607068]">0 items</span>
+                            </div>
+                            <ul id="checkout-line-items" class="mt-2 list-none divide-y divide-[#276749]/10 p-0"></ul>
+                        </section>
+
+                        <div class="flex items-end justify-between gap-4 py-6">
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#607068]">Demo order total</p>
+                                <p id="checkout-total" class="mt-1 font-display text-4xl font-bold">$0.00</p>
+                            </div>
+                            <p class="rounded-full bg-[#fff9dc] px-3 py-1 text-xs font-bold text-[#635514]">Demo only</p>
+                        </div>
+
+                        <p id="checkout-total-note" class="mb-5 text-xs leading-6 text-[#607068]">No payment is taken.</p>
+
+                        <button class="flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-extrabold text-white shadow-lg shadow-[#174936]/20 transition-colors hover:bg-forest disabled:opacity-50" type="submit" disabled>
+                            Place order (demo)
+                            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                        </button>
+                        <p id="checkout-terms" class="mt-4 text-center text-xs leading-5 text-[#718078]">No charge or account is created.</p>
+                    </div>
+                </aside>
+            </form>
+            <noscript><p class="mx-auto mt-6 max-w-7xl rounded-xl bg-[#fff9dc] p-5 text-sm text-[#635514]">JavaScript is needed for this local demo checkout. Enable JavaScript to review your basket; do not enter payment details.</p></noscript>
+        </section>
+    </main>
+
+    <footer class="border-t border-[#276749]/15 px-4 py-7 text-center text-xs text-[#607068]">
+        <p>© 2026 Verde Market. A portfolio concept for thoughtful local grocery delivery.</p>
+    </footer>
+
+    <script src="assets/vendor/gsap-3.12.5.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (window.gsap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                gsap.from("#checkout-form > *", { opacity: 0, y: 24, duration: 0.65, stagger: 0.08, ease: "power3.out" });
+            }
         });
-
-        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
-        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
-
-        const imgs = document.querySelectorAll('img');
-        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
-
-        const btns = document.querySelectorAll('button, [class*="btn"]');
-        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
-
-        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
-            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
-            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
-            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
-            document.body.style.cursor = 'none';
-        }
-    });
-}
-</script>
-</body></html>
+    </script>
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script src="assets/js/verde-polish.js" defer></script>
+</body>
+</html>

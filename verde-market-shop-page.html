@@ -1,233 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Shop | Verde Market</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Fraunces:opsz,wght@9..144,300..900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#2e6b50",
-                        "primary-dark": "#1f4a37",
-                        "secondary": "#e9f2ee",
-                        "accent": "#f3b942",
-                        "background-light": "#f6f7f7",
-                        "background-dark": "#151d19",
-                        "text-dark": "#131615",
-                        "text-light": "#f6f7f7",
-                    },
-                    fontFamily: {
-                        "display": ["Fraunces", "serif"],
-                        "sans": ["Manrope", "sans-serif"],
-                    },
-                    borderRadius: {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px",
-                    },
-                },
-            },
-        }
-    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shop the Harvest | Verde Market</title>
+    <meta name="description" content="Browse Verde Market's seasonal organic produce, filter the harvest, and save items to a persistent demo basket.">
+    <meta name="theme-color" content="#174936">
+    <link rel="canonical" href="https://verde-market.vercel.app/verde-market-shop-page">
+    <link rel="icon" href="assets/icons/verde-32.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shop the Harvest | Verde Market">
+    <meta property="og:description" content="Seasonal organic produce from neighborhood farms.">
+    <meta property="og:image" content="https://verde-market.vercel.app/assets/verde-market-social-preview.jpg">
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet">
     <style>
-        .font-serif { font-family: 'Fraunces', serif; }
-        .font-sans { font-family: 'Manrope', sans-serif; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        @media (hover: none) {
-            #cursor-dot, #cursor-ring { display: none; }
-            body { cursor: auto !important; }
+        .shop-page,.shop-page *{box-sizing:border-box}
+        body.shop-page{--ink:#13231d;--forest:#075b38;--forest-deep:#06442c;--sage:#e9f0e8;--paper:#fffefb;--mist:#f7f8f5;--lime:#e9fb68;--line:rgba(19,35,29,.13);margin:0;overflow-x:hidden;background:var(--paper);color:var(--ink)}
+        .shop-page a{color:inherit;text-decoration:none}.shop-page img{display:block;max-width:100%}.shop-page button,.shop-page input,.shop-page select{color:inherit}.shop-container{width:min(1180px,calc(100% - 48px));margin-inline:auto}
+        .shop-header{position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(19,35,29,.08);background:rgba(255,255,252,.95);backdrop-filter:blur(18px)}.shop-header__inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;min-height:78px}.shop-brand{display:inline-flex;align-items:center;gap:.7rem;color:var(--forest);font-family:"Fraunces",serif;font-size:1.2rem;font-weight:800;letter-spacing:-.02em;white-space:nowrap}.shop-brand .material-symbols-outlined{font-size:1.8rem}.shop-nav{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,2.4vw,2.35rem)}.shop-nav a{color:#34443e;font-size:.8rem;font-weight:700}.shop-nav a:hover{color:var(--forest)}.shop-header__actions{display:flex;align-items:center;gap:.45rem}
+        .shop-icon-link,.shop-icon-button,.shop-menu-button{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:1px solid transparent;border-radius:999px;background:transparent;transition:background 180ms,border-color 180ms,transform 180ms}.shop-icon-link:hover,.shop-icon-button:hover,.shop-menu-button:hover{transform:translateY(-1px);border-color:var(--line);background:var(--sage)}.shop-icon-link .material-symbols-outlined,.shop-icon-button .material-symbols-outlined,.shop-menu-button .material-symbols-outlined{font-size:1.35rem}.shop-header .verde-cart-trigger{width:2.75rem;min-width:2.75rem;height:2.75rem;padding:0;border-color:transparent;background:transparent}.shop-menu-button{display:none}
+        .shop-primary-link,.shop-secondary-link{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.72rem 1.25rem;border-radius:.55rem;font-size:.75rem;font-weight:800;transition:transform 180ms,background 180ms,box-shadow 180ms}.shop-primary-link{border:1px solid var(--forest);background:var(--forest);color:#fff!important;box-shadow:0 12px 26px rgba(7,91,56,.16)}.shop-primary-link:hover{transform:translateY(-2px);background:var(--forest-deep);box-shadow:0 16px 34px rgba(7,91,56,.22)}.shop-secondary-link{border:1px solid var(--line);background:#fff}.shop-secondary-link:hover{transform:translateY(-2px);background:var(--sage)}
+        .shop-main{padding-bottom:0}.shop-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.68fr);align-items:end;min-height:380px;padding-top:2.5rem}.shop-hero__copy{align-self:center;padding:3rem 0 4.5rem}.shop-hero h1{max-width:720px;margin:0;font-size:clamp(4rem,7.5vw,7rem);font-weight:620;line-height:.98;letter-spacing:-.03em;text-wrap:balance}.shop-hero p{max-width:520px;margin:1.5rem 0 0;color:#4f5b56;font-size:1.08rem;line-height:1.65}.shop-hero__image{align-self:stretch;min-height:360px;overflow:hidden}.shop-hero__image img{width:100%;height:100%;object-fit:cover;object-position:center 58%;mix-blend-mode:multiply}
+        .shop-toolbar{position:relative;z-index:2;margin-top:-1.9rem}.shop-toolbar__surface{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;min-height:78px;padding:.65rem .75rem .65rem 1.25rem;border:1px solid var(--line);border-radius:1.25rem;background:rgba(255,255,255,.96);box-shadow:0 20px 55px rgba(18,58,39,.08)}.shop-search{display:flex;align-items:center;gap:.75rem}.shop-search .material-symbols-outlined{color:#68756f}.shop-search input{width:100%;min-height:3rem;border:0;background:transparent;font-size:.92rem;outline:0}.shop-sort{display:flex;align-items:center;gap:.65rem;font-size:.72rem;font-weight:700}.shop-sort select{min-width:220px;min-height:3rem;padding:.65rem 2.6rem .65rem 1rem;border:1px solid var(--line);border-radius:.65rem;background:#fff;font-size:.75rem}
+        .shop-browse{padding:1.2rem 0 clamp(5rem,8vw,7.5rem)}.shop-filter-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.75rem;margin:1.1rem 0 2.3rem}.shop-filter{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.45rem;padding:.7rem 1rem;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.74rem;font-weight:700;transition:background 180ms,border-color 180ms,color 180ms,transform 180ms}.shop-filter:hover{transform:translateY(-2px);border-color:rgba(7,91,56,.4)}.shop-filter[aria-pressed="true"]{border-color:var(--forest);background:var(--forest);color:#fff}.shop-filter .material-symbols-outlined{font-size:1.1rem}
+        .products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem}.shop-product{display:flex;min-width:0;overflow:hidden;flex-direction:column;border:1px solid rgba(19,35,29,.1);border-radius:1.1rem;background:#fff;box-shadow:0 12px 35px rgba(19,35,29,.035);transition:transform 220ms,box-shadow 220ms}.shop-product:hover{transform:translateY(-5px);box-shadow:0 22px 45px rgba(19,35,29,.09)}.shop-product__media{position:relative;aspect-ratio:1.03;overflow:hidden;background:var(--sage)}.shop-product__media img{width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.22,1,.36,1)}.shop-product:hover img{transform:scale(1.045)}.shop-organic{position:absolute;top:.75rem;left:.75rem;padding:.34rem .55rem;border-radius:.35rem;background:rgba(255,255,255,.92);color:var(--forest);font-size:.54rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.shop-product__body{display:flex;flex:1;flex-direction:column;padding:1rem}.shop-product h3{margin:0;font-family:"Manrope",sans-serif!important;font-size:1rem;font-weight:800}.shop-product__note{min-height:2.6rem;margin:.35rem 0 .9rem;color:#67736e;font-size:.82rem;line-height:1.5}.shop-product__price{display:flex;align-items:end;gap:.35rem;margin:auto 0 .8rem}.shop-product__price strong{font-size:1rem;font-variant-numeric:tabular-nums}.shop-product__price span{color:#596660;font-size:.78rem}.shop-add-button{display:inline-flex;align-items:center;justify-content:center;gap:.35rem;width:100%;min-height:2.75rem;border:1px solid var(--forest);border-radius:999px;background:var(--forest);color:#fff!important;font-size:.85rem;font-weight:800;transition:background 180ms,transform 180ms}.shop-add-button:hover{transform:translateY(-1px);background:var(--forest-deep)}.shop-add-button .material-symbols-outlined{font-size:1.1rem}.shop-unit{margin:.7rem 0 0;color:#66746c;font-size:.76rem;text-align:center}.shop-search-hidden{display:none!important}.shop-search-empty{grid-column:1/-1;padding:3rem;border:1px dashed var(--line);border-radius:1rem;background:var(--mist);color:#66726c;text-align:center}
+        .shop-box{padding-bottom:clamp(4rem,7vw,6rem)}.shop-box__surface{position:relative;display:grid;grid-template-columns:.8fr 1.2fr;min-height:360px;overflow:hidden;border-radius:1.6rem;background:#f3ece3}.shop-box__copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(2.5rem,5vw,4.5rem)}.shop-box h2{margin:0;font-size:clamp(3rem,5vw,4.7rem);font-weight:620;line-height:1;letter-spacing:-.03em}.shop-box__copy>p{margin:.85rem 0 1.25rem;color:#53615b;font-size:.82rem}.shop-box ul{display:grid;gap:.72rem;margin:0 0 1.5rem;padding:0;list-style:none}.shop-box li{display:flex;align-items:center;gap:.55rem;font-size:.7rem}.shop-box li .material-symbols-outlined{display:grid;place-items:center;width:1.45rem;height:1.45rem;border-radius:50%;background:#cfe4d3;color:var(--forest);font-size:.85rem}.shop-box__actions{display:flex;flex-wrap:wrap;gap:.7rem}.shop-box__image{min-height:360px}.shop-box__image img{width:100%;height:100%;object-fit:cover;object-position:center}.shop-box__save{position:absolute;z-index:3;top:1.5rem;right:1.5rem;display:grid;place-items:center;width:7rem;height:7rem;border-radius:50%;background:var(--lime);font-size:.65rem;font-weight:700;text-align:center;transform:rotate(5deg)}.shop-box__save strong{display:block;font-family:"Fraunces",serif;font-size:2rem;line-height:1}
+        .shop-promises{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}.shop-promises__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:2.4rem 0}.shop-promise{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}.shop-promise>.material-symbols-outlined{color:var(--forest);font-size:2.4rem}.shop-promise h3{margin:0;font-family:"Manrope",sans-serif!important;font-size:.9rem}.shop-promise p{margin:.35rem 0 0;color:#65716b;font-size:.82rem;line-height:1.65}
+        .shop-footer{padding:3.4rem 0 1.3rem;background:#f6f6f1;color:var(--ink)}.shop-footer__grid{display:grid;grid-template-columns:1.25fr repeat(3,.65fr) 1.15fr;gap:2rem;padding-bottom:2.5rem}.shop-footer__about p{max-width:250px;margin:.9rem 0;color:#5f6c66;font-size:.68rem;line-height:1.75}.shop-footer h2{margin:0 0 .85rem;font-family:"Manrope",sans-serif!important;font-size:.7rem}.shop-footer ul{display:grid;gap:.5rem;margin:0;padding:0;list-style:none}.shop-footer li,.shop-footer a{color:#55625c;font-size:.78rem}.shop-footer a:hover{color:var(--forest)}.shop-footer__signup p{margin:0 0 1rem;color:#65716b;font-size:.67rem}.shop-footer__signup form{display:flex}.shop-footer__signup input{min-width:0;flex:1;min-height:2.9rem;padding:.7rem .85rem;border:1px solid var(--line);border-right:0;border-radius:.55rem 0 0 .55rem;background:#fff;font-size:.68rem}.shop-footer__signup button{width:3rem;border:1px solid var(--line);border-left:0;border-radius:0 .55rem .55rem 0;background:#fff}.shop-footer__bar{display:flex;justify-content:space-between;gap:1rem;padding-top:1rem;border-top:1px solid var(--line);color:#68746f;font-size:.74rem}
+        .shop-results-meta{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:3.5rem;margin-top:-1rem;margin-bottom:1rem}.shop-results-meta p{margin:0;color:#53645a;font-size:.84rem;overflow-wrap:anywhere}.shop-reset-button{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:2.75rem;padding:.6rem .8rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--forest)!important;font-size:.8rem;font-weight:800;white-space:nowrap}.shop-reset-button:hover{border-color:var(--forest);background:var(--sage)}.shop-reset-button[hidden]{display:none}.shop-reset-button .material-symbols-outlined{font-size:1.05rem}.shop-search-empty>span{color:var(--forest);font-size:2.2rem}.shop-search-empty h3{margin:.75rem 0;font-size:1.75rem}.shop-search-empty p{max-width:32rem;margin:0 auto 1.2rem;font-size:.9rem;line-height:1.65}.shop-footer__signup input{font-size:.85rem}
+        @media(max-width:560px){.shop-results-meta{align-items:flex-start;flex-direction:column;gap:.5rem}}
+        @media(prefers-reduced-motion:no-preference){.shop-hero__copy>*{animation:shopRise 650ms cubic-bezier(.22,1,.36,1) both}.shop-hero__copy>*:nth-child(2){animation-delay:90ms}.shop-hero__image img{animation:shopScale 850ms 80ms cubic-bezier(.22,1,.36,1) both}}@keyframes shopRise{from{opacity:0;transform:translateY(18px)}}@keyframes shopScale{from{opacity:0;transform:scale(.94)}}
+        @media(max-width:1080px){.shop-nav{gap:1rem}.shop-nav a{font-size:.76rem}.shop-header__actions>.shop-primary-link{display:none}.products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.shop-filter-row{grid-template-columns:repeat(3,1fr)}.shop-footer__grid{grid-template-columns:1.2fr repeat(3,.7fr)}.shop-footer__signup{grid-column:1/-1;max-width:500px}}
+        @media(max-width:860px){.shop-container{width:min(calc(100% - 32px),720px)}.shop-header__inner{grid-template-columns:1fr auto;min-height:68px}.shop-nav,.shop-icon-link,.shop-account-button{display:none}.shop-menu-button{display:inline-flex}.shop-hero{grid-template-columns:1fr;padding-top:0}.shop-hero__copy{padding:4.5rem 0 2.4rem}.shop-hero__image{min-height:300px}.shop-toolbar{margin-top:-1.2rem}.shop-toolbar__surface{grid-template-columns:1fr}.shop-sort{justify-content:space-between}.shop-sort select{min-width:0;flex:1}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shop-box__surface{grid-template-columns:1fr}.shop-box__image{min-height:300px}.shop-box__save{top:auto;right:1rem;bottom:1rem}.shop-promises__grid{grid-template-columns:1fr}.shop-footer__grid{grid-template-columns:repeat(2,1fr)}.shop-footer__about,.shop-footer__signup{grid-column:1/-1}}
+        @media(max-width:560px){.shop-brand{font-size:1.02rem}.shop-hero h1{font-size:clamp(3.8rem,17vw,5.2rem)}.shop-hero p{font-size:.92rem}.shop-toolbar__surface{padding:1rem}.shop-sort{align-items:stretch;flex-direction:column}.shop-filter-row{display:flex;margin-right:-16px;padding-right:16px;overflow-x:auto;scroll-snap-type:x mandatory}.shop-filter{min-width:145px;scroll-snap-align:start}.products-grid{grid-template-columns:1fr}.shop-box__copy{padding:2.5rem 1.5rem}.shop-box__actions{align-items:stretch;flex-direction:column}.shop-box__actions a{width:100%}.shop-box__save{width:5.5rem;height:5.5rem}.shop-footer__grid{grid-template-columns:1fr 1fr}.shop-footer__bar{flex-direction:column}}
+        @media(max-width:360px){
+            .shop-header__inner{width:100%;grid-template-columns:minmax(0,1fr) auto;gap:.5rem}
+            .shop-header .shop-brand{min-width:0;gap:.5rem;font-size:.95rem}
+            .shop-header .shop-brand .material-symbols-outlined{font-size:1.65rem}
+            .shop-header__actions{gap:.25rem}
+            .shop-header__actions>.shop-icon-button,.shop-header__actions>.shop-menu-button{flex:0 0 2.75rem;min-width:2.75rem;min-height:2.75rem}
         }
-        .product-card { transform-style: preserve-3d; will-change: transform; }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-sans text-text-dark antialiased overflow-x-hidden w-full">
-    <header
-        class="sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 py-4 lg:px-12">
-        <a class="flex items-center gap-3 text-primary" href="index.html">
-            <span class="material-symbols-outlined text-3xl">eco</span>
-            <h2 class="font-serif text-2xl font-bold tracking-tight text-primary dark:text-white">VERDE MARKET</h2>
-        </a>
-        <nav class="hidden lg:flex items-center gap-8">
-            <a class="text-primary font-medium text-sm border-b-2 border-primary pb-1" href="verde-market-shop-page.html">Shop</a>
-            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
-                href="verde-market-our-story.html">Our Story</a>
-            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
-                href="verde-market-sustainability.html">Sustainability</a>
-            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
-                href="verde-market-blog-journal.html">Blog</a>
-            <a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors"
-                href="verde-market-locations.html">Locations</a>
-        </nav>
-        <div class="flex items-center gap-4">
-            <a class="hidden lg:flex cursor-pointer items-center justify-center rounded-full bg-primary hover:bg-primary-dark transition-colors h-10 px-6 text-white text-sm font-bold tracking-wide shadow-lg shadow-primary/20"
-                href="build-my-box-select-plan.html">Start Fresh</a>
-            <button class="lg:hidden text-slate-900 dark:text-white" type="button" aria-label="Open menu">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+<body class="shop-page" data-shop-filters-managed="true">
+    <header class="shop-header">
+        <div class="shop-container shop-header__inner">
+            <a class="shop-brand" href="index.html" aria-label="Verde Market home"><span class="material-symbols-outlined" aria-hidden="true">eco</span><span>VERDE MARKET</span></a>
+            <nav class="shop-nav" aria-label="Primary navigation"><a href="verde-market-shop-page.html">Shop</a><a href="verde-market-our-story.html">Our Story</a><a href="verde-market-sustainability.html">Sustainability</a><a href="verde-market-blog-journal.html">Journal</a><a href="verde-market-locations.html">Locations</a></nav>
+            <div class="shop-header__actions">
+                <a class="shop-primary-link" href="build-my-box-select-plan.html">Start Fresh</a>
+                <a class="shop-icon-link" href="#products" aria-label="Jump to products"><span class="material-symbols-outlined" aria-hidden="true">search</span></a>
+                <button class="shop-icon-button shop-account-button" type="button" aria-label="Open account"><span class="material-symbols-outlined" aria-hidden="true">person</span></button>
+                <button class="shop-icon-button" type="button" aria-label="Shopping cart"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span></button>
+                <button class="shop-menu-button" type="button" aria-label="Open menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+            </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 lg:px-12 py-10">
-        <div class="mb-10">
-            <h1 class="font-serif text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-2">Shop Fresh Produce</h1>
-            <p class="text-slate-600 dark:text-slate-300 max-w-2xl">Browse our certified organic selection. Farm to table, delivered to your door.</p>
-        </div>
+    <main class="shop-main" id="main-content">
+        <section class="shop-container shop-hero" aria-labelledby="shop-title">
+            <div class="shop-hero__copy"><h1 id="shop-title">Shop the harvest</h1><p>Certified organic. Seasonal picks. Real flavor.<br>Good for your table and the planet.</p></div>
+            <div class="shop-hero__image"><img src="assets/images/harvest-6b2811388c98.webp" alt="A Verde market bag filled with leafy greens, carrots, bread, and seasonal produce" fetchpriority="high" width="512" height="512" decoding="async"></div>
+        </section>
 
-        <div class="flex flex-wrap gap-2 mb-10 hide-scrollbar overflow-x-auto pb-2">
-            <a class="px-4 py-2 rounded-full bg-primary text-white text-sm font-bold whitespace-nowrap" href="verde-market-shop-page.html">All</a>
-            <a class="px-4 py-2 rounded-full bg-secondary dark:bg-slate-800 text-primary dark:text-slate-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap" href="verde-market-shop-page.html#vegetables">Vegetables</a>
-            <a class="px-4 py-2 rounded-full bg-secondary dark:bg-slate-800 text-primary dark:text-slate-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap" href="verde-market-shop-page.html#fruits">Fruits</a>
-            <a class="px-4 py-2 rounded-full bg-secondary dark:bg-slate-800 text-primary dark:text-slate-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap" href="verde-market-shop-page.html#dairy">Dairy</a>
-            <a class="px-4 py-2 rounded-full bg-secondary dark:bg-slate-800 text-primary dark:text-slate-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap" href="verde-market-shop-page.html#bakery">Bakery</a>
-            <a class="px-4 py-2 rounded-full bg-secondary dark:bg-slate-800 text-primary dark:text-slate-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap" href="verde-market-shop-page.html#pantry">Pantry</a>
-        </div>
-
-        <section id="products" class="products-section">
-            <div class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="product-card group bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 flex flex-col">
-                    <div class="relative bg-secondary rounded-xl aspect-square mb-4 overflow-hidden">
-                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">Organic</span>
-                        <img alt="Fresh avocado on table" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDIkbBOcuPcvLT3i1kzo_Jd5oJ1yV_pgTpWIEqmNgtQF9tGwVUz1O-4OEG6g92DljSzdaBFon6OEfv3vtROEowGfnV9Sn-IjOkusS-i12gtWz2T2rztlFmHgDh3NKTDi42mJE2DPWEtl9JJHzo_vHb2xQBk_CfPmdh9X2xa4mTGLVU_k3aomIF6-3zm5INj3bl7Z0VY_oHisM9UWz1c4h54vmbYc93NJzbI9k97MoVMZ7VvDK-6hx284j5jAPzpLMQllGQwAMCbx8" />
-                        <button class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg" type="button" aria-label="Add to cart">
-                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-                        </button>
-                    </div>
-                    <div class="mt-auto">
-                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Hass Avocados</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-500">per kg</span>
-                            <span class="text-primary font-bold text-lg">$4.50</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card group bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 flex flex-col">
-                    <div class="relative bg-secondary rounded-xl aspect-square mb-4 overflow-hidden">
-                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">Organic</span>
-                        <img alt="Red delicious apples" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEDXh24JZl5eFCj-v9Zp_4hToW0iADLBB4hURsNpushzkMofCR_hbLoLOjKenE0NdOpxVrpxGx1YsPltLA2m1l7TgQmgHK50mYvA6WvAvQ-XsbBbbZ5Q494r-k2BFgW8x1qOtl4-7lgYKWwc5gLWYmO-k77nOFPn1JPUJixM1QDrCrkEcBdDnAHbxkTJN02amygDvGupAdLcRIG6VUR6EgrbZD2dtwWmpHtcBmpz78Eazk_RB5rNidqPmmn36gkws9pYxEvQhmJeE" />
-                        <button class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg" type="button" aria-label="Add to cart">
-                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-                        </button>
-                    </div>
-                    <div class="mt-auto">
-                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Honeycrisp Apples</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-500">per kg</span>
-                            <span class="text-primary font-bold text-lg">$3.20</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card group bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 flex flex-col">
-                    <div class="relative bg-secondary rounded-xl aspect-square mb-4 overflow-hidden">
-                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">Organic</span>
-                        <img alt="Fresh farm eggs in carton" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW_6XJk2Z3Tu49aHB46z99PEbyLW3D0YRApybGot17fUHgC0MOq7ahUzJA3ne8Q5pmVDkqL3YnIb4W4MouUgt7NlP-0j066c9LenPwqIMwgdGq1bCUdwPimYS0BovNW5G_q2R6YdOEINQ0Rax3O7LsJkOS5s3tOqUwCoHH5JroF57hptxBHMGVBM-3opyZc9SmO-LhZD90pd3p2edCKhkdD3DQ4wbwOx9mEDjsSWGk11ObRLTi90X17BRC1lmSMPI1bPnl7VoyYWg" />
-                        <button class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg" type="button" aria-label="Add to cart">
-                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-                        </button>
-                    </div>
-                    <div class="mt-auto">
-                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Free Range Eggs</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-500">12 pack</span>
-                            <span class="text-primary font-bold text-lg">$5.99</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card group bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 flex flex-col">
-                    <div class="relative bg-secondary rounded-xl aspect-square mb-4 overflow-hidden">
-                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">Organic</span>
-                        <img alt="Sourdough bread loaf" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOD1fXGodX_KtQIqdB-GlDxTzk20N6_8PevrGTznVSy8qcLm9wJzI-BACoAp3ehaA_hzgWjQkoTV3wv_L0VQJOr8xFGL0wEmvA1dh2emh4PguxDKEQSttKqo6Rwz-jdnUpBhpjpRVf4EXQz9ougG8dOikCjAsUcO5PND5uk8gruDwQ2CNqaHAYCuE0FNMvn7zsWj8QSm4UgA0R8fvQHzABsIhbTPaRXZTOPHPCHR3cOhXx0GfPefX3tNbmaLX8nf2nvtqG5xSKYOQ" />
-                        <button class="absolute bottom-3 right-3 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg" type="button" aria-label="Add to cart">
-                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-                        </button>
-                    </div>
-                    <div class="mt-auto">
-                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Sourdough Loaf</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-500">per unit</span>
-                            <span class="text-primary font-bold text-lg">$6.50</span>
-                        </div>
-                    </div>
-                </div>
+        <section class="shop-container shop-toolbar" aria-label="Search and sort products">
+            <div class="shop-toolbar__surface">
+                <label class="shop-search"><span class="material-symbols-outlined" aria-hidden="true">search</span><span class="sr-only">Search products</span><input id="shop-search" name="q" type="search" autocomplete="off" placeholder="Try spinach, apples, or sourdough…" aria-controls="product-grid" maxlength="80"></label>
+                <label class="shop-sort">Sort by:<select id="shop-sort" name="sort" aria-controls="product-grid"><option value="featured">Featured</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="name">Name: A–Z</option></select></label>
             </div>
         </section>
 
-        <div class="mt-12 text-center">
-            <a class="inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary-dark text-white font-bold px-8 py-3 transition-colors shadow-lg" href="build-my-box-select-plan.html">
-                Build My Box <span class="material-symbols-outlined text-lg">package_2</span>
-            </a>
-        </div>
+        <section class="shop-container shop-browse" id="products" aria-labelledby="products-title">
+            <h2 class="sr-only" id="products-title">Seasonal products</h2>
+            <div class="shop-filter-row" role="group" aria-label="Filter products by category">
+                <button class="shop-filter bg-primary text-white" type="button" data-shop-filter="all" aria-controls="product-grid" aria-pressed="true"><span class="material-symbols-outlined" aria-hidden="true">grid_view</span>All</button>
+                <button class="shop-filter" id="vegetables" type="button" data-shop-filter="vegetables" aria-controls="product-grid" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">nutrition</span>Vegetables</button>
+                <button class="shop-filter" id="fruits" type="button" data-shop-filter="fruits" aria-controls="product-grid" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">nutrition</span>Fruits</button>
+                <button class="shop-filter" id="dairy" type="button" data-shop-filter="dairy" aria-controls="product-grid" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">water_bottle</span>Dairy</button>
+                <button class="shop-filter" id="bakery" type="button" data-shop-filter="bakery" aria-controls="product-grid" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">bakery_dining</span>Bakery</button>
+                <button class="shop-filter" id="pantry" type="button" data-shop-filter="pantry" aria-controls="product-grid" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">inventory_2</span>Pantry</button>
+            </div>
+            <div class="shop-results-meta"><p id="shop-results-count" role="status" aria-live="polite" aria-atomic="true">8 seasonal finds</p><button class="shop-reset-button" type="button" data-shop-reset hidden>Clear filters <span class="material-symbols-outlined" aria-hidden="true">close</span></button></div>
+            <div class="products-grid" id="product-grid">
+                <article class="shop-product product-card" data-category="fruits" data-product="hass-avocados" data-price="1.99"><div class="shop-product__media"><span class="shop-organic">Organic</span><img src="assets/images/harvest-4281bf674006.webp" alt="Ripe Hass avocados" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-product__body"><h3>Hass Avocados</h3><p class="shop-product__note">Creamy, rich &amp; buttery</p><p class="shop-product__price"><strong>$1.99</strong><span>/ each</span></p><button class="shop-add-button" type="button" aria-label="Add to cart: Hass Avocados"><span class="material-symbols-outlined" aria-hidden="true">add</span>Add</button><p class="shop-unit">$1.99 per avocado</p></div></article>
+                <article class="shop-product product-card" data-category="fruits" data-product="honeycrisp-apples" data-price="3.49"><div class="shop-product__media"><span class="shop-organic">Organic</span><img src="assets/images/harvest-0e732b63ccce.webp" alt="Honeycrisp apples" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-product__body"><h3>Honeycrisp Apples</h3><p class="shop-product__note">Crisp, juicy &amp; sweet</p><p class="shop-product__price"><strong>$3.49</strong><span>/ lb</span></p><button class="shop-add-button" type="button" aria-label="Add to cart: Honeycrisp Apples"><span class="material-symbols-outlined" aria-hidden="true">add</span>Add</button><p class="shop-unit">$3.49 per lb</p></div></article>
+                <article class="shop-product product-card" data-category="dairy" data-product="free-range-eggs" data-price="5.49"><div class="shop-product__media"><span class="shop-organic">Organic</span><img src="assets/images/harvest-a16b9e11b2be.webp" alt="Free-range eggs in a carton" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-product__body"><h3>Free Range Eggs</h3><p class="shop-product__note">Pasture-raised · Large</p><p class="shop-product__price"><strong>$5.49</strong><span>/ dozen</span></p><button class="shop-add-button" type="button" aria-label="Add to cart: Free Range Eggs"><span class="material-symbols-outlined" aria-hidden="true">add</span>Add</button><p class="shop-unit">$0.46 per egg</p></div></article>
+                <article class="shop-product product-card" data-category="bakery" data-product="sourdough-loaf" data-price="5.99"><div class="shop-product__media"><span class="shop-organic">Organic</span><img src="assets/images/harvest-1e11ea03f83b.webp" alt="Fresh sourdough bread loaf" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-product__body"><h3>Sourdough Loaf</h3><p class="shop-product__note">Handcrafted daily</p><p class="shop-product__price"><strong>$5.99</strong><span>/ loaf</span></p><button class="shop-add-button" type="button" aria-label="Add to cart: Sourdough Loaf"><span class="material-symbols-outlined" aria-hidden="true">add</span>Add</button><p class="shop-unit">$5.99 per loaf</p></div></article>
+                <article class="shop-product product-card" data-category="vegetables" data-product="organic-carrots" data-price="1.89"><div class="shop-product__media"><span class="shop-organic">Organic</span><img src="assets/images/harvest-2dbc4e0e20e2.webp" alt="Organic carrots with leafy tops" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-product__body"><h3>Organic Carrots</h3><p class="shop-product__note">Sweet, earthy &amp; crisp</p><p class="shop-product__price"><strong>$1.89</strong><span>/ bunch</span></p><button class="shop-add-button" type="button" aria-label="Add to cart: Organic Carrots"><span class="material-symbols-outlined" aria-hidden="true">add</span>Add</button><p class="shop-unit">$1.89 per bunch</p></div></article>
+                <article class="shop-product product-card" data-category="vegetables" data-product="baby-spinach" data-price="3.29"><div class="shop-product__media"><span class="shop-organic">Organic</span><img src="assets/images/harvest-06eabd61e346.webp" alt="Fresh baby spinach leaves" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-product__body"><h3>Baby Spinach</h3><p class="shop-product__note">Tender &amp; nutrient-dense</p><p class="shop-product__price"><strong>$3.29</strong><span>/ 5 oz</span></p><button class="shop-add-button" type="button" aria-label="Add to cart: Baby Spinach"><span class="material-symbols-outlined" aria-hidden="true">add</span>Add</button><p class="shop-unit">$0.66 per oz</p></div></article>
+                <article class="shop-product product-card" data-category="pantry" data-product="pantry-trio" data-price="8.99"><div class="shop-product__media"><span class="shop-organic">Organic</span><img src="assets/images/harvest-d7b5cbbe38ec.webp" alt="Three reusable jars of seeds, herbs, and dried pantry ingredients" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-product__body"><h3>Pantry Trio</h3><p class="shop-product__note">Seeds, herbs &amp; dried citrus</p><p class="shop-product__price"><strong>$8.99</strong><span>/ set</span></p><button class="shop-add-button" type="button" aria-label="Add to cart: Pantry Trio"><span class="material-symbols-outlined" aria-hidden="true">add</span>Add</button><p class="shop-unit">Three reusable jars</p></div></article>
+                <article class="shop-product product-card" data-category="pantry" data-product="granola-clusters" data-price="6.49"><div class="shop-product__media"><span class="shop-organic">Organic</span><img src="assets/images/harvest-47b406ad06ec.webp" alt="A bowl of crunchy granola clusters" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-product__body"><h3>Granola Clusters</h3><p class="shop-product__note">Oats, nuts &amp; seeds</p><p class="shop-product__price"><strong>$6.49</strong><span>/ 12 oz</span></p><button class="shop-add-button" type="button" aria-label="Add to cart: Granola Clusters"><span class="material-symbols-outlined" aria-hidden="true">add</span>Add</button><p class="shop-unit">$0.54 per oz</p></div></article>
+            </div>
+            <div class="shop-search-empty" id="shop-search-empty" hidden><span class="material-symbols-outlined" aria-hidden="true">search_off</span><h3>No harvest matches yet.</h3><p>Try a broader ingredient or clear your filters to browse the whole market.</p><button class="shop-reset-button" type="button" data-shop-reset>Clear search &amp; filters <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button></div>
+        </section>
+
+        <section class="shop-container shop-box" aria-labelledby="box-title"><div class="shop-box__surface"><div class="shop-box__copy"><h2 id="box-title">Build My Box</h2><p>Organic staples, seasonal picks, delivered.</p><ul><li><span class="material-symbols-outlined" aria-hidden="true">check</span>Choose your size and frequency</li><li><span class="material-symbols-outlined" aria-hidden="true">check</span>Always organic, always seasonal</li><li><span class="material-symbols-outlined" aria-hidden="true">check</span>Pause or skip anytime</li></ul><div class="shop-box__actions"><a class="shop-primary-link" href="build-my-box-select-plan.html">Start Your Box</a><a class="shop-secondary-link" href="verde-market-our-story.html">Learn more <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a></div></div><div class="shop-box__image"><img src="assets/images/harvest-6b2811388c98.webp" alt="A customizable Verde box packed with organic groceries" loading="lazy" width="512" height="512" decoding="async"></div><div class="shop-box__save">Choose from<strong>3</strong>box sizes</div></div></section>
+
+        <section class="shop-promises" aria-labelledby="promises-title"><h2 class="sr-only" id="promises-title">Why shop with Verde Market</h2><div class="shop-container shop-promises__grid"><article class="shop-promise"><span class="material-symbols-outlined" aria-hidden="true">eco</span><div><h3>Certified Organic</h3><p>All products are certified organic and non-GMO.</p></div></article><article class="shop-promise"><span class="material-symbols-outlined" aria-hidden="true">potted_plant</span><div><h3>Seasonal &amp; Local</h3><p>Sourced from trusted farmers when it’s at its best.</p></div></article><article class="shop-promise"><span class="material-symbols-outlined" aria-hidden="true">local_shipping</span><div><h3>Thoughtful Delivery</h3><p>Low-impact packaging and carbon-conscious routes.</p></div></article></div></section>
     </main>
 
-    <footer class="bg-primary-dark text-white pt-20 pb-10 px-6 lg:px-12 mt-20">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-            <div class="footer-logo lg:col-span-2">
-                <a class="flex items-center gap-2 mb-6" href="index.html">
-                    <span class="material-symbols-outlined text-3xl">eco</span>
-                    <h2 class="font-serif text-2xl font-bold">VERDE MARKET</h2>
-                </a>
-                <p class="text-slate-300 max-w-sm mb-6 leading-relaxed">
-                    Connecting conscious consumers with honest food. We are dedicated to building a sustainable food system, one delivery at a time.
-                </p>
-            </div>
-            <div class="footer-col">
-                <h3 class="font-bold text-lg mb-6 text-white">Shop</h3>
-                <ul class="space-y-4 text-slate-300">
-                    <li><a class="hover:text-white transition-colors" href="verde-market-shop-page.html">All Products</a></li>
-                    <li><a class="hover:text-white transition-colors" href="build-my-box-select-plan.html">Subscription Box</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3 class="font-bold text-lg mb-6 text-white">Company</h3>
-                <ul class="space-y-4 text-slate-300">
-                    <li><a class="hover:text-white transition-colors" href="verde-market-our-story.html">About Us</a></li>
-                    <li><a class="hover:text-white transition-colors" href="verde-market-locations.html">Locations</a></li>
-                    <li><a class="hover:text-white transition-colors" href="verde-market-blog-journal.html">Blog</a></li>
-                    <li><a class="hover:text-white transition-colors" href="verde-market-sustainability.html">Sustainability</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
-            <p>© 2024 Verde Market. All rights reserved.</p>
-        </div>
-    </footer>
+    <footer class="shop-footer"><div class="shop-container"><div class="shop-footer__grid"><div class="shop-footer__about"><a class="shop-brand" href="index.html"><span class="material-symbols-outlined" aria-hidden="true">eco</span><span>VERDE MARKET</span></a><p>Organic groceries. Real people. Better food for a better world.</p></div><div><h2>Shop</h2><ul><li><a href="verde-market-shop-page.html">All products</a></li><li><a href="verde-market-shop-page.html#vegetables">Vegetables</a></li><li><a href="verde-market-shop-page.html#fruits">Fruits</a></li><li><a href="verde-market-shop-page.html#dairy">Dairy</a></li><li><a href="verde-market-shop-page.html#bakery">Bakery</a></li><li><a href="verde-market-shop-page.html#pantry">Pantry</a></li></ul></div><div><h2>Company</h2><ul><li><a href="verde-market-our-story.html">Our story</a></li><li><a href="verde-market-sustainability.html">Sustainability</a></li><li><a href="verde-market-blog-journal.html">Journal</a></li><li><a href="verde-market-locations.html">Locations</a></li></ul></div><div><h2>Help</h2><ul><li><a href="verde-market-locations.html">Contact us</a></li><li><a href="build-my-box-checkout-finalize.html">Shipping &amp; delivery</a></li><li><a href="verde-market-subscriber-dashboard.html">Your account</a></li></ul></div><div class="shop-footer__signup"><h2>Stay in the loop</h2><p>Seasonal notes. Demo signup stays in this browser.</p><form><label class="sr-only" for="shop-email">Email address</label><input id="shop-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" spellcheck="false" required><button type="submit" aria-label="Subscribe"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button></form></div></div><div class="shop-footer__bar"><span>Portfolio storefront concept · No real orders are processed.</span><span>© 2026 Verde Market. All rights reserved.</span></div></div></footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"
-        onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script src="assets/js/verde-polish.js" defer></script>
     <script>
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-            document.addEventListener('DOMContentLoaded', function () {
-                var products = document.querySelectorAll('.product-card');
-                if (products.length) {
-                    gsap.from(products, {
-                        opacity: 0,
-                        y: 40,
-                        stagger: 0.08,
-                        duration: 0.6,
-                        ease: 'power2.out',
-                        scrollTrigger: { trigger: '.products-grid', start: 'top 85%', once: true }
-                    });
+        (() => {
+            function initShop() {
+                const search = document.getElementById("shop-search");
+                const sort = document.getElementById("shop-sort");
+                const grid = document.getElementById("product-grid");
+                const empty = document.getElementById("shop-search-empty");
+                const count = document.getElementById("shop-results-count");
+                if (!search || !sort || !grid || !empty || !count) return;
+
+                const cards = Array.from(grid.querySelectorAll("[data-category]"));
+                const filters = Array.from(document.querySelectorAll("[data-shop-filter]"));
+                const resets = Array.from(document.querySelectorAll("[data-shop-reset]"));
+                const categories = new Set(filters.map((filter) => filter.dataset.shopFilter));
+                const sortOptions = new Set(Array.from(sort.options, (option) => option.value));
+                let category = "all";
+
+                function readURL() {
+                    const url = new URL(window.location.href);
+                    const requested = url.searchParams.get("category") || url.hash.slice(1);
+                    category = categories.has(requested) ? requested : "all";
+                    search.value = (url.searchParams.get("q") || "").slice(0, 80);
+                    const requestedSort = url.searchParams.get("sort");
+                    sort.value = sortOptions.has(requestedSort) ? requestedSort : "featured";
                 }
-            });
-        }
+
+                function syncURL(push) {
+                    const url = new URL(window.location.href);
+                    const query = search.value.trim();
+                    if (query) url.searchParams.set("q", query);
+                    else url.searchParams.delete("q");
+                    if (sort.value !== "featured") url.searchParams.set("sort", sort.value);
+                    else url.searchParams.delete("sort");
+                    url.searchParams.delete("category");
+                    url.hash = category === "all" ? "" : category;
+                    if (url.href !== window.location.href) {
+                        window.history[push ? "pushState" : "replaceState"]({}, "", url);
+                    }
+                }
+
+                function render(sync = false, push = false) {
+                    const query = search.value.trim().toLowerCase();
+                    let visible = 0;
+                    const sorted = cards.slice().sort((a, b) => {
+                        if (sort.value === "price-asc") return Number(a.dataset.price) - Number(b.dataset.price);
+                        if (sort.value === "price-desc") return Number(b.dataset.price) - Number(a.dataset.price);
+                        if (sort.value === "name") return a.querySelector("h3").textContent.localeCompare(b.querySelector("h3").textContent);
+                        return cards.indexOf(a) - cards.indexOf(b);
+                    });
+                    sorted.forEach((card) => {
+                        const categoryMatch = category === "all" || card.dataset.category.split(/\s+/).includes(category);
+                        const searchText = [card.querySelector("h3").textContent, card.querySelector(".shop-product__note").textContent, card.dataset.category].join(" ").toLowerCase();
+                        const matches = categoryMatch && (!query || searchText.includes(query));
+                        card.classList.toggle("verde-hidden", !matches);
+                        card.classList.remove("shop-search-hidden");
+                        if (matches) visible += 1;
+                        grid.appendChild(card);
+                    });
+                    filters.forEach((filter) => {
+                        const selected = filter.dataset.shopFilter === category;
+                        filter.setAttribute("aria-pressed", String(selected));
+                        filter.classList.toggle("bg-primary", selected);
+                        filter.classList.toggle("text-white", selected);
+                    });
+                    const queryLabel = search.value.trim() ? ' for “' + search.value.trim() + '”' : "";
+                    count.textContent = visible + " of " + cards.length + " seasonal finds" + queryLabel;
+                    empty.hidden = visible > 0;
+                    const altered = Boolean(query || category !== "all" || sort.value !== "featured");
+                    resets.forEach((reset) => { reset.hidden = !altered; });
+                    if (sync) syncURL(push);
+                }
+
+                search.addEventListener("input", () => render(true));
+                sort.addEventListener("change", () => render(true, true));
+                filters.forEach((filter) => filter.addEventListener("click", () => {
+                    category = filter.dataset.shopFilter;
+                    render(true, true);
+                }));
+                resets.forEach((reset) => reset.addEventListener("click", () => {
+                    search.value = "";
+                    sort.value = "featured";
+                    category = "all";
+                    render(true, true);
+                    search.focus({ preventScroll: true });
+                }));
+                const restore = () => { readURL(); render(); };
+                window.addEventListener("popstate", restore);
+                window.addEventListener("hashchange", restore);
+                restore();
+            }
+            if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initShop);
+            else initShop();
+        })();
     </script>
 </body>
 </html>

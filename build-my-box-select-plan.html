@@ -1,257 +1,246 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Build My Box Select Plan | Verde Market</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#17cf73",
-                        "background-light": "#f6f8f7",
-                        "background-dark": "#112119",
-                    },
-                    fontFamily: {
-                        "display": ["Noto Serif", "serif"]
-                    },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
-                },
-            },
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Your Produce Box | Verde Market</title>
+    <meta name="description" content="Compare Verde Market produce-box sizes and choose a flexible weekly, bi-weekly, or monthly delivery rhythm." />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/build-my-box-select-plan" />
+    <link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Build Your Verde Box" />
+    <meta property="og:description" content="A flexible, interactive seasonal produce subscription flow." />
+    <meta property="og:image" content="https://verde-market.vercel.app/assets/verde-market-social-preview.jpg" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style>
+        .plan-card {
+            transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
         }
-    </script>
-<style>
-        body { font-family: 'Noto Serif', serif; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+
+        .plan-card:hover {
+            border-color: rgba(39, 103, 73, 0.55);
+            box-shadow: 0 22px 55px rgba(23, 73, 54, 0.1);
+            transform: translateY(-0.25rem);
+        }
+
+        .plan-card.verde-selected-card {
+            background: #f6fbf8;
+        }
+
+        .frequency-option:has(input:checked) {
+            background: #174936;
+            color: #ffffff;
+            box-shadow: 0 8px 24px rgba(23, 73, 54, 0.22);
+        }
+
+        @media (max-width: 639px) {
+            .progress-label {
+                font-size: 0.68rem;
+            }
+
+            .frequency-group {
+                display: grid;
+                gap: 0.5rem;
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-10 py-4 bg-background-light dark:bg-background-dark sticky top-0 z-50">
-<a class="flex items-center gap-4 text-slate-900 dark:text-slate-100 hover:opacity-90 transition-opacity" href="index.html">
-<div class="size-6 text-primary">
-<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z"></path>
-</svg>
-</div>
-<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Verde Market</h2>
-</a>
-<nav class="flex flex-1 justify-end gap-8 items-center">
-<div class="flex items-center gap-9 hidden md:flex">
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
-<a class="text-sm font-bold leading-normal text-primary" href="build-my-box-select-plan.html">Build My Box</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-our-story.html">Our Story</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="verde-market-locations.html">Contact</a>
-</div>
-<button type="button" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span>Cart (0)</span>
-</button>
-</nav>
-</header>
-<main class="flex-1 flex flex-col items-center py-8 px-4 sm:px-8 lg:px-12 w-full max-w-7xl mx-auto gap-8">
-<div class="w-full max-w-3xl flex flex-col gap-4">
-<div class="flex justify-between items-center text-sm font-medium">
-<span class="text-primary font-bold">1. Customize</span>
-<span class="text-slate-500 dark:text-slate-400">2. Schedule</span>
-<span class="text-slate-500 dark:text-slate-400">3. Checkout</span>
-</div>
-<div class="h-2 rounded-full bg-primary/20 overflow-hidden">
-<div class="h-full bg-primary rounded-full w-1/3 transition-all duration-500"></div>
-</div>
-</div>
-<div class="text-center flex flex-col gap-2 w-full">
-<h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight">Step 1: Choose Your Box Size &amp; Frequency</h1>
-<p class="text-lg text-slate-600 dark:text-slate-300">Select the perfect amount of fresh, organic produce for your household.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-4">
-<div class="flex flex-col gap-6 rounded-xl border-2 border-primary/20 bg-background-light dark:bg-background-dark p-8 hover:border-primary transition-colors cursor-pointer group relative overflow-hidden shadow-sm hover:shadow-md">
-<div class="absolute top-0 left-0 w-full h-2 bg-transparent group-hover:bg-primary transition-colors"></div>
-<div class="flex flex-col gap-2 text-center">
-<h2 class="text-2xl font-bold leading-tight">The Personal Box</h2>
-<p class="text-slate-600 dark:text-slate-400 text-sm h-10">Ideal for individuals looking to incorporate more organic greens.</p>
-</div>
-<div class="flex flex-col items-center justify-center gap-1 py-4 border-y border-primary/10">
-<div class="flex items-baseline gap-1 text-primary">
-<span class="text-5xl font-black leading-none">$45</span>
-<span class="text-lg font-bold">/box</span>
-</div>
-</div>
-<div class="flex flex-col gap-4 flex-1 mt-2">
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>8-10 organic produce items</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Perfect for 1-2 people</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Seasonal fruit &amp; veggie mix</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Free local delivery</span>
-</div>
-</div>
-<button type="button" class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-background-dark transition-all border border-primary/20 group-hover:bg-primary group-hover:text-background-dark">
-                    Select Personal
+</head>
+<body class="min-h-screen bg-cream font-sans text-[#102a22] antialiased">
+    <a class="verde-skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="sticky top-0 z-50 border-b border-[#276749]/15 bg-cream/95 px-4 py-3 backdrop-blur-md sm:px-6 lg:px-10">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4">
+            <a class="flex items-center gap-3" href="index.html" aria-label="Verde Market home">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-citrus" aria-hidden="true">
+                    <span class="material-symbols-outlined">eco</span>
+                </span>
+                <span class="font-display text-xl font-bold tracking-tight sm:text-2xl">Verde Market</span>
+            </a>
+            <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Main navigation">
+                <a class="transition-colors hover:text-primary" href="verde-market-shop-page.html">Shop</a>
+                <a class="text-primary" href="build-my-box-select-plan.html" aria-current="page">Build a Box</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-our-story.html">Our Story</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-locations.html">Locations</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <a class="hidden rounded-full border border-[#276749]/20 px-4 py-2 text-sm font-bold transition-colors hover:bg-mint sm:inline-flex" href="verde-market-subscriber-dashboard.html">My subscription</a>
+                <button class="verde-cart-trigger" type="button" aria-label="Shopping cart" aria-haspopup="dialog" aria-expanded="false">
+                    <span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span>
                 </button>
-</div>
-<div class="flex flex-col gap-6 rounded-xl border-2 border-primary bg-primary/5 dark:bg-primary/10 p-8 relative shadow-lg transform md:-translate-y-2">
-<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-background-dark text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-                    Most Popular
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="border-b border-[#276749]/10 px-4 pb-12 pt-8 sm:px-6 sm:pb-16 lg:px-10">
+            <div class="mx-auto max-w-7xl">
+                <nav class="mx-auto mb-12 max-w-3xl" aria-label="Subscription progress">
+                    <ol class="grid grid-cols-4 gap-1">
+                        <li class="relative text-center" aria-current="step">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs font-extrabold text-white">1</span>
+                            <span class="progress-label mt-2 block font-bold text-primary">Choose your box</span>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-[#276749]/20" aria-hidden="true"></span>
+                        </li>
+                        <li class="relative text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full border border-[#276749]/20 bg-white text-xs font-extrabold text-[#607068]">2</span>
+                            <span class="progress-label mt-2 block font-semibold text-[#607068]">Customize harvest</span>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-[#276749]/20" aria-hidden="true"></span>
+                        </li>
+                        <li class="relative text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full border border-[#276749]/20 bg-white text-xs font-extrabold text-[#607068]">3</span>
+                            <span class="progress-label mt-2 block font-semibold text-[#607068]">Checkout</span>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-[#276749]/20" aria-hidden="true"></span>
+                        </li>
+                        <li class="text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full border border-[#276749]/20 bg-white text-xs font-extrabold text-[#607068]">4</span>
+                            <span class="progress-label mt-2 block font-semibold text-[#607068]">Confirmed</span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="mb-4 text-xs font-extrabold uppercase tracking-[0.2em] text-primary">Your harvest, your rhythm</p>
+                    <h1 class="font-display text-4xl font-bold leading-[0.98] tracking-tight sm:text-6xl">Choose the box that fits your table.</h1>
+                    <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#5a6962] sm:text-lg">Every plan includes local delivery, flexible skips, and eight preference slots. We scale each portion to the household size you choose.</p>
                 </div>
-<div class="flex flex-col gap-2 text-center mt-2">
-<h2 class="text-2xl font-bold leading-tight">The Family Box</h2>
-<p class="text-slate-600 dark:text-slate-400 text-sm h-10">A balanced mix of fruits and vegetables for regular cooking.</p>
-</div>
-<div class="flex flex-col items-center justify-center gap-1 py-4 border-y border-primary/20">
-<div class="flex items-baseline gap-1 text-primary">
-<span class="text-5xl font-black leading-none">$85</span>
-<span class="text-lg font-bold">/box</span>
-</div>
-</div>
-<div class="flex flex-col gap-4 flex-1 mt-2">
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>15-18 organic produce items</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Perfect for 3-4 people</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Includes weekly recipe guides</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Free local delivery</span>
-</div>
-</div>
-<button type="button" class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary text-background-dark font-bold hover:bg-primary/90 transition-all shadow-md">
-                    Selected
-                </button>
-</div>
-<div class="flex flex-col gap-6 rounded-xl border-2 border-primary/20 bg-background-light dark:bg-background-dark p-8 hover:border-primary transition-colors cursor-pointer group relative overflow-hidden shadow-sm hover:shadow-md">
-<div class="absolute top-0 left-0 w-full h-2 bg-transparent group-hover:bg-primary transition-colors"></div>
-<div class="flex flex-col gap-2 text-center">
-<h2 class="text-2xl font-bold leading-tight">The Harvest Feast</h2>
-<p class="text-slate-600 dark:text-slate-400 text-sm h-10">Abundant variety for large families and passionate home chefs.</p>
-</div>
-<div class="flex flex-col items-center justify-center gap-1 py-4 border-y border-primary/10">
-<div class="flex items-baseline gap-1 text-primary">
-<span class="text-5xl font-black leading-none">$120</span>
-<span class="text-lg font-bold">/box</span>
-</div>
-</div>
-<div class="flex flex-col gap-4 flex-1 mt-2">
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>25-30 organic produce items</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Perfect for 5+ people</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Premium specialty items included</span>
-</div>
-<div class="text-sm font-medium leading-relaxed flex gap-3 items-start">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-<span>Free local delivery</span>
-</div>
-</div>
-<button type="button" class="mt-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-background-dark transition-all border border-primary/20 group-hover:bg-primary group-hover:text-background-dark">
-                    Select Harvest
-                </button>
-</div>
-</div>
-<div class="w-full max-w-xl flex flex-col items-center gap-6 mt-8">
-<h3 class="text-xl font-bold">Choose Frequency</h3>
-<div class="flex h-14 w-full items-center justify-center rounded-full bg-primary/10 dark:bg-primary/5 p-1 border border-primary/20">
-<label class="flex cursor-pointer h-full grow items-center justify-center rounded-full px-4 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-600 dark:text-slate-400 text-base font-bold transition-all">
-<span>Weekly</span>
-<input checked="" class="invisible w-0" name="frequency" type="radio" value="Weekly"/>
-</label>
-<label class="flex cursor-pointer h-full grow items-center justify-center rounded-full px-4 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-600 dark:text-slate-400 text-base font-bold transition-all">
-<span>Bi-weekly</span>
-<input class="invisible w-0" name="frequency" type="radio" value="Bi-weekly"/>
-</label>
-<label class="flex cursor-pointer h-full grow items-center justify-center rounded-full px-4 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-600 dark:text-slate-400 text-base font-bold transition-all">
-<span>Monthly</span>
-<input class="invisible w-0" name="frequency" type="radio" value="Monthly"/>
-</label>
-</div>
-</div>
-<div class="w-full max-w-xl mt-8 pt-8 border-t border-primary/20 flex justify-center">
-<a class="flex w-full sm:w-auto min-w-[240px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary text-background-dark text-lg font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform" href="build-my-box-customize-contents.html">
-                Continue to Customize
-                <span class="material-symbols-outlined ml-2">arrow_forward</span>
-</a>
-</div>
-</main>
-<footer class="mt-16 py-8 border-t border-primary/20 text-center text-sm text-slate-500 dark:text-slate-400">
-<p>© 2024 Verde Market. All rights reserved.</p>
-</footer>
+            </div>
+        </section>
 
-<!-- GSAP / Lenis Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script>
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
-    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
-    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
-    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
+        <section class="px-4 py-12 sm:px-6 sm:py-16 lg:px-10" aria-labelledby="plans-heading">
+            <div class="mx-auto max-w-7xl">
+                <div class="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+                    <div>
+                        <h2 id="plans-heading" class="font-display text-3xl font-bold sm:text-4xl">Three simple sizes</h2>
+                        <p class="mt-2 text-sm leading-6 text-[#607068]">Prices are per delivery. Pick a cadence below, then tailor the produce mix.</p>
+                    </div>
+                    <p class="flex items-center gap-2 text-sm font-bold text-primary">
+                        <span class="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
+                        Pause or skip anytime
+                    </p>
+                </div>
 
-    let lenis;
-    try {
-        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-        lenis.on('scroll', ScrollTrigger.update);
-    } catch(e) {
-        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
-        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
-    }
-    window.lenis = lenis;
+                <div class="grid gap-5 lg:grid-cols-3" role="group" aria-label="Produce box plan">
+                    <article class="plan-card relative flex flex-col rounded-xl border border-[#276749]/20 bg-white p-6 sm:p-8" data-plan-card="personal" data-plan-price="45">
+                        <div class="mb-7 flex items-start justify-between gap-4">
+                            <div>
+                                <p class="mb-2 text-xs font-extrabold uppercase tracking-[0.16em] text-primary">1–2 people</p>
+                                <h2 class="font-display text-3xl font-bold">The Personal Box</h2>
+                            </div>
+                            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined">person</span></span>
+                        </div>
+                        <p class="min-h-12 text-sm leading-6 text-[#607068]">A compact, produce-forward mix for solo cooks and small households.</p>
+                        <p class="my-7 border-y border-[#276749]/12 py-5"><span class="font-display text-5xl font-bold text-forest">$45</span><span class="ml-1 text-sm font-bold text-[#607068]">/ box</span></p>
+                        <ul class="mb-8 grid gap-3 text-sm">
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>8–10 seasonal produce varieties</span></li>
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>Portioned for 1–2 people</span></li>
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>Free local doorstep delivery</span></li>
+                        </ul>
+                        <button class="mt-auto flex min-h-12 w-full items-center justify-center rounded-full border border-primary bg-white px-5 text-sm font-extrabold text-primary transition-colors hover:bg-mint" type="button" aria-pressed="false">Select Personal</button>
+                    </article>
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('header, nav[role="navigation"]');
-        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
+                    <article class="plan-card verde-selected-card relative flex flex-col rounded-xl border-2 border-primary bg-white p-6 shadow-xl shadow-[#174936]/10 sm:p-8" data-plan-card="family" data-plan-price="85">
+                        <div class="absolute -top-3 left-6 rounded-full bg-citrus px-4 py-1 text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-forest">Most loved</div>
+                        <div class="mb-7 mt-2 flex items-start justify-between gap-4">
+                            <div>
+                                <p class="mb-2 text-xs font-extrabold uppercase tracking-[0.16em] text-primary">3–4 people</p>
+                                <h2 class="font-display text-3xl font-bold">The Family Box</h2>
+                            </div>
+                            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined">diversity_3</span></span>
+                        </div>
+                        <p class="min-h-12 text-sm leading-6 text-[#607068]">A generous fruit-and-vegetable balance for everyday family cooking.</p>
+                        <p class="my-7 border-y border-[#276749]/12 py-5"><span class="font-display text-5xl font-bold text-forest">$85</span><span class="ml-1 text-sm font-bold text-[#607068]">/ box</span></p>
+                        <ul class="mb-8 grid gap-3 text-sm">
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>15–18 seasonal produce varieties</span></li>
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>Weekly recipe inspiration</span></li>
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>Free local doorstep delivery</span></li>
+                        </ul>
+                        <button class="mt-auto flex min-h-12 w-full items-center justify-center rounded-full bg-primary px-5 text-sm font-extrabold text-white transition-colors hover:bg-forest" type="button" aria-pressed="true">Selected</button>
+                    </article>
 
-        document.querySelectorAll('h1, h2').forEach((el, i) => {
-            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
-        });
+                    <article class="plan-card relative flex flex-col rounded-xl border border-[#276749]/20 bg-white p-6 sm:p-8" data-plan-card="harvest" data-plan-price="120">
+                        <div class="mb-7 flex items-start justify-between gap-4">
+                            <div>
+                                <p class="mb-2 text-xs font-extrabold uppercase tracking-[0.16em] text-primary">5+ people</p>
+                                <h2 class="font-display text-3xl font-bold">The Harvest Feast</h2>
+                            </div>
+                            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined">groups</span></span>
+                        </div>
+                        <p class="min-h-12 text-sm leading-6 text-[#607068]">Abundant variety for larger families, gatherings, and keen home chefs.</p>
+                        <p class="my-7 border-y border-[#276749]/12 py-5"><span class="font-display text-5xl font-bold text-forest">$120</span><span class="ml-1 text-sm font-bold text-[#607068]">/ box</span></p>
+                        <ul class="mb-8 grid gap-3 text-sm">
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>25–30 produce varieties</span></li>
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>Specialty harvest picks included</span></li>
+                            <li class="flex gap-3"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">check_circle</span><span>Free local doorstep delivery</span></li>
+                        </ul>
+                        <button class="mt-auto flex min-h-12 w-full items-center justify-center rounded-full border border-primary bg-white px-5 text-sm font-extrabold text-primary transition-colors hover:bg-mint" type="button" aria-pressed="false">Select Harvest</button>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
-        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
+        <section class="bg-forest px-4 py-12 text-white sm:px-6 lg:px-10" aria-labelledby="frequency-heading">
+            <div class="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1fr_1.35fr] lg:items-center">
+                <div>
+                    <h2 id="frequency-heading" class="font-display text-3xl font-bold sm:text-4xl">Set your delivery rhythm.</h2>
+                    <p class="mt-3 max-w-md text-sm leading-6 text-white/70">Your plan stays flexible. Change cadence, skip a harvest, or pause from the subscriber dashboard.</p>
+                </div>
+                <fieldset>
+                    <legend class="sr-only">Delivery frequency</legend>
+                    <div class="frequency-group flex rounded-2xl bg-white/10 p-2">
+                        <label class="frequency-option flex min-h-12 flex-1 cursor-pointer items-center justify-center rounded-xl px-4 text-center text-sm font-extrabold text-white/80 transition-colors">
+                            <input class="sr-only" type="radio" name="frequency" value="Weekly" checked />
+                            <span>Every week</span>
+                        </label>
+                        <label class="frequency-option flex min-h-12 flex-1 cursor-pointer items-center justify-center rounded-xl px-4 text-center text-sm font-extrabold text-white/80 transition-colors">
+                            <input class="sr-only" type="radio" name="frequency" value="Bi-weekly" />
+                            <span>Every 2 weeks</span>
+                        </label>
+                        <label class="frequency-option flex min-h-12 flex-1 cursor-pointer items-center justify-center rounded-xl px-4 text-center text-sm font-extrabold text-white/80 transition-colors">
+                            <input class="sr-only" type="radio" name="frequency" value="Monthly" />
+                            <span>Every month</span>
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
 
-        const imgs = document.querySelectorAll('img');
-        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
+        <section class="px-4 py-12 sm:px-6 sm:py-16 lg:px-10" aria-label="Continue building your box">
+            <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-7 rounded-[2rem] border border-[#276749]/15 bg-white p-6 shadow-[0_24px_70px_rgba(20,73,53,0.10)] sm:flex-row sm:p-9">
+                <div>
+                    <p id="plan-next-heading" class="font-display text-2xl font-bold">Next: make the harvest yours.</p>
+                    <p id="selected-plan-summary" class="mt-2 text-sm font-bold text-primary" aria-live="polite">The Family Box · $85.00 per delivery · Weekly</p>
+                    <p id="plan-next-copy" class="mt-2 max-w-xl text-sm leading-6 text-[#607068]">Choose up to eight favorites. Your grower fills the remaining slots, and no payment is taken in this demo.</p>
+                </div>
+                <a id="plan-continue" class="inline-flex min-h-14 w-full shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-extrabold text-white shadow-lg shadow-[#174936]/20 transition-transform hover:-translate-y-0.5 sm:w-auto" href="build-my-box-customize-contents.html">
+                    Fill my box
+                    <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
+                </a>
+            </div>
+        </section>
+    </main>
 
-        const btns = document.querySelectorAll('button, [class*="btn"]');
-        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
+    <footer class="border-t border-[#276749]/15 px-4 py-7 text-center text-xs text-[#607068]">
+        <p>© 2026 Verde Market. A portfolio concept for thoughtful local grocery delivery.</p>
+    </footer>
 
-        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
-            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
-            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
-            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
-            document.body.style.cursor = 'none';
+    <script src="assets/vendor/gsap-3.12.5.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger-3.12.5.min.js"></script>
+    <script>
+        if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from("main section:first-of-type h1", { opacity: 0, y: 24, duration: 0.8, ease: "power3.out" });
+            gsap.from(".plan-card", { opacity: 0, y: 28, duration: 0.7, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: ".plan-card", start: "top 85%", once: true } });
         }
-    });
-}
-</script>
-</body></html>
+    </script>
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script src="assets/js/verde-polish.js" defer></script>
+</body>
+</html>

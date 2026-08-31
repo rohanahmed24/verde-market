@@ -1,252 +1,787 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Verde Market Sustainability | Verde Market</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#11d452",
-                        "background-light": "#f6f8f6",
-                        "background-dark": "#102216",
-                        "text-primary-light": "#102216",
-                        "text-secondary-light": "#4a6b56",
-                        "border-light": "#e0e8e2",
-                        "surface-light": "#ffffff",
-                        "surface-muted": "#eaf2ec"
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
-                },
-            },
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sustainability — Better for the Earth | Verde Market</title>
+    <meta name="description" content="Explore Verde Market's low-waste packaging, regenerative farming, carbon-conscious delivery, and impact metrics." />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/verde-market-sustainability" />
+<link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Sustainability | Verde Market" />
+    <meta property="og:description" content="A practical impact story for a lower-waste local food system." />
+    <meta property="og:image" content="https://verde-market.vercel.app/assets/verde-market-social-preview.jpg" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style id="impact-page-styles">
+        .impact-page {
+            background: var(--verde-cream);
+            color: var(--verde-ink);
+            min-height: 100vh;
         }
-    </script>
-<style>
-        body {
-            font-family: 'Manrope', sans-serif;
+
+        .impact-shell {
+            margin-inline: auto;
+            width: min(calc(100% - 2rem), 76rem);
+        }
+
+        .impact-header {
+            background: color-mix(in srgb, var(--verde-cream) 92%, transparent);
+            border-bottom: 1px solid var(--verde-line);
+            position: sticky;
+            top: 0;
+            z-index: 70;
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+        }
+
+        .impact-header__inner {
+            align-items: center;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: space-between;
+            min-height: 5rem;
+        }
+
+        .impact-brand {
+            align-items: center;
+            color: var(--verde-forest-deep);
+            display: inline-flex;
+            flex: 0 0 auto;
+            font-family: "Fraunces", serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            gap: 0.65rem;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .impact-brand__mark {
+            align-items: center;
+            border: 1px solid var(--verde-line);
+            border-radius: 50%;
+            display: inline-flex;
+            height: 2.25rem;
+            justify-content: center;
+            width: 2.25rem;
+        }
+
+        .impact-nav {
+            align-items: center;
+            display: flex;
+            gap: clamp(1.25rem, 2.4vw, 2.2rem);
+            margin-left: auto;
+        }
+
+        .impact-nav a {
+            color: #355249;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .impact-actions {
+            align-items: center;
+            display: flex;
+            gap: 0.55rem;
+        }
+
+        .impact-icon-action {
+            align-items: center;
+            background: transparent;
+            border: 0;
+            border-radius: 999px;
+            color: var(--verde-ink);
+            display: inline-flex;
+            height: 2.75rem;
+            justify-content: center;
+            width: 2.75rem;
+        }
+
+        .impact-menu-action {
+            display: none;
+        }
+
+        .impact-start,
+        .impact-button {
+            align-items: center;
+            border-radius: 999px;
+            display: inline-flex;
+            font-size: 0.82rem;
+            font-weight: 800;
+            gap: 0.5rem;
+            justify-content: center;
+            min-height: 2.75rem;
+            padding: 0.65rem 1.2rem;
+            text-decoration: none;
+        }
+
+        .impact-start,
+        .impact-button--light {
+            background: var(--verde-forest-deep);
+            box-shadow: 0 10px 24px rgba(23, 73, 54, 0.18);
+            color: white;
+        }
+
+        .impact-hero {
+            padding-block: 1.25rem clamp(4rem, 8vw, 7rem);
+        }
+
+        .impact-hero__panel {
+            background-color: var(--verde-forest-deep);
+            background-position: center;
+            background-size: cover;
+            border-radius: clamp(1.5rem, 4vw, 3.5rem) 1rem clamp(1.5rem, 4vw, 3.5rem) 1rem;
+            box-shadow: var(--verde-shadow);
+            color: white;
+            min-height: min(42rem, calc(100vh - 7.5rem));
+            overflow: hidden;
+            position: relative;
+        }
+
+        .impact-hero__panel::before {
+            background: linear-gradient(90deg, rgba(8, 38, 27, 0.94) 0%, rgba(8, 38, 27, 0.82) 45%, rgba(8, 38, 27, 0.18) 78%, rgba(8, 38, 27, 0.08) 100%);
+            content: "";
+            inset: 0;
+            position: absolute;
+        }
+
+        .impact-hero__copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: inherit;
+            padding: clamp(2rem, 7vw, 6rem);
+            position: relative;
+            width: min(60%, 43rem);
+            z-index: 1;
+        }
+
+        .impact-eyebrow {
+            color: var(--verde-citrus);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            margin: 0 0 1.25rem;
+            text-transform: uppercase;
+        }
+
+        .impact-hero h1 {
+            color: white;
+            font-size: clamp(3.7rem, 7.4vw, 7rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 0.91;
+            margin: 0;
+            text-wrap: balance;
+        }
+
+        .impact-hero__lead {
+            color: #d5e5dc;
+            font-size: clamp(1rem, 1.35vw, 1.15rem);
+            line-height: 1.75;
+            margin: 1.6rem 0 0;
+            max-width: 34rem;
+        }
+
+        .impact-hero__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .impact-button {
+            min-height: 3.15rem;
+            padding-inline: 1.4rem;
+        }
+
+        .impact-button--citrus {
+            background: var(--verde-citrus);
+            color: var(--verde-ink);
+        }
+
+        .impact-button--ghost {
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            color: white;
+        }
+
+        .impact-intro,
+        .impact-section {
+            padding-block: clamp(4.5rem, 9vw, 8.5rem);
+        }
+
+        .impact-intro {
+            display: grid;
+            gap: 2rem 5rem;
+            grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.58fr);
+        }
+
+        .impact-intro h2,
+        .impact-section__heading h2,
+        .impact-cycle h2,
+        .impact-next h2 {
+            font-size: clamp(2.75rem, 5.5vw, 5.3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 0.98;
+            margin: 0;
+            text-wrap: balance;
+        }
+
+        .impact-intro__copy {
+            align-self: end;
+        }
+
+        .impact-intro__copy p,
+        .impact-section__heading p,
+        .impact-cycle__copy p,
+        .impact-next p {
+            color: #536b62;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .impact-intro__copy p + p {
+            margin-top: 1rem;
+        }
+
+        .impact-principles {
+            border-top: 1px solid var(--verde-line);
+            grid-column: 1 / -1;
+            margin-top: clamp(2rem, 5vw, 4rem);
+        }
+
+        .impact-principle {
+            align-items: start;
+            border-bottom: 1px solid var(--verde-line);
+            display: grid;
+            gap: 1.25rem;
+            grid-template-columns: 4.25rem minmax(15rem, 0.75fr) minmax(18rem, 1.1fr);
+            padding-block: clamp(1.6rem, 3.5vw, 2.5rem);
+        }
+
+        .impact-principle__icon {
+            align-items: center;
+            background: var(--verde-mint);
+            border-radius: 50%;
+            color: var(--verde-forest);
+            display: inline-flex;
+            height: 3.2rem;
+            justify-content: center;
+            width: 3.2rem;
+        }
+
+        .impact-principle h3 {
+            font-size: clamp(1.55rem, 2.5vw, 2.3rem);
+            letter-spacing: -0.035em;
+            margin: 0;
+        }
+
+        .impact-principle p {
+            color: #536b62;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .impact-metrics-section {
+            background: #edf4ef;
+        }
+
+        .impact-section__heading {
+            display: grid;
+            gap: 1.5rem 4rem;
+            grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 0.45fr);
+            margin-bottom: clamp(3rem, 6vw, 5rem);
+        }
+
+        .impact-section__heading p {
+            align-self: end;
+        }
+
+        .impact-metrics {
+            border-bottom: 1px solid rgba(39, 103, 73, 0.18);
+            border-top: 1px solid rgba(39, 103, 73, 0.18);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .impact-metric {
+            border-left: 1px solid rgba(39, 103, 73, 0.18);
+            min-height: 15rem;
+            padding: 2rem 1.5rem;
+        }
+
+        .impact-metric:last-child {
+            border-right: 1px solid rgba(39, 103, 73, 0.18);
+        }
+
+        .impact-metric strong {
+            color: var(--verde-forest-deep);
+            display: block;
+            font-family: "Fraunces", serif;
+            font-size: clamp(3.5rem, 6vw, 6rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            margin-bottom: 4rem;
+        }
+
+        .impact-metric span {
+            color: #3f5b51;
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .impact-metrics-note {
+            color: #668077;
+            font-size: 0.78rem;
+            line-height: 1.6;
+            margin: 1.25rem 0 0;
+        }
+
+        .impact-cycle {
+            align-items: stretch;
+            display: grid;
+            grid-template-columns: minmax(20rem, 0.8fr) minmax(0, 1.2fr);
+            padding-block: clamp(4.5rem, 9vw, 8.5rem);
+        }
+
+        .impact-cycle__copy {
+            align-self: center;
+            padding-right: clamp(2rem, 7vw, 6rem);
+        }
+
+        .impact-cycle__copy p {
+            margin-top: 1.35rem;
+        }
+
+        .impact-cycle__steps {
+            background: var(--verde-forest-deep);
+            border-radius: 1rem 3rem 1rem 3rem;
+            color: white;
+            list-style: none;
+            margin: 0;
+            padding: clamp(2rem, 5vw, 4rem);
+        }
+
+        .impact-cycle__steps li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+            display: grid;
+            gap: 1.25rem;
+            grid-template-columns: 3rem 1fr;
+            padding-block: 1.5rem;
+        }
+
+        .impact-cycle__steps li:last-child {
+            border-bottom: 0;
+        }
+
+        .impact-cycle__steps span {
+            color: var(--verde-citrus);
+            font-family: "Fraunces", serif;
+            font-size: 1.5rem;
+        }
+
+        .impact-cycle__steps h3 {
+            color: white;
+            font-size: 1.55rem;
+            margin: 0 0 0.4rem;
+        }
+
+        .impact-cycle__steps p {
+            color: #bdd2c7;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .impact-next {
+            background: var(--verde-citrus);
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+        }
+
+        .impact-next__inner {
+            align-items: center;
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .impact-next p {
+            color: #355249;
+            margin-top: 1rem;
+            max-width: 38rem;
+        }
+
+        .impact-footer {
+            background: var(--verde-ink);
+            color: #d7e8df;
+            padding-block: 3rem 1.5rem;
+        }
+
+        .impact-footer__grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: minmax(15rem, 1.6fr) repeat(2, minmax(9rem, 0.6fr));
+        }
+
+        .impact-footer h2,
+        .impact-footer h3 {
+            color: white;
+            margin: 0 0 0.75rem;
+        }
+
+        .impact-footer p {
+            color: #a9c2b6;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 26rem;
+        }
+
+        .impact-footer ul {
+            display: grid;
+            gap: 0.6rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .impact-footer a {
+            color: #d7e8df;
+            font-size: 0.86rem;
+            text-decoration: none;
+        }
+
+        .impact-footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            font-size: 0.76rem;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+        }
+
+        .impact-intro .impact-eyebrow,
+        .impact-section .impact-eyebrow,
+        .impact-cycle .impact-eyebrow { color: var(--verde-forest); }
+        .impact-start:hover,
+        .impact-button--light:hover { background: var(--verde-ink); }
+        .impact-button--citrus:hover { background: #edfb9d; }
+        .impact-button--ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: white; }
+        .impact-icon-action:hover { background: var(--verde-mint); }
+        .impact-footer a:hover { color: white; text-decoration: underline; text-underline-offset: 0.2em; }
+        .impact-hero h1 { line-height: 0.99; }
+
+        @media (max-width: 1023px) {
+            .impact-nav,
+            .impact-start {
+                display: none;
+            }
+
+            .impact-menu-action {
+                display: inline-flex;
+            }
+
+            .impact-hero__copy {
+                width: 70%;
+            }
+
+            .impact-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-metric:nth-child(2) {
+                border-right: 1px solid rgba(39, 103, 73, 0.18);
+            }
+
+            .impact-metric:nth-child(-n + 2) {
+                border-bottom: 1px solid rgba(39, 103, 73, 0.18);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .impact-shell {
+                width: min(calc(100% - 1.25rem), 76rem);
+            }
+
+            .impact-header__inner {
+                min-height: 4.5rem;
+            }
+
+            .impact-brand {
+                font-size: 1.05rem;
+            }
+
+            .impact-brand__mark,
+            .impact-icon-action {
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+
+            .impact-actions {
+                gap: 0.25rem;
+            }
+
+            .impact-hero {
+                padding-top: 0.7rem;
+            }
+
+            .impact-hero__panel {
+                background-position: 64% center;
+                min-height: 43rem;
+            }
+
+            .impact-hero__panel::before {
+                background: linear-gradient(180deg, rgba(8, 38, 27, 0.22) 0%, rgba(8, 38, 27, 0.92) 52%, rgba(8, 38, 27, 0.98) 100%);
+            }
+
+            .impact-hero__copy {
+                justify-content: flex-end;
+                padding: 2rem 1.4rem;
+                width: 100%;
+            }
+
+            .impact-hero h1 {
+                font-size: clamp(3.25rem, 15vw, 5rem);
+            }
+
+            .impact-intro,
+            .impact-section__heading,
+            .impact-cycle,
+            .impact-next__inner,
+            .impact-footer__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-principle {
+                grid-template-columns: 3.5rem minmax(0, 1fr);
+            }
+
+            .impact-principle p {
+                grid-column: 2;
+            }
+
+            .impact-cycle__copy {
+                padding: 0 0 2rem;
+            }
+
+            .impact-footer__bottom {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .impact-account-action {
+                display: none;
+            }
+
+            .impact-hero__actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .impact-button {
+                width: 100%;
+            }
+
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-metric,
+            .impact-metric:nth-child(2),
+            .impact-metric:last-child {
+                border-bottom: 1px solid rgba(39, 103, 73, 0.18);
+                border-left: 1px solid rgba(39, 103, 73, 0.18);
+                border-right: 1px solid rgba(39, 103, 73, 0.18);
+                min-height: auto;
+            }
+
+            .impact-metric:last-child {
+                border-bottom: 0;
+            }
+
+            .impact-metric strong {
+                margin-bottom: 1.5rem;
+            }
         }
     </style>
-<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
-<body class="bg-background-light dark:bg-background-dark font-display text-text-primary-light antialiased">
-<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 flex flex-1 justify-center py-5 sm:px-10 lg:px-40">
-<div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
-<!-- Header -->
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light px-4 py-4 lg:px-10">
-<div class="flex items-center gap-8">
-<a class="flex items-center gap-4 text-text-primary-light hover:text-primary transition-colors" href="index.html">
-<span class="material-symbols-outlined text-primary">eco</span>
-<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Verde Market</h2>
-</a>
-<nav class="hidden md:flex items-center gap-9">
-<a class="text-text-primary-light hover:text-primary text-sm font-medium leading-normal transition-colors" href="verde-market-shop-page.html">Shop</a>
-<a class="text-text-primary-light hover:text-primary text-sm font-medium leading-normal transition-colors" href="verde-market-our-story.html">About</a>
-<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1 leading-normal transition-colors" href="verde-market-sustainability.html">Sustainability</a>
-<a class="text-text-primary-light hover:text-primary text-sm font-medium leading-normal transition-colors" href="verde-market-locations.html">Contact</a>
-</nav>
-</div>
-<div class="flex flex-1 justify-end gap-4 lg:gap-8 items-center">
-<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
-<div class="flex w-full flex-1 items-stretch rounded-full h-full bg-surface-muted">
-<div class="text-text-secondary-light flex border-none items-center justify-center pl-4 rounded-l-full">
-<span class="material-symbols-outlined text-[20px]">search</span>
-</div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-text-primary-light focus:outline-0 focus:ring-0 border-none bg-transparent focus:border-none h-full placeholder:text-text-secondary-light px-4 rounded-l-none pl-2 text-sm font-medium leading-normal" placeholder="Search" value=""/>
-</div>
-</label>
-<div class="flex gap-2">
-<button type="button" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-surface-muted text-text-primary-light hover:bg-primary/20 transition-colors" aria-label="Cart">
-<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
-</button>
-<button type="button" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-surface-muted text-text-primary-light hover:bg-primary/20 transition-colors" aria-label="Account">
-<span class="material-symbols-outlined text-[20px]">person</span>
-</button>
-<button type="button" class="md:hidden flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-surface-muted text-text-primary-light hover:bg-primary/20 transition-colors" aria-label="Menu">
-<span class="material-symbols-outlined text-[20px]">menu</span>
-</button>
-</div>
-</div>
-</header>
-<!-- Main Content -->
-<main class="flex flex-col flex-1 w-full">
-<!-- Hero Section -->
-<section class="@container py-6 px-4 lg:px-0 lg:py-8">
-<div class="flex min-h-[400px] md:min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl md:rounded-[2rem] items-center justify-center p-8 relative overflow-hidden" data-alt="Fresh organic vegetables on wooden table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZdacOChUmeLQUMIw6XkDgoi4mqYO47gz-g4Ow5we7F400N1yXeJZOKTGvaLeOuSflZdOndyjiqJFhyB5ckaBRXV4DYWAVXOpCLfCgJu8pkzbAXk2A_9OdFQoq-yOnkUe5pZ00RDxLpodLatMWiJpKPE_57wTU0eBrUCiQK2D-oJ3UcziNLXLpah4LH6uXVVcTXffUa8f6gLphuYaQZaUMq5ue_jNG3Glh3kSQe8Nqce5HGN3eoFEWmbehFLHaW3VKtgSj_bqr6FI");'>
-<!-- Overlay -->
-<div class="absolute inset-0 bg-text-primary-light/40 rounded-xl md:rounded-[2rem]"></div>
-<div class="relative z-10 flex flex-col gap-4 text-center max-w-[800px] items-center">
-<span class="px-4 py-1.5 rounded-full bg-primary text-surface-light text-xs font-bold tracking-widest uppercase">Our Promise</span>
-<h1 class="text-surface-light text-4xl font-black leading-tight tracking-[-0.03em] md:text-6xl lg:text-[72px]">
-                                        Better for the Earth,<br/> Better for You
-                                    </h1>
-<h2 class="text-surface-light/90 text-lg md:text-xl font-medium leading-relaxed max-w-[600px] mt-2">
-                                        We are committed to sustainability, ethical practices, and providing you with the purest organic foods.
-                                    </h2>
-<div class="mt-6 flex flex-col sm:flex-row gap-4">
-<button type="button" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-text-primary-light text-base font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30">
-                                            Shop Sustainably
-                                        </button>
-<button type="button" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-surface-light/20 backdrop-blur-sm border border-surface-light/30 text-surface-light text-base font-bold leading-normal tracking-wide hover:bg-surface-light/30 transition-colors">
-                                            Read Our Report
-                                        </button>
-</div>
-</div>
-</div>
-</section>
-<!-- Features Section -->
-<section class="flex flex-col gap-10 px-4 py-12 lg:px-0 lg:py-20 @container">
-<div class="flex flex-col gap-4 text-center items-center">
-<h2 class="text-primary text-sm font-bold tracking-widest uppercase">Our Eco-Efforts</h2>
-<h3 class="text-text-primary-light text-[32px] font-black leading-tight md:text-[40px] max-w-[720px]">
-                                    Sustainable Practices
-                                </h3>
-<p class="text-text-secondary-light text-lg font-medium leading-relaxed max-w-[600px]">
-                                    We believe in a better way of doing things. From farm to your front door, here's how we're making a positive impact.
-                                </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-6">
-<!-- Feature 1 -->
-<div class="flex flex-col gap-5 rounded-2xl bg-surface-muted p-8 hover:bg-primary/10 transition-colors group">
-<div class="w-14 h-14 rounded-full bg-surface-light flex items-center justify-center shadow-sm text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[28px]">package_2</span>
-</div>
-<div class="flex flex-col gap-2">
-<h4 class="text-text-primary-light text-xl font-bold leading-tight">Zero-Waste Packaging</h4>
-<p class="text-text-secondary-light text-base font-medium leading-relaxed">
-                                            All our packaging is 100% compostable or recyclable. We've eliminated single-use plastics from our entire supply chain.
-                                        </p>
-</div>
-</div>
-<!-- Feature 2 -->
-<div class="flex flex-col gap-5 rounded-2xl bg-surface-muted p-8 hover:bg-primary/10 transition-colors group">
-<div class="w-14 h-14 rounded-full bg-surface-light flex items-center justify-center shadow-sm text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[28px]">compost</span>
-</div>
-<div class="flex flex-col gap-2">
-<h4 class="text-text-primary-light text-xl font-bold leading-tight">Regenerative Farming</h4>
-<p class="text-text-secondary-light text-base font-medium leading-relaxed">
-                                            We partner exclusively with farms that prioritize soil health, water conservation, and biodiversity.
-                                        </p>
-</div>
-</div>
-<!-- Feature 3 -->
-<div class="flex flex-col gap-5 rounded-2xl bg-surface-muted p-8 hover:bg-primary/10 transition-colors group">
-<div class="w-14 h-14 rounded-full bg-surface-light flex items-center justify-center shadow-sm text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[28px]">local_shipping</span>
-</div>
-<div class="flex flex-col gap-2">
-<h4 class="text-text-primary-light text-xl font-bold leading-tight">Carbon Neutral Delivery</h4>
-<p class="text-text-secondary-light text-base font-medium leading-relaxed">
-                                            Every delivery is carbon offset through certified forestry projects to ensure a net-zero footprint.
-                                        </p>
-</div>
-</div>
-</div>
-</section>
-<!-- Impact Metrics Section -->
-<section class="flex flex-col px-4 py-12 lg:px-0 lg:py-20 border-t border-border-light">
-<div class="flex flex-col md:flex-row gap-12 items-center justify-between mb-12">
-<div class="flex flex-col gap-4 max-w-[500px]">
-<h2 class="text-primary text-sm font-bold tracking-widest uppercase">The Numbers</h2>
-<h3 class="text-text-primary-light text-[32px] font-black leading-tight md:text-[40px]">
-                                        Impact Metrics
-                                    </h3>
-<p class="text-text-secondary-light text-lg font-medium leading-relaxed">
-                                        Transparency is key. Here is the measurable impact our community has made this year by choosing Verde Market.
-                                    </p>
-</div>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
-<!-- Metric 1 -->
-<div class="flex flex-col justify-center items-center text-center p-8 rounded-2xl border border-border-light bg-surface-light">
-<span class="text-primary text-4xl md:text-5xl font-black mb-2">2.5M</span>
-<span class="text-text-primary-light text-sm font-bold uppercase tracking-wide">Liters Water Saved</span>
-</div>
-<!-- Metric 2 -->
-<div class="flex flex-col justify-center items-center text-center p-8 rounded-2xl border border-border-light bg-surface-light">
-<span class="text-primary text-4xl md:text-5xl font-black mb-2">500k</span>
-<span class="text-text-primary-light text-sm font-bold uppercase tracking-wide">Plastics Avoided</span>
-</div>
-<!-- Metric 3 -->
-<div class="flex flex-col justify-center items-center text-center p-8 rounded-2xl border border-border-light bg-surface-light">
-<span class="text-primary text-4xl md:text-5xl font-black mb-2">120</span>
-<span class="text-text-primary-light text-sm font-bold uppercase tracking-wide">Tons CO2 Offset</span>
-</div>
-<!-- Metric 4 -->
-<div class="flex flex-col justify-center items-center text-center p-8 rounded-2xl border border-border-light bg-surface-light">
-<span class="text-primary text-4xl md:text-5xl font-black mb-2">45</span>
-<span class="text-text-primary-light text-sm font-bold uppercase tracking-wide">Local Farm Partners</span>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer minimal -->
-<footer class="mt-auto border-t border-border-light py-8 px-4 lg:px-0 text-center text-text-secondary-light text-sm font-medium">
-<p>© 2024 Verde Market. Growing a better future.</p>
-</footer>
-</div>
-</div>
-</div>
-</div>
+</head>
+<body class="impact-page">
+    <div class="impact-page">
+        <header class="impact-header">
+            <div class="impact-shell impact-header__inner">
+                <a class="impact-brand" href="index.html" aria-label="Verde Market home">
+                    <span class="impact-brand__mark"><span class="material-symbols-outlined" aria-hidden="true">eco</span></span>
+                    <span>Verde Market</span>
+                </a>
+                <nav class="impact-nav" aria-label="Primary navigation">
+                    <a href="verde-market-shop-page.html">Shop</a>
+                    <a href="verde-market-our-story.html">Our Story</a>
+                    <a href="verde-market-sustainability.html" aria-current="page">Sustainability</a>
+                    <a href="verde-market-blog-journal.html">Journal</a>
+                    <a href="verde-market-locations.html">Locations</a>
+                </nav>
+                <div class="impact-actions">
+                    <button class="impact-icon-action" type="button" aria-label="Cart"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span></button>
+                    <button class="impact-icon-action impact-account-action" type="button" aria-label="Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></button>
+                    <button class="impact-icon-action impact-menu-action" type="button" aria-label="Menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+                    <a class="impact-start" href="build-my-box-select-plan.html">Start Fresh</a>
+                </div>
+            </div>
+        </header>
 
-<!-- GSAP / Lenis Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script>
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
-    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
-    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
-    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
+        <main id="main-content">
+            <section class="impact-shell impact-hero" aria-labelledby="impact-title">
+                <div class="impact-hero__panel" style="background-image: url('assets/images/harvest-bd9f16d0543e.webp');" >
+                    <div class="impact-hero__copy">
+                        <p class="impact-eyebrow">Our promise</p>
+                        <h1 id="impact-title">Better for the earth. Better on your table.</h1>
+                        <p class="impact-hero__lead">Sustainability is not a side project at Verde. It shapes who we source from, how food travels, and what is left behind after every delivery.</p>
+                        <div class="impact-hero__actions">
+                            <a class="impact-button impact-button--citrus" href="verde-market-shop-page.html">Shop Sustainably <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                            <a class="impact-button impact-button--ghost" href="#impact-metrics">Explore the impact snapshot <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    let lenis;
-    try {
-        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-        lenis.on('scroll', ScrollTrigger.update);
-    } catch(e) {
-        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
-        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
-    }
-    window.lenis = lenis;
+            <section class="impact-shell impact-intro" aria-labelledby="principles-heading">
+                <div>
+                    <p class="impact-eyebrow">How we work</p>
+                    <h2 id="principles-heading">Lower waste at every handoff.</h2>
+                </div>
+                <div class="impact-intro__copy">
+                    <p>From farm to front door, each decision is designed to protect food quality while reducing unnecessary materials and miles.</p>
+                    <p>We prioritize practical improvements that can be measured, repeated, and strengthened with our grower community.</p>
+                </div>
+                <div class="impact-principles">
+                    <article class="impact-principle">
+                        <span class="impact-principle__icon"><span class="material-symbols-outlined" aria-hidden="true">package_2</span></span>
+                        <h3>Zero-waste packaging</h3>
+                        <p>All Verde packaging is compostable or recyclable, and single-use plastics are removed wherever a dependable alternative exists.</p>
+                    </article>
+                    <article class="impact-principle">
+                        <span class="impact-principle__icon"><span class="material-symbols-outlined" aria-hidden="true">compost</span></span>
+                        <h3>Regenerative farming</h3>
+                        <p>Farm partners are selected for their commitment to living soil, thoughtful water use, crop diversity, and long-term land health.</p>
+                    </article>
+                    <article class="impact-principle">
+                        <span class="impact-principle__icon"><span class="material-symbols-outlined" aria-hidden="true">local_shipping</span></span>
+                        <h3>Carbon-conscious delivery</h3>
+                        <p>Neighborhood orders are grouped into smarter routes, with remaining delivery emissions balanced through certified forestry projects.</p>
+                    </article>
+                </div>
+            </section>
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('header, nav[role="navigation"]');
-        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
+            <section class="impact-metrics-section" id="impact-metrics" aria-labelledby="metrics-heading">
+                <div class="impact-shell impact-section">
+                    <div class="impact-section__heading">
+                        <div>
+                            <p class="impact-eyebrow">2026 concept snapshot</p>
+                            <h2 id="metrics-heading">Impact Metrics</h2>
+                        </div>
+                        <p>Choosing a shorter, lower-waste food journey adds up. These indicators show how the Verde community's everyday choices can compound over a year.</p>
+                    </div>
+                    <div class="impact-metrics" role="group" aria-label="Annual impact indicators">
+                        <div class="impact-metric"><strong>2.5M</strong><span>Litres of water saved</span></div>
+                        <div class="impact-metric"><strong>500k</strong><span>Plastic pieces avoided</span></div>
+                        <div class="impact-metric"><strong>120</strong><span>Tonnes of CO₂ offset</span></div>
+                        <div class="impact-metric"><strong>45</strong><span>Local farm partners</span></div>
+                    </div>
+                    <p class="impact-metrics-note">Portfolio concept metrics are presented to demonstrate transparent impact storytelling; they are not audited company disclosures.</p>
+                </div>
+            </section>
 
-        document.querySelectorAll('h1, h2').forEach((el, i) => {
-            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
-        });
+            <section class="impact-shell impact-cycle" aria-labelledby="cycle-heading">
+                <div class="impact-cycle__copy">
+                    <p class="impact-eyebrow">A circular habit</p>
+                    <h2 id="cycle-heading">Designed to come back, break down, or disappear.</h2>
+                    <p>A useful sustainability system should feel easy in a real kitchen. Our packaging choices are planned around what happens after the box is opened.</p>
+                </div>
+                <ol class="impact-cycle__steps">
+                    <li>
+                        <span>01</span>
+                        <div><h3>Return the crate</h3><p>Reusable delivery crates can be handed back on the next scheduled drop.</p></div>
+                    </li>
+                    <li>
+                        <span>02</span>
+                        <div><h3>Compost the liners</h3><p>Plant-fibre liners and paper cushioning can return safely to a home compost stream.</p></div>
+                    </li>
+                    <li>
+                        <span>03</span>
+                        <div><h3>Recycle the rest</h3><p>Clear material labels make the remaining card and glass simple to sort correctly.</p></div>
+                    </li>
+                </ol>
+            </section>
 
-        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
-        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
+            <section class="impact-next" aria-labelledby="impact-next-heading">
+                <div class="impact-shell impact-next__inner">
+                    <div>
+                        <h2 id="impact-next-heading">Put your values in the basket.</h2>
+                        <p>Build a seasonal box with responsibly grown produce and a delivery rhythm that fits your household.</p>
+                    </div>
+                    <a class="impact-button impact-button--light" href="build-my-box-select-plan.html">Build your box <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                </div>
+            </section>
+        </main>
 
-        const imgs = document.querySelectorAll('img');
-        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
+        <footer class="impact-footer">
+            <div class="impact-shell">
+                <div class="impact-footer__grid">
+                    <div>
+                        <h2>Verde Market</h2>
+                        <p>Seasonal groceries, thoughtfully grown and delivered with a shorter journey from farm to table.</p>
+                    </div>
+                    <div>
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><a href="verde-market-shop-page.html">Shop the harvest</a></li>
+                            <li><a href="verde-market-blog-journal.html">The Verde Journal</a></li>
+                            <li><a href="verde-market-locations.html">Market locations</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Our work</h3>
+                        <ul>
+                            <li><a href="verde-market-our-story.html">Our story</a></li>
+                            <li><a href="verde-market-sustainability.html">Sustainability</a></li>
+                            <li><a href="build-my-box-select-plan.html">Build a box</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="impact-footer__bottom">
+                    <p>© 2026 Verde Market. Portfolio experience.</p>
+                    <p>Lower waste. Better food.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
-        const btns = document.querySelectorAll('button, [class*="btn"]');
-        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
-
-        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
-            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
-            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
-            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
-            document.body.style.cursor = 'none';
+    <script src="assets/vendor/gsap-3.12.5.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger-3.12.5.min.js"></script>
+    <script>
+        if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from(".impact-hero__copy > *", { opacity: 0, y: 28, duration: 0.8, stagger: 0.1, ease: "power3.out" });
+            gsap.utils.toArray(".impact-principle, .impact-metric, .impact-cycle__steps li, .impact-next__inner").forEach(function (element) {
+                gsap.from(element, { opacity: 0, y: 26, duration: 0.72, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 90%", once: true } });
+            });
         }
-    });
-}
-</script>
-</body></html>
+    </script>
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script src="assets/js/verde-polish.js" defer></script>
+</body>
+</html>

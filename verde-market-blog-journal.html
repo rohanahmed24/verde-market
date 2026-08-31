@@ -1,291 +1,870 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Verde Journal — Recipes, Farms &amp; Wellness</title>
+    <meta name="description" content="Read seasonal recipes, local farm stories, and practical wellness guides from the Verde Market journal." />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/verde-market-blog-journal" />
+<link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The Verde Journal" />
+    <meta property="og:description" content="Seasonal recipes, local farm stories, and grounded wellness ideas." />
+    <meta property="og:image" content="https://verde-market.vercel.app/assets/verde-market-social-preview.jpg" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style id="journal-page-styles">
+        .journal-page {
+            background: var(--verde-cream);
+            color: var(--verde-ink);
+            min-height: 100vh;
+        }
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Verde Market Blog Journal | Verde Market</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#13ec5b",
-                        "background-light": "#f6f8f6",
-                        "background-dark": "#102216",
-                        "neutral-100": "#e7f2eb",
-                        "neutral-200": "#cde5d4",
-                        "neutral-300": "#a0cca9",
-                        "neutral-400": "#6eb07d",
-                        "neutral-500": "#499159",
-                        "neutral-600": "#367344",
-                        "neutral-700": "#2d5b38",
-                        "neutral-800": "#26482e",
-                        "neutral-900": "#203b27",
-                    },
-                    fontFamily: {
-                        "display": ["Newsreader", "serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
-                },
-            },
+        .journal-shell {
+            margin-inline: auto;
+            width: min(calc(100% - 2rem), 76rem);
+        }
+
+        .journal-header {
+            background: color-mix(in srgb, var(--verde-cream) 92%, transparent);
+            border-bottom: 1px solid var(--verde-line);
+            position: sticky;
+            top: 0;
+            z-index: 70;
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+        }
+
+        .journal-header__inner {
+            align-items: center;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: space-between;
+            min-height: 5rem;
+        }
+
+        .journal-brand {
+            align-items: center;
+            color: var(--verde-forest-deep);
+            display: inline-flex;
+            flex: 0 0 auto;
+            font-family: "Fraunces", serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            gap: 0.65rem;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .journal-brand__mark {
+            align-items: center;
+            border: 1px solid var(--verde-line);
+            border-radius: 50%;
+            display: inline-flex;
+            height: 2.25rem;
+            justify-content: center;
+            width: 2.25rem;
+        }
+
+        .journal-nav {
+            align-items: center;
+            display: flex;
+            gap: clamp(1.25rem, 2.4vw, 2.2rem);
+            margin-left: auto;
+        }
+
+        .journal-nav a {
+            color: #355249;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .journal-actions {
+            align-items: center;
+            display: flex;
+            gap: 0.55rem;
+        }
+
+        .journal-icon-action {
+            align-items: center;
+            background: transparent;
+            border: 0;
+            border-radius: 999px;
+            color: var(--verde-ink);
+            display: inline-flex;
+            height: 2.75rem;
+            justify-content: center;
+            width: 2.75rem;
+        }
+
+        .journal-menu-action {
+            display: none;
+        }
+
+        .journal-subscribe-button {
+            align-items: center;
+            background: var(--verde-forest-deep);
+            border: 0;
+            border-radius: 999px;
+            color: white;
+            display: inline-flex;
+            font-size: 0.8rem;
+            font-weight: 800;
+            justify-content: center;
+            min-height: 2.75rem;
+            padding: 0.65rem 1.2rem;
+        }
+
+        .journal-hero {
+            align-items: stretch;
+            display: grid;
+            gap: clamp(1.25rem, 2.8vw, 2.5rem);
+            grid-template-columns: minmax(15rem, 0.8fr) minmax(21rem, 1.18fr) minmax(14rem, 0.76fr);
+            padding-block: clamp(3rem, 7vw, 6rem) 2.5rem;
+        }
+
+        .journal-hero__intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-block: 0.5rem;
+        }
+
+        .journal-kicker,
+        .journal-category {
+            color: var(--verde-forest);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .journal-hero h1 {
+            font-size: clamp(3.25rem, 5.3vw, 5.4rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 0.94;
+            margin: 0.9rem 0 1.2rem;
+            text-wrap: balance;
+        }
+
+        .journal-hero__intro p {
+            color: #566d65;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .journal-search {
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .journal-search .material-symbols-outlined {
+            color: #668077;
+            font-size: 1.2rem;
+            pointer-events: none;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .journal-search input {
+            background: white;
+            border: 1px solid var(--verde-line);
+            border-radius: 999px;
+            color: var(--verde-ink);
+            min-height: 3rem;
+            padding: 0.7rem 3rem 0.7rem 1rem;
+            width: 100%;
+        }
+
+        .journal-hero__image {
+            background-position: center;
+            background-size: cover;
+            border-radius: 1rem 2.5rem 1rem 2.5rem;
+            box-shadow: var(--verde-shadow);
+            min-height: 29rem;
+        }
+
+        .journal-feature {
+            border-bottom: 1px solid var(--verde-line);
+            border-top: 1px solid var(--verde-line);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-block: 1.5rem;
+        }
+
+        .journal-feature time,
+        .journal-card time {
+            color: #6a8178;
+            font-size: 0.74rem;
+        }
+
+        .journal-feature h2 {
+            font-size: clamp(2rem, 3.1vw, 3.25rem);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin: 0.7rem 0 1rem;
+        }
+
+        .journal-feature > p {
+            color: #566d65;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .journal-feature details,
+        .journal-card details {
+            margin-top: 1.2rem;
+        }
+
+        .journal-feature summary,
+        .journal-card summary {
+            align-items: center;
+            color: var(--verde-forest-deep);
+            cursor: pointer;
+            display: inline-flex;
+            font-size: 0.78rem;
+            font-weight: 800;
+            gap: 0.45rem;
+            list-style: none;
+        }
+
+        .journal-feature summary::-webkit-details-marker,
+        .journal-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .journal-feature details p,
+        .journal-card details p {
+            border-left: 2px solid var(--verde-citrus);
+            color: #536b62;
+            font-size: 0.86rem;
+            line-height: 1.65;
+            margin: 1rem 0 0;
+            padding-left: 0.8rem;
+        }
+
+        .journal-toolbar {
+            align-items: end;
+            border-bottom: 1px solid var(--verde-line);
+            display: flex;
+            gap: 1.25rem;
+            justify-content: space-between;
+            padding-top: 1rem;
+        }
+
+        .journal-toolbar h2 {
+            font-size: clamp(2rem, 3.5vw, 3.3rem);
+            letter-spacing: -0.03em;
+            margin: 0 0 1rem;
+        }
+
+        .journal-topic-list {
+            display: flex;
+            gap: 0.25rem;
+            list-style: none;
+            margin: 0;
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 0;
+            scrollbar-width: none;
+        }
+
+        .journal-topic-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .journal-topic-list button {
+            background: transparent;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            color: #60766e;
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 0.8rem 1rem 1rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .journal-topic-list button[aria-pressed="true"] {
+            border-bottom-color: var(--verde-forest);
+            color: var(--verde-forest-deep);
+        }
+
+        .journal-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            padding-block: 1.5rem clamp(4rem, 8vw, 7rem);
+        }
+
+        .journal-card {
+            background: white;
+            border: 1px solid rgba(39, 103, 73, 0.13);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            overflow: hidden;
+            transition: box-shadow 220ms ease, transform 220ms ease;
+        }
+
+        .journal-card:hover {
+            box-shadow: 0 24px 48px rgba(23, 73, 54, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .journal-card__image {
+            aspect-ratio: 4 / 3;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .journal-card__copy {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 1.25rem;
+        }
+
+        .journal-card__meta {
+            align-items: center;
+            display: flex;
+            gap: 0.6rem;
+            justify-content: space-between;
+        }
+
+        .journal-card h3 {
+            font-size: clamp(1.45rem, 2vw, 1.85rem);
+            letter-spacing: -0.035em;
+            line-height: 1.05;
+            margin: 0.75rem 0 0.8rem;
+        }
+
+        .journal-card > .journal-card__copy > p {
+            color: #5a7068;
+            font-size: 0.86rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .journal-card details {
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        #journal-empty {
+            grid-column: 1 / -1;
+        }
+
+        .journal-newsletter {
+            background: #e6efe9;
+            border: 1px solid rgba(39, 103, 73, 0.13);
+            border-radius: 1.25rem;
+            display: grid;
+            gap: 1.25rem 2rem;
+            grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.85fr);
+            margin-bottom: clamp(4rem, 8vw, 7rem);
+            padding: clamp(1.5rem, 4vw, 3rem);
+        }
+
+        .journal-newsletter__copy {
+            align-items: center;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 3.5rem 1fr;
+        }
+
+        .journal-newsletter__icon {
+            align-items: center;
+            border: 1px solid var(--verde-line);
+            border-radius: 50%;
+            color: var(--verde-forest);
+            display: inline-flex;
+            height: 3.5rem;
+            justify-content: center;
+            width: 3.5rem;
+        }
+
+        .journal-newsletter h2 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            letter-spacing: -0.04em;
+            margin: 0;
+        }
+
+        .journal-newsletter p {
+            color: #536b62;
+            line-height: 1.6;
+            margin: 0.35rem 0 0;
+        }
+
+        .journal-newsletter form {
+            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+
+        .journal-newsletter input {
+            background: white;
+            border: 1px solid var(--verde-line);
+            border-radius: 999px 0 0 999px;
+            min-height: 3.2rem;
+            min-width: 0;
+            padding: 0.75rem 1rem;
+        }
+
+        .journal-newsletter button {
+            background: var(--verde-forest-deep);
+            border: 0;
+            border-radius: 0 999px 999px 0;
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 800;
+            min-height: 3.2rem;
+            padding-inline: 1.35rem;
+        }
+
+        .journal-footer {
+            background: var(--verde-ink);
+            color: #d7e8df;
+            padding-block: 3rem 1.5rem;
+        }
+
+        .journal-footer__grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: minmax(15rem, 1.6fr) repeat(2, minmax(9rem, 0.6fr));
+        }
+
+        .journal-footer h2,
+        .journal-footer h3 {
+            color: white;
+            margin: 0 0 0.75rem;
+        }
+
+        .journal-footer p {
+            color: #a9c2b6;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 26rem;
+        }
+
+        .journal-footer ul {
+            display: grid;
+            gap: 0.6rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .journal-footer a {
+            color: #d7e8df;
+            font-size: 0.86rem;
+            text-decoration: none;
+        }
+
+        .journal-footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            font-size: 0.76rem;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+        }
+
+        .visually-hidden {
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+
+        .journal-hero h1 { line-height: 1; }
+        .journal-card h3 { letter-spacing: -0.025em; line-height: 1.12; }
+        .journal-feature summary,
+        .journal-card summary { min-height: 2.75rem; }
+        .journal-feature summary:hover,
+        .journal-card summary:hover { color: var(--verde-ink); text-decoration: underline; text-underline-offset: 0.2em; }
+        .journal-topic-list button { min-height: 2.75rem; }
+        .journal-topic-list button:hover { color: var(--verde-forest-deep); background: var(--verde-mint); }
+        .journal-card:target { border-color: var(--verde-forest); box-shadow: 0 0 0 3px var(--verde-mint); }
+        .journal-card:focus-within { box-shadow: 0 24px 48px rgba(23, 73, 54, 0.12); }
+        .journal-subscribe-button:hover,
+        .journal-newsletter button:hover { background: var(--verde-ink); }
+        .journal-icon-action:hover { background: var(--verde-mint); }
+        .journal-reset-button { align-items: center; background: var(--verde-forest-deep); border: 0; border-radius: 999px; color: white; display: inline-flex; font-size: 0.82rem; font-weight: 800; gap: 0.5rem; min-height: 2.75rem; padding: 0.65rem 1.1rem; }
+        .journal-reset-button:hover { background: var(--verde-ink); }
+        #journal-empty h3 { font-size: 1.8rem; margin: 0 0 0.75rem; }
+        #journal-empty p { font-size: 0.9rem; line-height: 1.65; margin: 0 0 1.25rem; }
+        .journal-footer a:hover { color: white; text-decoration: underline; text-underline-offset: 0.2em; }
+
+        @media (max-width: 1023px) {
+            .journal-nav,
+            .journal-subscribe-button {
+                display: none;
+            }
+
+            .journal-menu-action {
+                display: inline-flex;
+            }
+
+            .journal-hero {
+                grid-template-columns: minmax(15rem, 0.82fr) minmax(20rem, 1.18fr);
+            }
+
+            .journal-feature {
+                grid-column: 1 / -1;
+                display: grid;
+                gap: 1rem 2rem;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .journal-feature details {
+                grid-column: 2;
+                margin-top: 0;
+            }
+
+            .journal-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 760px) {
+            .journal-shell {
+                width: min(calc(100% - 1.25rem), 76rem);
+            }
+
+            .journal-header__inner {
+                min-height: 4.5rem;
+            }
+
+            .journal-brand {
+                font-size: 1.05rem;
+            }
+
+            .journal-brand__mark,
+            .journal-icon-action {
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+
+            .journal-actions {
+                gap: 0.25rem;
+            }
+
+            .journal-hero {
+                grid-template-columns: 1fr;
+                padding-top: 2.5rem;
+            }
+
+            .journal-hero h1 {
+                font-size: clamp(3.2rem, 15vw, 5rem);
+            }
+
+            .journal-hero__image {
+                min-height: 23rem;
+            }
+
+            .journal-feature {
+                display: block;
+                grid-column: auto;
+            }
+
+            .journal-feature details {
+                margin-top: 1rem;
+            }
+
+            .journal-toolbar {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .journal-toolbar h2 {
+                margin-bottom: 0;
+            }
+
+            .journal-grid,
+            .journal-newsletter,
+            .journal-footer__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journal-card {
+                display: grid;
+                grid-template-columns: minmax(8rem, 0.75fr) minmax(0, 1fr);
+            }
+
+            .journal-card__image {
+                aspect-ratio: auto;
+                min-height: 19rem;
+            }
+
+            .journal-footer__bottom {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .journal-account-action {
+                display: none;
+            }
+
+            .journal-grid {
+                gap: 0.75rem;
+            }
+
+            .journal-card {
+                display: block;
+            }
+
+            .journal-card__image {
+                aspect-ratio: 4 / 3;
+                min-height: 0;
+            }
+
+            .journal-newsletter__copy {
+                grid-template-columns: 1fr;
+            }
+
+            .journal-newsletter form {
+                grid-template-columns: 1fr;
+            }
+
+            .journal-newsletter input,
+            .journal-newsletter button {
+                border-radius: 999px;
+            }
+
+            .journal-newsletter button {
+                margin-top: 0.6rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .journal-card {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body class="journal-page">
+    <div class="journal-page">
+        <header class="journal-header">
+            <div class="journal-shell journal-header__inner">
+                <a class="journal-brand" href="index.html" aria-label="Verde Market home">
+                    <span class="journal-brand__mark"><span class="material-symbols-outlined" aria-hidden="true">eco</span></span>
+                    <span>Verde Market</span>
+                </a>
+                <nav class="journal-nav" aria-label="Primary navigation">
+                    <a href="verde-market-shop-page.html">Shop</a>
+                    <a href="verde-market-our-story.html">Our Story</a>
+                    <a href="verde-market-sustainability.html">Sustainability</a>
+                    <a href="verde-market-blog-journal.html" aria-current="page">Journal</a>
+                    <a href="verde-market-locations.html">Locations</a>
+                </nav>
+                <div class="journal-actions">
+                    <button class="journal-subscribe-button" type="button">Subscribe</button>
+                    <button class="journal-icon-action" type="button" aria-label="Cart"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span></button>
+                    <button class="journal-icon-action journal-account-action" type="button" aria-label="Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></button>
+                    <button class="journal-icon-action journal-menu-action" type="button" aria-label="Menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section class="journal-shell journal-hero" aria-labelledby="journal-title">
+                <div class="journal-hero__intro">
+                    <div>
+                        <span class="journal-kicker">The Verde Journal</span>
+                        <h1 id="journal-title">Real stories. Rooted in real food.</h1>
+                        <p>Field notes, seasonal recipes, and grounded wellness ideas from the people closest to the harvest.</p>
+                    </div>
+                    <div class="journal-search">
+                        <label class="visually-hidden" for="journal-search-input">Search journal articles</label>
+                        <input id="journal-search-input" type="search" name="q" placeholder="Search articles…" aria-controls="journal-grid" maxlength="80" autocomplete="off" />
+                        <span class="material-symbols-outlined" aria-hidden="true">search</span>
+                    </div>
+                </div>
+                <div class="journal-hero__image" role="img" aria-label="Hands holding a vivid harvest of fresh spring greens" style="background-image: url('assets/images/harvest-a521093acb08.webp');"></div>
+                <article class="journal-feature">
+                    <span class="journal-category">Featured story</span>
+                    <time datetime="2026-05-12">May 12, 2026 · Field note</time>
+                    <h2>The Spring Harvest: Fresh Greens &amp; Seasonal Eating Guide</h2>
+                    <p>Discover why the freshest spring greens taste different—and how local farmers plan meals around what the field is ready to give.</p>
+                    <details id="spring-harvest-notes">
+                        <summary><span data-note-label>Read field note</span> <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></summary>
+                        <p>Start with tender leaves, add one bright acid, then finish with toasted seeds. Spring produce needs less intervention because its flavor has had less time to fade in transit.</p>
+                    </details>
+                </article>
+            </section>
+
+            <section class="journal-shell" aria-labelledby="journal-grid-heading">
+                <div class="journal-toolbar">
+                    <h2 id="journal-grid-heading">Fresh from the journal</h2>
+                    <div role="group" aria-label="Filter journal articles by topic">
+                        <ul class="journal-topic-list">
+                            <li><button type="button" data-topic-filter="all" aria-pressed="true" aria-controls="journal-grid">Latest</button></li>
+                            <li><button type="button" data-topic-filter="recipes" aria-pressed="false" aria-controls="journal-grid">Recipes</button></li>
+                            <li><button type="button" data-topic-filter="farm-news" aria-pressed="false" aria-controls="journal-grid">Farm stories</button></li>
+                            <li><button type="button" data-topic-filter="wellness" aria-pressed="false" aria-controls="journal-grid">Wellness</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="visually-hidden" id="journal-results-count" role="status" aria-live="polite" aria-atomic="true">4 of 4 field notes</p>
+                <div class="journal-grid" id="journal-grid">
+                    <article class="journal-card" data-topic="wellness" id="fermented-foods-guide">
+                        <div class="journal-card__image" role="img" aria-label="Jars of colorful fermented vegetables" style="background-image: url('assets/images/harvest-fe30355be103.webp');"></div>
+                        <div class="journal-card__copy">
+                            <div class="journal-card__meta"><span class="journal-category">Wellness</span><time datetime="2026-05-07">May 7</time></div>
+                            <h3>A Beginner's Guide to Fermented Foods</h3>
+                            <p>A calm first step into kraut, kimchi, and naturally fermented kitchen staples.</p>
+                            <details>
+                                <summary><span data-note-label>Read field note</span> <span class="material-symbols-outlined" aria-hidden="true">add</span></summary>
+                                <p>Begin with a familiar food in a small serving, then build slowly. Look for refrigerated products that clearly state they contain live cultures.</p>
+                            </details>
+                        </div>
+                    </article>
+
+                    <article class="journal-card" data-topic="wellness" id="raw-honey-benefits">
+                        <div class="journal-card__image" role="img" aria-label="A glass jar filled with golden raw honey" style="background-image: url('assets/images/harvest-526afcf8e098.webp');"></div>
+                        <div class="journal-card__copy">
+                            <div class="journal-card__meta"><span class="journal-category">Wellness</span><time datetime="2026-05-05">May 5</time></div>
+                            <h3>The Flavor Story Behind Raw Honey</h3>
+                            <p>What raw, local honey keeps—and why provenance matters as much as the label.</p>
+                            <details>
+                                <summary><span data-note-label>Read field note</span> <span class="material-symbols-outlined" aria-hidden="true">add</span></summary>
+                                <p>Raw honey is minimally processed, so aroma and texture remain closer to the hive. Treat it as a flavorful sweetener rather than a medical cure.</p>
+                            </details>
+                        </div>
+                    </article>
+
+                    <article class="journal-card" data-topic="recipes" id="organic-weeknight-dinners">
+                        <div class="journal-card__image" role="img" aria-label="Colorful organic grain and vegetable dinner bowls" style="background-image: url('assets/images/harvest-88b6fe8f3565.webp');"></div>
+                        <div class="journal-card__copy">
+                            <div class="journal-card__meta"><span class="journal-category">Recipes</span><time datetime="2026-05-02">May 2</time></div>
+                            <h3>5 Easy Organic Weeknight Dinners</h3>
+                            <p>Quick, flexible meals built around whatever looks best in this week's harvest.</p>
+                            <details>
+                                <summary><span data-note-label>Read field note</span> <span class="material-symbols-outlined" aria-hidden="true">add</span></summary>
+                                <p>Batch one grain, roast two vegetables, and mix one herb-forward dressing. Recombine the three foundations all week without repeating the same plate.</p>
+                            </details>
+                        </div>
+                    </article>
+
+                    <article class="journal-card" data-topic="farm-news" id="smith-family-farm">
+                        <div class="journal-card__image" role="img" aria-label="A farmer walking between vibrant green field rows" style="background-image: url('assets/images/harvest-104879d7f48d.webp');"></div>
+                        <div class="journal-card__copy">
+                            <div class="journal-card__meta"><span class="journal-category">Farm story</span><time datetime="2026-04-28">Apr 28</time></div>
+                            <h3>Meet Our Farmers: The Smith Family</h3>
+                            <p>A third-generation farm tests new cover crops without losing its family rhythm.</p>
+                            <details>
+                                <summary><span data-note-label>Read field note</span> <span class="material-symbols-outlined" aria-hidden="true">add</span></summary>
+                                <p>The Smiths rotate grazing and vegetables across the same ground, giving each field time to recover while creating more varied work through the seasons.</p>
+                            </details>
+                        </div>
+                    </article>
+
+                    <div class="verde-empty-state verde-hidden" id="journal-empty"><h3>No field note matches yet.</h3><p role="status">Try a broader topic or ingredient, or start fresh with every note.</p><button class="journal-reset-button" type="button" data-journal-reset>Clear search &amp; topics <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button></div>
+                </div>
+            </section>
+
+            <section class="journal-shell journal-newsletter" id="journal-signup" aria-labelledby="newsletter-heading">
+                <div class="journal-newsletter__copy">
+                    <span class="journal-newsletter__icon"><span class="material-symbols-outlined" aria-hidden="true">mail</span></span>
+                    <div>
+                        <h2 id="newsletter-heading">Get the Verde Weekly</h2>
+                        <p>Recipes and honest field notes. This demo saves your signup only in this browser.</p>
+                    </div>
+                </div>
+                <form>
+                    <label class="visually-hidden" for="journal-email">Email address</label>
+                    <input id="journal-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" spellcheck="false" required />
+                    <button type="submit">Subscribe</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="journal-footer">
+            <div class="journal-shell">
+                <div class="journal-footer__grid">
+                    <div>
+                        <h2>Verde Market</h2>
+                        <p>Seasonal groceries, thoughtful growers, and fresh ideas for a better food routine.</p>
+                    </div>
+                    <div>
+                        <h3>Read</h3>
+                        <ul>
+                            <li><a href="verde-market-blog-journal?topic=recipes#journal-grid">Recipes</a></li>
+                            <li><a href="verde-market-blog-journal?topic=farm-news#journal-grid">Farm stories</a></li>
+                            <li><a href="verde-market-blog-journal?topic=wellness#journal-grid">Wellness</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><a href="verde-market-shop-page.html">Shop the harvest</a></li>
+                            <li><a href="verde-market-our-story.html">Our story</a></li>
+                            <li><a href="verde-market-locations.html">Market locations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="journal-footer__bottom">
+                    <p>© 2026 Verde Market. Portfolio experience.</p>
+                    <p>Stories for the season you're in.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/vendor/gsap-3.12.5.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger-3.12.5.min.js"></script>
+    <script>
+        if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from(".journal-hero > *", { opacity: 0, y: 25, duration: 0.8, stagger: 0.1, ease: "power3.out" });
+            gsap.from(".journal-card", { opacity: 0, y: 30, duration: 0.72, stagger: 0.08, ease: "power3.out", scrollTrigger: { trigger: ".journal-grid", start: "top 88%", once: true } });
         }
     </script>
-<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
-<body class="bg-background-light dark:bg-background-dark font-display text-neutral-900 dark:text-neutral-100">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
-<!-- TopNavBar -->
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-neutral-200 dark:border-b-neutral-800 px-10 py-3 mb-8">
-<div class="flex items-center gap-8">
-<a class="flex items-center gap-4 text-neutral-900 dark:text-neutral-100 hover:opacity-90 transition-opacity" href="index.html">
-<div class="size-6 text-primary">
-<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
-</svg>
-</div>
-<h2 class="text-neutral-900 dark:text-neutral-100 text-2xl font-bold leading-tight tracking-[-0.015em]">Verde Market</h2>
-</a>
-<nav class="flex items-center gap-9 hidden md:flex">
-<a class="text-neutral-700 dark:text-neutral-300 hover:text-primary text-base font-medium leading-normal transition-colors" href="verde-market-shop-page.html">Shop</a>
-<a class="text-primary text-base font-medium leading-normal border-b-2 border-primary pb-1" href="verde-market-blog-journal.html">Journal</a>
-<a class="text-neutral-700 dark:text-neutral-300 hover:text-primary text-base font-medium leading-normal transition-colors" href="verde-market-our-story.html">About</a>
-</nav>
-</div>
-<div class="flex flex-1 justify-end gap-6 items-center">
-<label class="hidden lg:flex flex-col min-w-40 !h-10 max-w-64">
-<div class="flex w-full flex-1 items-stretch rounded-xl h-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden">
-<div class="text-neutral-500 dark:text-neutral-400 flex border-none items-center justify-center pl-4 bg-transparent" data-icon="search" data-size="20px" data-weight="regular">
-<span class="material-symbols-outlined" style="font-size: 20px;">search</span>
-</div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-neutral-900 dark:text-neutral-100 focus:outline-0 focus:ring-0 border-none bg-transparent placeholder:text-neutral-500 dark:placeholder:text-neutral-400 px-4 h-full text-sm font-normal leading-normal" placeholder="Search articles..." value=""/>
-</div>
-</label>
-<button type="button" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-primary text-neutral-900 hover:bg-opacity-90 transition-opacity text-sm font-bold leading-normal tracking-[0.015em]">
-<span class="truncate">Subscribe</span>
-</button>
-<button type="button" class="text-neutral-900 dark:text-neutral-100 hover:text-primary flex items-center justify-center size-10 rounded-full bg-neutral-100 dark:bg-neutral-800">
-<span class="material-symbols-outlined">person</span>
-</button>
-</div>
-</header>
-<div class="flex flex-col lg:flex-row gap-12 px-4 @container">
-<!-- Main Content Area -->
-<div class="flex-1 flex flex-col gap-12">
-<!-- Hero Featured Article -->
-<article class="flex flex-col gap-6 group cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover rounded-2xl overflow-hidden relative" data-alt="Fresh vibrant organic salad greens" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcCwnnQWuSd9n0wdCFshbI6Khb5r4f7l25EVkV-qgs21X89xOREBPZFb5iHMvWdA9auSJS5-qTgV_fRzezpcRdWaiTevgMu0vUJm7xqtv6vaMReGu4RbVlIN4c6Ys5wCCg-Mvy5ZsUIcmmF89jlYI-1n1237T6FbTJcIHwom2hjTQFmGPB2vB4u15lTkGyrZqbDq7uYa7lXppvV0X4e244fdDhusSpvIwqkpGpiARzprlz69V8bUpXFLDDsp7jWwmfp96trKzECQE");'>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-</div>
-<div class="flex flex-col gap-4 text-left px-2">
-<div class="flex items-center gap-3">
-<span class="bg-primary/20 text-neutral-800 dark:text-neutral-200 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Farm News</span>
-<span class="text-neutral-500 dark:text-neutral-400 text-sm">May 12, 2024</span>
-<span class="text-neutral-500 dark:text-neutral-400 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 8 min read</span>
-</div>
-<h1 class="text-neutral-900 dark:text-neutral-100 text-4xl lg:text-5xl font-black leading-tight tracking-[-0.02em] group-hover:text-primary transition-colors duration-300">
-                                        The Spring Harvest: Fresh Greens &amp; Seasonal Eating Guide
-                                    </h1>
-<p class="text-neutral-600 dark:text-neutral-300 text-lg lg:text-xl font-normal leading-relaxed max-w-3xl">
-                                        Discover the benefits of eating seasonally and learn how our local farmers incorporate fresh spring greens into daily meals for optimal health and flavor.
-                                    </p>
-<div class="mt-2 flex items-center gap-2 text-primary font-bold group-hover:underline">
-                                        Read Full Article <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</div>
-</div>
-</article>
-<!-- Categories Navigation -->
-<div class="pb-2 border-b border-neutral-200 dark:border-neutral-800 flex justify-between items-end mt-4">
-<div class="flex gap-8 overflow-x-auto hide-scrollbar">
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-neutral-900 dark:text-neutral-100 pb-[13px] pt-4 px-2" href="#">
-<h3 class="text-base font-bold leading-normal tracking-[0.015em]">Latest</h3>
-</a>
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 pb-[13px] pt-4 px-2 transition-colors" href="#">
-<h3 class="text-base font-medium leading-normal tracking-[0.015em]">Recipes</h3>
-</a>
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 pb-[13px] pt-4 px-2 transition-colors" href="#">
-<h3 class="text-base font-medium leading-normal tracking-[0.015em]">Farm News</h3>
-</a>
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 pb-[13px] pt-4 px-2 transition-colors" href="#">
-<h3 class="text-base font-medium leading-normal tracking-[0.015em]">Wellness</h3>
-</a>
-</div>
-<a class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary mb-4 flex items-center gap-1" href="#">View all <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-<!-- Article Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-<!-- Card 1 -->
-<article class="flex flex-col gap-4 group cursor-pointer">
-<div class="bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-xl overflow-hidden w-full shrink-0" data-alt="Healthy nutritious meal prep bowls" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_nt9mVH-tDlaVfQ14tMhEZD9xTs0AFd3zdQELrNj24tK2fQxPFIKLvq5BBz_2EVF_WbNaSkG9vzbT_TJTVlEBBHI2EKmTwKTiwaisRn5zfVhX7R_BV9qds-XQucZbm4Kyv5Jk_Uj-IThq8PttNorR7wOKDdLOTpZtJIL4T-72HEaGmqRAs3nKdSjJf2mNlvdBT-83e-sdhsR7xyC31Giu-0GjqwCXyNQBTow--Qbm-HEsxgiwmZmsIbbi92rFeCssUs_FvzFR2EE");'>
-<div class="w-full h-full bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex justify-between items-center">
-<span class="text-primary text-sm font-bold tracking-wide uppercase">Recipes</span>
-<span class="text-neutral-500 dark:text-neutral-400 text-xs flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 5 Min Read</span>
-</div>
-<h2 class="text-neutral-900 dark:text-neutral-100 text-2xl font-bold leading-tight group-hover:text-primary transition-colors">5 Easy Organic Weeknight Dinners</h2>
-<p class="text-neutral-600 dark:text-neutral-300 text-base line-clamp-2">Quick, healthy, and entirely sourced from local organic farmers. Perfect for busy evenings.</p>
-</div>
-</article>
-<!-- Card 2 -->
-<article class="flex flex-col gap-4 group cursor-pointer">
-<div class="bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-xl overflow-hidden w-full shrink-0" data-alt="Jars of golden raw honey" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArNLQ9TWdQLmYrq82306K15tZu2-mzcMqKAQUjEBF4uFJCvcwV3PCxJEd8w8aKgzu0N3DKR-n21hzEjALU9qJrPnq9GypMjDWj3KyLr80-4yOLmvGMfStUU-8QkBQbKX4E-0Vp1Uk65MYOmR-35lfLjEFdBgMx0eO2l4BQFDq29i1osqP1MEuPQ5LLGUDtGroFDYfafX-9W2g35UALxm6tbw_SAWa65tQ73XBLueO4kpvnjW67zJOaHmXhQi6PZtqm7RG5PKTjEM8");'>
-<div class="w-full h-full bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex justify-between items-center">
-<span class="text-primary text-sm font-bold tracking-wide uppercase">Wellness</span>
-<span class="text-neutral-500 dark:text-neutral-400 text-xs flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 3 Min Read</span>
-</div>
-<h2 class="text-neutral-900 dark:text-neutral-100 text-2xl font-bold leading-tight group-hover:text-primary transition-colors">The Surprising Benefits of Raw Honey</h2>
-<p class="text-neutral-600 dark:text-neutral-300 text-base line-clamp-2">Why switching to raw, unfiltered local honey might be the best health decision you make this year.</p>
-</div>
-</article>
-<!-- Card 3 -->
-<article class="flex flex-col gap-4 group cursor-pointer">
-<div class="bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-xl overflow-hidden w-full shrink-0" data-alt="Farmer walking through green fields" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-AvsjKsXvkEiKbL8uPKLRN6m7Irk9GSMdx-R074cwU7erWrnSp8HBHYoN72lwq_6kt19cFdZyeCugd7S-WEREysxPOTI-MCszUxECp1giqfKKxhyqoOL7CkYC73huNDEMVrDNPELtdeZ6tpaHgpDKx0Ertk0S2TNVIp1SBudcAwOeoAGhHdc8zklQpdM4oVT1KBxdC4K50goy1VIyrYBKOH4o53I0XMtbpbrvcJNUG4Mj50ESHN5nuJlzTo4siqWt15d-fsdW_M0");'>
-<div class="w-full h-full bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex justify-between items-center">
-<span class="text-primary text-sm font-bold tracking-wide uppercase">Farm News</span>
-<span class="text-neutral-500 dark:text-neutral-400 text-xs flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 4 Min Read</span>
-</div>
-<h2 class="text-neutral-900 dark:text-neutral-100 text-2xl font-bold leading-tight group-hover:text-primary transition-colors">Meet Our Farmers: The Smith Family</h2>
-<p class="text-neutral-600 dark:text-neutral-300 text-base line-clamp-2">A look inside the daily life of a third-generation organic farming family supplying our store.</p>
-</div>
-</article>
-<!-- Card 4 -->
-<article class="flex flex-col gap-4 group cursor-pointer">
-<div class="bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-xl overflow-hidden w-full shrink-0" data-alt="Jars of colorful fermented vegetables" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEtLfx_-KQ9YhZgLQdRAw8ph7eoHIlp6RHRywVWMDgzbutwCflErFnzCoP3aRdH7l1YQRJVgrWq84ykvivnWf4HSUQRsgshZgEDQPpjpEvKaLKiL2wPkmqixgha-nETyfzbLYB-lvCxODEd_r_xsPUqrkktfUPvTfbPzp27oO5yu4YgputdsFde0WYjm6i202uf3q8k8Mw6u81CLpM2m_yj0zZ8VPNYe9g8rENYq5946ez2PE6YWO_w5lDU8XlhyfiMPQjx8aHaA0");'>
-<div class="w-full h-full bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex justify-between items-center">
-<span class="text-primary text-sm font-bold tracking-wide uppercase">Wellness</span>
-<span class="text-neutral-500 dark:text-neutral-400 text-xs flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 6 Min Read</span>
-</div>
-<h2 class="text-neutral-900 dark:text-neutral-100 text-2xl font-bold leading-tight group-hover:text-primary transition-colors">A Beginner's Guide to Fermented Foods</h2>
-<p class="text-neutral-600 dark:text-neutral-300 text-base line-clamp-2">Improve your gut health with these simple introductions to kimchi, kraut, and kombucha.</p>
-</div>
-</article>
-</div>
-</div>
-<!-- Right Sidebar -->
-<aside class="w-full lg:w-[320px] shrink-0 flex flex-col gap-10">
-<!-- Newsletter Widget -->
-<div class="flex flex-col items-start gap-4 rounded-2xl bg-neutral-100 dark:bg-neutral-800 p-6 border border-neutral-200 dark:border-neutral-700">
-<div class="w-12 h-12 rounded-full bg-white dark:bg-neutral-900 flex items-center justify-center text-primary mb-2 shadow-sm">
-<span class="material-symbols-outlined text-[24px]">mail</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-neutral-900 dark:text-neutral-100 text-xl font-bold leading-tight">The Verde Weekly</h3>
-<p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">Get the latest recipes, farm news, and wellness tips delivered straight to your inbox every Sunday.</p>
-</div>
-<form class="w-full flex flex-col gap-3 mt-2">
-<input class="w-full rounded-xl border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-900 px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary dark:text-white" placeholder="Your email address" required="" type="email"/>
-<button class="w-full flex cursor-pointer items-center justify-center rounded-xl py-3 px-4 bg-primary text-neutral-900 hover:bg-opacity-90 transition-opacity text-sm font-bold" type="submit">
-                                        Subscribe
-                                    </button>
-</form>
-<p class="text-xs text-neutral-500 mt-2 text-center w-full">No spam. Unsubscribe anytime.</p>
-</div>
-<!-- Popular Posts -->
-<div class="flex flex-col gap-5">
-<h3 class="text-neutral-900 dark:text-neutral-100 text-xl font-bold border-b border-neutral-200 dark:border-neutral-800 pb-3">Popular This Month</h3>
-<div class="flex flex-col gap-4">
-<a class="group flex gap-4 items-center" href="#">
-<span class="text-4xl font-black text-neutral-200 dark:text-neutral-800 group-hover:text-primary transition-colors">01</span>
-<div class="flex flex-col">
-<h4 class="text-neutral-900 dark:text-neutral-100 text-sm font-bold leading-tight group-hover:text-primary transition-colors">Sourdough Starter Basics for Beginners</h4>
-<span class="text-neutral-500 text-xs mt-1">Recipes</span>
-</div>
-</a>
-<a class="group flex gap-4 items-center" href="#">
-<span class="text-4xl font-black text-neutral-200 dark:text-neutral-800 group-hover:text-primary transition-colors">02</span>
-<div class="flex flex-col">
-<h4 class="text-neutral-900 dark:text-neutral-100 text-sm font-bold leading-tight group-hover:text-primary transition-colors">Why Soil Health Matters More Than Ever</h4>
-<span class="text-neutral-500 text-xs mt-1">Farm News</span>
-</div>
-</a>
-<a class="group flex gap-4 items-center" href="#">
-<span class="text-4xl font-black text-neutral-200 dark:text-neutral-800 group-hover:text-primary transition-colors">03</span>
-<div class="flex flex-col">
-<h4 class="text-neutral-900 dark:text-neutral-100 text-sm font-bold leading-tight group-hover:text-primary transition-colors">10 Adaptogens for Stress Relief</h4>
-<span class="text-neutral-500 text-xs mt-1">Wellness</span>
-</div>
-</a>
-<a class="group flex gap-4 items-center" href="#">
-<span class="text-4xl font-black text-neutral-200 dark:text-neutral-800 group-hover:text-primary transition-colors">04</span>
-<div class="flex flex-col">
-<h4 class="text-neutral-900 dark:text-neutral-100 text-sm font-bold leading-tight group-hover:text-primary transition-colors">The Best Way to Store Root Vegetables</h4>
-<span class="text-neutral-500 text-xs mt-1">Kitchen Tips</span>
-</div>
-</a>
-</div>
-</div>
-</aside>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- GSAP / Lenis Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script>
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
-    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
-    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
-    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
-
-    let lenis;
-    try {
-        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-        lenis.on('scroll', ScrollTrigger.update);
-    } catch(e) {
-        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
-        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
-    }
-    window.lenis = lenis;
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('header, nav[role="navigation"]');
-        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
-
-        document.querySelectorAll('h1, h2').forEach((el, i) => {
-            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
-        });
-
-        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
-        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
-
-        const imgs = document.querySelectorAll('img');
-        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
-
-        const btns = document.querySelectorAll('button, [class*="btn"]');
-        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
-
-        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
-            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
-            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
-            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
-            document.body.style.cursor = 'none';
-        }
-    });
-}
-</script>
-</body></html>
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script>
+        (() => {
+            function polishFieldNotes() {
+                document.querySelectorAll(".journal-feature details, .journal-card details").forEach((details) => {
+                    const summary = details.querySelector("summary");
+                    const label = summary.querySelector("[data-note-label]");
+                    const icon = summary.querySelector(".material-symbols-outlined");
+                    const title = details.closest("article").querySelector("h2, h3").textContent;
+                    const sync = () => {
+                        if (label) label.textContent = details.open ? "Close field note" : "Read field note";
+                        if (icon) icon.textContent = details.open ? "remove" : "add";
+                        summary.setAttribute("aria-label", (details.open ? "Close field note: " : "Read field note: ") + title);
+                    };
+                    details.addEventListener("toggle", sync);
+                    sync();
+                });
+            }
+            if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", polishFieldNotes);
+            else polishFieldNotes();
+        })();
+    </script>
+    <script src="assets/js/verde-polish.js" defer></script>
+</body>
+</html>

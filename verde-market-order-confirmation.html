@@ -2,62 +2,190 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Order Confirmation | Verde Market</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Fraunces:opsz,wght@9..144,300..900&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#2e6b50",
-                        "primary-dark": "#1f4a37",
-                        "secondary": "#e9f2ee",
-                        "background-light": "#f6f7f7",
-                        "background-dark": "#151d19",
-                    },
-                    fontFamily: { "display": ["Fraunces", "serif"], "sans": ["Manrope", "sans-serif"] },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
-                },
-            },
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Order Confirmed | Verde Market</title>
+    <meta name="description" content="Confirmation screen for the simulated Verde Market portfolio checkout flow." />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/verde-market-order-confirmation" />
+    <link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style>
+        .confirmation-hero {
+            background: #174936;
         }
-    </script>
+
+        @media (max-width: 639px) {
+            .progress-label {
+                font-size: 0.64rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
-    <header class="border-b border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 py-4 lg:px-12">
-        <div class="max-w-3xl mx-auto flex items-center justify-between">
-            <a class="flex items-center gap-3 text-primary" href="index.html">
-                <span class="material-symbols-outlined text-3xl">eco</span>
-                <h2 class="font-serif text-2xl font-bold tracking-tight text-primary dark:text-white">VERDE MARKET</h2>
+<body class="min-h-screen bg-cream font-sans text-[#102a22] antialiased">
+    <a class="verde-skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="sticky top-0 z-50 border-b border-[#276749]/15 bg-cream/95 px-4 py-3 backdrop-blur-md sm:px-6 lg:px-10">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4">
+            <a class="flex items-center gap-3" href="index.html" aria-label="Verde Market home">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-citrus" aria-hidden="true"><span class="material-symbols-outlined">eco</span></span>
+                <span class="font-display text-xl font-bold tracking-tight sm:text-2xl">Verde Market</span>
             </a>
-            <nav class="flex items-center gap-6 text-sm font-medium">
-                <a class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="verde-market-shop-page.html">Shop</a>
-                <a class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+            <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Main navigation">
+                <a class="transition-colors hover:text-primary" href="verde-market-shop-page.html">Shop</a>
+                <a class="transition-colors hover:text-primary" href="build-my-box-select-plan.html">Build a Box</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-our-story.html">Our Story</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-locations.html">Locations</a>
             </nav>
+            <div class="flex items-center gap-2">
+                <a class="hidden rounded-full border border-[#276749]/20 px-4 py-2 text-sm font-bold transition-colors hover:bg-mint sm:inline-flex" href="verde-market-subscriber-dashboard.html">My subscription</a>
+                <button class="verde-cart-trigger" type="button" aria-label="Shopping cart" aria-haspopup="dialog" aria-expanded="false"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span></button>
+            </div>
         </div>
     </header>
-    <main class="flex-1 flex items-center justify-center px-6 py-16">
-        <div class="max-w-lg w-full text-center">
-            <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                <span class="material-symbols-outlined text-4xl text-primary">check_circle</span>
-            </div>
-            <h1 class="font-serif text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3">Thank you for your order</h1>
-            <p class="text-slate-600 dark:text-slate-400 mb-8">Your Verde Box subscription is confirmed. We'll send you an email with delivery details shortly.</p>
-            <div class="bg-secondary dark:bg-slate-800/50 rounded-2xl p-6 mb-8 text-left">
-                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Order reference</p>
-                <p class="font-mono font-bold text-slate-900 dark:text-white mt-1">VM-2024-7842</p>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a class="inline-flex items-center justify-center rounded-full bg-primary hover:bg-primary-dark text-white font-bold px-8 py-3 transition-colors" href="verde-market-subscriber-dashboard.html">View my subscription</a>
-                <a class="inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-semibold px-8 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="verde-market-shop-page.html">Continue shopping</a>
+
+    <main id="main-content" class="px-4 py-8 sm:px-6 sm:py-10 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <nav id="confirmation-progress" class="mx-auto mb-10 max-w-4xl" aria-label="Subscription progress">
+                <ol class="grid grid-cols-4 gap-1">
+                    <li class="relative text-center">
+                        <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined text-lg">check</span></span>
+                        <span class="progress-label mt-2 block font-semibold text-primary">Choose your box</span>
+                        <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-primary" aria-hidden="true"></span>
+                    </li>
+                    <li class="relative text-center">
+                        <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined text-lg">check</span></span>
+                        <span class="progress-label mt-2 block font-semibold text-primary">Customize harvest</span>
+                        <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-primary" aria-hidden="true"></span>
+                    </li>
+                    <li class="relative text-center">
+                        <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined text-lg">check</span></span>
+                        <span class="progress-label mt-2 block font-semibold text-primary">Checkout</span>
+                        <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-primary" aria-hidden="true"></span>
+                    </li>
+                    <li class="text-center" aria-current="step">
+                        <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs font-extrabold text-white">4</span>
+                        <span class="progress-label mt-2 block font-bold text-primary">Confirmed</span>
+                    </li>
+                </ol>
+            </nav>
+
+            <section id="confirmation-empty" class="mx-auto max-w-2xl rounded-[2rem] border border-[#276749]/15 bg-white p-8 text-center sm:p-12" aria-labelledby="confirmation-empty-heading" hidden>
+                <span class="material-symbols-outlined text-5xl text-primary" aria-hidden="true">receipt_long</span>
+                <h2 id="confirmation-empty-heading" class="mt-5 font-display text-4xl font-bold">No order to show—yet.</h2>
+                <p class="mt-4 text-sm leading-7 text-[#607068]">Complete a demo checkout to see your saved order here. Your current basket and box preferences are still safe.</p>
+                <a class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-6 text-sm font-bold text-white hover:bg-forest" href="verde-market-shop-page.html">Explore the market</a>
+            </section>
+
+            <div id="confirmation-content" class="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(26rem,1.1fr)]" hidden>
+                <section class="confirmation-hero flex min-h-[38rem] flex-col justify-between overflow-hidden rounded-[2rem] p-6 text-white shadow-[0_28px_80px_rgba(20,73,53,0.22)] sm:p-9" aria-labelledby="confirmation-heading">
+                    <div class="flex items-center justify-between gap-4">
+                        <p class="rounded-full bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-citrus">Portfolio demo complete</p>
+                        <span class="flex h-12 w-12 items-center justify-center rounded-full bg-citrus text-forest" aria-hidden="true"><span class="material-symbols-outlined text-3xl">check</span></span>
+                    </div>
+
+                    <div class="my-12 text-center">
+                        <p id="confirmation-kicker" class="mb-4 text-sm font-bold text-citrus">Your simulated subscription is ready</p>
+                        <h1 id="confirmation-heading" class="font-display text-5xl font-bold leading-[0.95] sm:text-6xl">You're all set.</h1>
+                        <p class="mx-auto mt-5 max-w-md text-sm leading-7 text-white/72">The complete Verde experience is saved locally in this browser. No real order, payment, or account was created.</p>
+                    </div>
+
+                    <div class="rounded-[1.5rem] bg-white p-5 text-[#102a22] shadow-xl sm:p-6">
+                        <div class="flex items-center gap-4">
+                            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined">calendar_month</span></span>
+                            <div>
+                                <p class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#607068]">Next delivery preview</p>
+                                <p id="confirmation-delivery-date" class="mt-1 font-display text-2xl font-bold text-forest">Friday</p>
+                            </div>
+                        </div>
+                        <a id="confirmation-primary" class="mt-5 flex min-h-12 w-full items-center justify-center rounded-full bg-primary px-5 text-sm font-extrabold text-white transition-colors hover:bg-forest" href="verde-market-subscriber-dashboard.html">Open subscriber dashboard</a>
+                    </div>
+                </section>
+
+                <div class="grid gap-6">
+                    <section class="rounded-[2rem] border border-[#276749]/15 bg-white p-6 shadow-[0_20px_60px_rgba(20,73,53,0.08)] sm:p-8" aria-labelledby="order-details-heading">
+                        <div class="flex flex-col justify-between gap-4 border-b border-[#276749]/12 pb-6 sm:flex-row sm:items-start">
+                            <div>
+                                <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">Confirmation</p>
+                                <h2 id="order-details-heading" class="mt-2 font-display text-3xl font-bold">Order at a glance</h2>
+                            </div>
+                            <div class="rounded-xl bg-mint px-4 py-3 text-sm">
+                                <span class="block text-[0.68rem] font-extrabold uppercase tracking-[0.12em] text-[#607068]">Reference</span>
+                                <strong class="mt-1 block font-mono text-forest" data-order-number>VM-DEMO-PENDING</strong>
+                            </div>
+                        </div>
+
+                        <dl class="grid gap-4 py-6 text-sm sm:grid-cols-2">
+                            <div class="rounded-xl border border-[#276749]/12 p-4">
+                                <dt class="flex items-center gap-2 font-bold"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">inventory_2</span><span id="confirmation-plan-label">Your box</span></dt>
+                                <dd id="confirmation-plan" class="mt-2 text-[#607068]">The Family Box</dd>
+                            </div>
+                            <div class="rounded-xl border border-[#276749]/12 p-4">
+                                <dt class="flex items-center gap-2 font-bold"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">sync</span>Cadence</dt>
+                                <dd id="confirmation-frequency" class="mt-2 text-[#607068]">Weekly</dd>
+                            </div>
+                            <div id="confirmation-box-details" class="rounded-xl border border-[#276749]/12 p-4 sm:col-span-2">
+                                <dt class="flex items-center gap-2 font-bold"><span class="material-symbols-outlined text-lg text-primary" aria-hidden="true">nutrition</span>Harvest preferences</dt>
+                                <dd id="confirmation-box-summary" class="mt-2 leading-6 text-[#607068]">Your seasonal preferences are ready.</dd>
+                            </div>
+                        </dl>
+
+                        <section id="confirmation-items-section" class="mb-5 border-b border-[#276749]/12 pb-4" aria-labelledby="confirmation-items-heading" hidden>
+                            <h3 id="confirmation-items-heading" class="font-display text-xl font-bold">Your market basket</h3>
+                            <ul id="confirmation-items" class="mt-2 list-none divide-y divide-[#276749]/10 p-0"></ul>
+                        </section>
+                        <div class="mb-6 flex items-center justify-between gap-4 rounded-xl bg-mint p-4">
+                            <p id="confirmation-total-note" class="max-w-48 text-xs leading-5 text-[#607068]">Saved demo total · no payment was taken</p>
+                            <strong id="confirmation-total" class="font-display text-3xl font-bold text-forest">$0.00</strong>
+                        </div>
+
+                        <div class="flex flex-col gap-3 sm:flex-row">
+                            <a id="confirmation-view" class="flex min-h-12 flex-1 items-center justify-center rounded-full bg-primary px-5 text-sm font-extrabold text-white transition-colors hover:bg-forest" href="verde-market-subscriber-dashboard.html">View my box</a>
+                            <a id="confirmation-build" class="flex min-h-12 flex-1 items-center justify-center rounded-full border border-[#276749]/25 px-5 text-sm font-extrabold text-forest transition-colors hover:bg-mint" href="build-my-box-select-plan.html">Build another</a>
+                        </div>
+                    </section>
+
+                    <section class="rounded-[2rem] border border-[#276749]/15 bg-white p-6 sm:p-8" aria-labelledby="next-heading">
+                        <h2 id="next-heading" class="font-display text-2xl font-bold">What this flow demonstrates</h2>
+                        <ol class="mt-6 grid gap-5 sm:grid-cols-3">
+                            <li class="flex gap-3 sm:block">
+                                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-mint text-sm font-extrabold text-primary">1</span>
+                                <p class="sm:mt-3"><strong class="block text-sm">Saved order details</strong><span class="mt-1 block text-xs leading-5 text-[#607068]">Your items and total stay consistent when you return.</span></p>
+                            </li>
+                            <li class="flex gap-3 sm:block">
+                                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-mint text-sm font-extrabold text-primary">2</span>
+                                <p class="sm:mt-3"><strong class="block text-sm">Clear safeguards</strong><span class="mt-1 block text-xs leading-5 text-[#607068]">Demo payment details never leave the browser.</span></p>
+                            </li>
+                            <li class="flex gap-3 sm:block">
+                                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-mint text-sm font-extrabold text-primary">3</span>
+                                <p class="sm:mt-3"><strong class="block text-sm">A complete journey</strong><span class="mt-1 block text-xs leading-5 text-[#607068]">Browse the market or explore the flexible box subscription.</span></p>
+                            </li>
+                        </ol>
+                    </section>
+
+                    <aside class="flex flex-col justify-between gap-5 rounded-[1.5rem] bg-citrus p-6 sm:flex-row sm:items-center" aria-label="Portfolio demo note">
+                        <div>
+                            <p class="font-display text-xl font-bold text-forest">Explore the full subscriber experience.</p>
+                            <p class="mt-1 text-sm leading-6 text-[#405448]">Try skipping a delivery or pausing the plan in the interactive dashboard.</p>
+                        </div>
+                        <a class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border border-forest px-5 text-sm font-extrabold text-forest transition-colors hover:bg-forest hover:text-white" href="verde-market-subscriber-dashboard.html">Go to dashboard</a>
+                    </aside>
+                </div>
             </div>
         </div>
     </main>
-    <footer class="py-6 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
-        <p>© 2024 Verde Market. All rights reserved.</p>
+
+    <footer class="border-t border-[#276749]/15 px-4 py-7 text-center text-xs text-[#607068]">
+        <p>© 2026 Verde Market. A portfolio concept for thoughtful local grocery delivery.</p>
     </footer>
+
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script src="assets/js/verde-polish.js" defer></script>
 </body>
 </html>

@@ -1,326 +1,354 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Build My Box Customize Contents | Verde Market</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0fbd49",
-                        "background-light": "#f6f8f6",
-                        "background-dark": "#102216",
-                    },
-                    fontFamily: {
-                        "display": ["Plus Jakarta Sans", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fill Your Produce Box | Verde Market</title>
+    <meta name="description" content="Customize a Verde produce box with seasonal vegetables and a live fullness and value summary." />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#174936" />
+    <link rel="canonical" href="https://verde-market.vercel.app/build-my-box-customize-contents" />
+    <link rel="icon" href="assets/icons/verde-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icons/verde-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link href="assets/css/verde-tailwind.css" rel="stylesheet" />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2?v=a30ddcd34970" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2?v=7234ed860a9c" as="font" type="font/woff2" crossorigin />
+    <link href="assets/css/verde-fonts.css?v=7026e5d8f0d4" rel="stylesheet" />
+    <link href="assets/css/verde-polish.css" rel="stylesheet" />
+    <style>
+        .produce-card {
+            content-visibility: auto;
+            transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
         }
-    </script>
-<style>.cursor-none { cursor: none; } @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none !important; } }</style></head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
-<!-- Navigation / Header -->
-<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-<a class="flex items-center gap-2 hover:opacity-90 transition-opacity" href="index.html">
-<span class="material-symbols-outlined text-primary text-3xl">eco</span>
-<span class="font-bold text-xl tracking-tight">Verde Market</span>
-</a>
-<div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
-<span class="text-slate-400 dark:text-slate-500">1. Choose Box</span>
-<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-sm">chevron_right</span>
-<span class="text-primary font-bold">2. Fill Box</span>
-<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-sm">chevron_right</span>
-<span>3. Schedule</span>
-<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-sm">chevron_right</span>
-<span>4. Checkout</span>
-</div>
-<div class="flex items-center gap-4">
-<button type="button" class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
-<span class="material-symbols-outlined">help</span>
-</button>
-</div>
-</div>
-</header>
-<!-- Main Content Area -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
-<!-- Left Column: Products (2/3) -->
-<div class="w-full lg:w-2/3 flex flex-col gap-6">
-<div class="flex flex-col gap-2">
-<h1 class="text-3xl font-bold tracking-tight">Step 2: Fill your box</h1>
-<p class="text-slate-600 dark:text-slate-400">Customize the contents of your box. Add items until your box is full.</p>
-</div>
-<!-- Categories Tabs -->
-<div class="flex border-b border-slate-200 dark:border-slate-800 gap-8 mt-4">
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-slate-900 dark:text-slate-100 pb-3 pt-2" href="#">
-<p class="text-sm font-bold leading-normal tracking-wide">Veggies</p>
-</a>
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors pb-3 pt-2" href="#">
-<p class="text-sm font-semibold leading-normal tracking-wide">Fruits</p>
-</a>
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors pb-3 pt-2" href="#">
-<p class="text-sm font-semibold leading-normal tracking-wide">Pantry</p>
-</a>
-</div>
-<!-- Products Grid -->
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-<!-- Product Card 1 -->
-<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
-<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Fresh organic carrots" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0c6F-2ajGd1QPZGM2cWx1frbOdOiH4aMJuwX2rnhZtOAde36qfNXDXPqy6u-JR8OOO0tEyKwKWJtaKkZ6N0nitVo3dKd9UNRbIdlj6rfWrC_sf8JxZWiwIudtmtN3Cd4wdaBMUkAKmtFdFz27eKZXk8mSLLdVc3QO2h2acytGxH4D8rFRMq8foqlps7ra2PO4DlQF7mHVB1jaKzN_gI2HGp1J7XOAH0-cpI6lRIvFaZhPdLkiXCMmDy-aCpsAAwhHzOPAUJGrWwU')">
-</div>
-<div class="p-4 flex flex-col gap-3">
-<div>
-<h2 class="text-base font-bold leading-tight">Organic Carrots</h2>
-<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$2.00 / bunch</p>
-</div>
-<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">remove</span>
-</button>
-<span class="font-medium text-sm">2</span>
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Product Card 2 -->
-<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
-<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Fresh broccoli crowns" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcsIl4VC-c8yj0GxRCLe-Nkn0UvcJw_lr_DeyRPHc5ymfCAu5aJsY_CFn1ui1sRkqfYl8BvTjzvmcAmosaXV0zoPeX-qAWmvRwiJ4Z9OvyfIVX_Ghl3Bjyc63QQioZFpD159MjX6mrynj_9KpurcfcrHYvac7ab9_3Y0xG3-CLs0WMfxa29bRYjn7RmD2nY34H0rnimkwDgaSU0eZvk8Zc6QiBKtWlUQNKJTaM94GEqaGcH0c33WmVCtLjJnr-WC5nit_kbLQ73qc')">
-</div>
-<div class="p-4 flex flex-col gap-3">
-<div>
-<h2 class="text-base font-bold leading-tight">Broccoli Crowns</h2>
-<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$3.50 / head</p>
-</div>
-<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled>
-<span class="material-symbols-outlined text-lg">remove</span>
-</button>
-<span class="font-medium text-sm text-slate-400">0</span>
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Product Card 3 -->
-<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
-<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Fresh baby spinach leaves" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjwMRdhIYywnZ8pWUSip7FMFt18x0aCVgKD0_nfWAXYuodn024t6ssEJLLCtCyo5h8SNJkFCwFulhImopY9ZeoG0z9mLYG1W0-iztGnJETz2VOdrNqYJEvrjT1j30UFS6x9Dnc3GtZIvCcA07S6sv94djteN50VHoi0gHSlYX5wSN9ilTb7fV_W64RPdgyBSfg7wISK-Ytr9T8SFP0LVr7x4Pd24QxR7Xzlbc6jb0-b0lS2OF--yPAwekL0GT8CJTLkPm99yBftE0')">
-</div>
-<div class="p-4 flex flex-col gap-3">
-<div>
-<h2 class="text-base font-bold leading-tight">Baby Spinach</h2>
-<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$4.00 / bag</p>
-</div>
-<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">remove</span>
-</button>
-<span class="font-medium text-sm">1</span>
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Product Card 4 -->
-<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
-<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Vine ripe tomatoes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAK5uI1aPWv7xCA8OYpn2yxI8i_rT1y05r2kX0Wu3KhxQMz7de5FFNj_ko8xitt2GyuuA-dEbFhbmQ9GC8AUNjj4A52EBbiuHfxoLmoUPCfp8ftTMU2C82T7GMTuvq3Mk4NW2gYpPv8zAhzg_2m8pmmi2oTx6pyTJFn14eDPQckOam4L4rZFT79wHsTUwT1uqyPkeoROrD3L2MEjgFiT6U8pEjzI82Uiucrji6s9_I-v2ZjPDmNOpHIgUh9a-ybsIrEkvaodU4ud_8')">
-</div>
-<div class="p-4 flex flex-col gap-3">
-<div>
-<h2 class="text-base font-bold leading-tight">Vine Tomatoes</h2>
-<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$3.00 / lb</p>
-</div>
-<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled>
-<span class="material-symbols-outlined text-lg">remove</span>
-</button>
-<span class="font-medium text-sm text-slate-400">0</span>
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Product Card 5 -->
-<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
-<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Red onions" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSnleSVIxw3thrnyT8FVQVaZ5XkqCKWrLqr1AD5NTwsNcebbTvdKVDp-KZrfYefHfOV_ppKkYytS9qUCMk4RIoYatprT4mCt40p-Hy-7ecfQSRQ_JTSh3Wo7Q1_tdu6LSbfdyJcE3QqaZOyHi-NOUFZVma4LERoFdbNv2yQU70f-aINVd81dAgVsarUeOD7PvgiBD01RjMc-f3ORlicXwRnYblQAumGHTSwfcc_zchf3cpEEre1KvIHr74TQuLAUNTPXee0B4KCkM')">
-</div>
-<div class="p-4 flex flex-col gap-3">
-<div>
-<h2 class="text-base font-bold leading-tight">Red Onions</h2>
-<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$1.50 / lb</p>
-</div>
-<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled>
-<span class="material-symbols-outlined text-lg">remove</span>
-</button>
-<span class="font-medium text-sm text-slate-400">0</span>
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Product Card 6 -->
-<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-md transition-shadow">
-<div class="h-40 bg-slate-100 dark:bg-slate-800 relative bg-cover bg-center" data-alt="Russet potatoes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGJLvDv8TzPrisq_Qye3BEbR1ILZLKbDw6NnBZqEALbUWFgv_NjQIOQFHw9SnIcQ3_1t81UwlNmCPgvpKknScYXYn954xGmaQrdNi-ZDHow9H4OZlzpixEON8xaRL1vhFdxaQwJnyDchfjuPH4Z7DKmLAZEw_mb1RvAAUKrSiuYeURZnZxe7dp-l1g-4TQUvm6lLtFio-8kX_HkKQ7RQbe_VeE7uhRRCWQmUbusVutBgyLApLuemCnLrnL-sqoQwywh5ZOU8O0wwI')">
-</div>
-<div class="p-4 flex flex-col gap-3">
-<div>
-<h2 class="text-base font-bold leading-tight">Russet Potatoes</h2>
-<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">$1.20 / lb</p>
-</div>
-<div class="flex items-center justify-between bg-background-light dark:bg-background-dark rounded-lg p-1 mt-auto">
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors" disabled>
-<span class="material-symbols-outlined text-lg">remove</span>
-</button>
-<span class="font-medium text-sm text-slate-400">0</span>
-<button type="button" class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">add</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="py-6 flex justify-center">
-<button type="button" class="px-6 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                     Load More
-                 </button>
-</div>
-</div>
-<!-- Right Column: Sidebar (1/3) -->
-<div class="w-full lg:w-1/3">
-<div class="sticky top-24 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
-<!-- Sidebar Header -->
-<div class="p-6 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
-<h3 class="text-xl font-bold mb-4">Your Verde Box</h3>
-<!-- Fullness Meter -->
-<div class="flex flex-col gap-2">
-<div class="flex justify-between items-end text-sm">
-<span class="font-medium text-slate-600 dark:text-slate-400">Box Fullness</span>
-<span class="font-bold text-primary">60%</span>
-</div>
-<div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 60%;"></div>
-</div>
-<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Add 3-4 more items to fill your box.</p>
-</div>
-</div>
-<!-- Added Items List -->
-<div class="flex-1 overflow-y-auto p-4 flex flex-col gap-4 max-h-[400px]">
-<!-- Cart Item 1 -->
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 rounded-lg bg-cover bg-center shrink-0 border border-slate-100 dark:border-slate-800" data-alt="Organic Carrots" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYLSeXQfUyapW7pEWd0iqmxxrIfRxKJ_TMIYykpkXIyBKhEe37RVDv1fxr_ofMdL1cgtWgXNlxhzlBQwzPmdJuEiJgMMid7G623c8T8KI7D7ylw-IhEcge6Nx14TU1ripuPaMYRFLL4cCKD3LJM5hqrMzcNHOVFnG57LvlJcO09TmCzwk5KqIAzkJGoQw4KcCWc7EM7R7Zq65v9sR_55QL4AK5Bf4JTfXkD5FmvCt2FfGoFcKcbNF6mz6Jlij9oWg0epngQqlgiNY')"></div>
-<div class="flex-1 min-w-0">
-<h4 class="font-semibold text-sm truncate">Organic Carrots</h4>
-<p class="text-slate-500 dark:text-slate-400 text-sm">$4.00</p>
-</div>
-<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-lg p-1 shrink-0">
-<button type="button" class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
-<span class="material-symbols-outlined text-[16px]">remove</span>
-</button>
-<span class="text-sm font-medium w-3 text-center">2</span>
-<button type="button" class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
-<span class="material-symbols-outlined text-[16px]">add</span>
-</button>
-</div>
-</div>
-<!-- Cart Item 2 -->
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 rounded-lg bg-cover bg-center shrink-0 border border-slate-100 dark:border-slate-800" data-alt="Baby Spinach" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWTw0wrbTUXE_XfpG6KACeXtFBSd2A_khi9DpMw4Z77emGGh1qfg9q8p_2ts451kxK7H09KmSDjqmaRIMLZGzh7sbaWM7cqzOSxlqfgCaymMRZK8vWZSYwIrkBuovl_EDcMmI1kGqvlP0KFUAw2-G7CASe2O42kWa_rwGDpwTZpUX0vYUoHF0UVJuScPl4TsKAJYhxuAJ0iLYJRSdhxViBNx_ik8q7ocMSW9-UFxkc-T87QNmsXcyKTcSKDIOiQ8am2Cl0gKOO87E')"></div>
-<div class="flex-1 min-w-0">
-<h4 class="font-semibold text-sm truncate">Baby Spinach</h4>
-<p class="text-slate-500 dark:text-slate-400 text-sm">$4.00</p>
-</div>
-<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-lg p-1 shrink-0">
-<button type="button" class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
-<span class="material-symbols-outlined text-[16px]">remove</span>
-</button>
-<span class="text-sm font-medium w-3 text-center">1</span>
-<button type="button" class="w-6 h-6 flex items-center justify-center rounded text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors">
-<span class="material-symbols-outlined text-[16px]">add</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Sidebar Footer / Totals -->
-<div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
-<div class="flex justify-between items-center mb-6">
-<span class="text-slate-600 dark:text-slate-400 font-medium">Estimated Total</span>
-<span class="text-2xl font-bold">$8.00</span>
-</div>
-<a class="w-full py-3 px-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 shadow-sm shadow-primary/20" href="build-my-box-checkout-finalize.html">
-                        Review Schedule
-                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-</a>
-<p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-3">You won't be charged yet.</p>
-</div>
-</div>
-</div>
-</main>
 
-<!-- GSAP / Lenis Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" onerror="window.Lenis=function(){this.on=function(){};this.raf=function(){};this.scrollTo=function(){};};"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script>
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
-    CustomEase.create('verdeIn', 'M0,0 C0.16,1 0.3,1 1,1');
-    CustomEase.create('verdeSoft', 'M0,0 C0.25,0.1 0.25,1 1,1');
-    CustomEase.create('verdeSnap', 'M0,0 C0.77,0 0.18,1 1,1');
+        .produce-card:hover {
+            border-color: rgba(39, 103, 73, 0.45);
+            box-shadow: 0 18px 45px rgba(23, 73, 54, 0.1);
+            transform: translateY(-0.2rem);
+        }
 
-    let lenis;
-    try {
-        lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-        lenis.on('scroll', ScrollTrigger.update);
-    } catch(e) {
-        lenis = { scrollTo: (t) => { var el=typeof t==='string'?document.querySelector(t):t; if(el) el.scrollIntoView({behavior:'smooth'}); }, on: ()=>{} };
-        window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
-    }
-    window.lenis = lenis;
+        .produce-photo {
+            background-position: center;
+            background-size: cover;
+        }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('header, nav[role="navigation"]');
-        if (header) gsap.from(header, { y: -80, opacity: 0, duration: 1, ease: 'verdeSoft', delay: 0.2 });
+        .box-filter[aria-pressed="true"] {
+            background: #174936;
+            border-color: #174936;
+            color: #ffffff;
+        }
 
-        document.querySelectorAll('h1, h2').forEach((el, i) => {
-            gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'verdeIn', scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+        .quantity-control button:disabled {
+            opacity: 0.35;
+        }
+
+        @media (max-width: 1023px) {
+            .box-summary {
+                position: static !important;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .progress-label {
+                font-size: 0.68rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .box-header__inner { gap: 0.5rem; }
+            .box-header__actions { flex: 0 0 auto; gap: 0.25rem; }
+            .box-header__actions > button {
+                flex: 0 0 2.75rem;
+                width: 2.75rem;
+                min-width: 2.75rem;
+                height: 2.75rem;
+                min-height: 2.75rem;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-cream font-sans text-[#102a22] antialiased">
+    <a class="verde-skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="box-header sticky top-0 z-50 border-b border-[#276749]/15 bg-cream/95 px-4 py-3 backdrop-blur-md sm:px-6 lg:px-10">
+        <div class="box-header__inner mx-auto flex max-w-7xl items-center justify-between gap-4">
+            <a class="flex items-center gap-3" href="index.html" aria-label="Verde Market home">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-citrus" aria-hidden="true"><span class="material-symbols-outlined">eco</span></span>
+                <span class="font-display text-xl font-bold tracking-tight sm:text-2xl">Verde Market</span>
+            </a>
+            <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Main navigation">
+                <a class="transition-colors hover:text-primary" href="verde-market-shop-page.html">Shop</a>
+                <a class="text-primary" href="build-my-box-select-plan.html">Build a Box</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-our-story.html">Our Story</a>
+                <a class="transition-colors hover:text-primary" href="verde-market-locations.html">Locations</a>
+            </nav>
+            <div class="box-header__actions flex items-center gap-2">
+                <button class="verde-icon-button" type="button" aria-label="Help with building a box">
+                    <span class="material-symbols-outlined" aria-hidden="true">help</span>
+                </button>
+                <button class="verde-cart-trigger" type="button" aria-label="Shopping cart" aria-haspopup="dialog" aria-expanded="false">
+                    <span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="border-b border-[#276749]/10 px-4 pb-10 pt-7 sm:px-6 lg:px-10">
+            <div class="mx-auto max-w-7xl">
+                <nav class="mx-auto mb-10 max-w-3xl" aria-label="Subscription progress">
+                    <ol class="grid grid-cols-4 gap-1">
+                        <li class="relative text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-mint text-primary" aria-hidden="true"><span class="material-symbols-outlined text-lg">check</span></span>
+                            <a class="progress-label mt-2 block font-semibold text-primary hover:underline" href="build-my-box-select-plan.html">Choose your box</a>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-primary" aria-hidden="true"></span>
+                        </li>
+                        <li class="relative text-center" aria-current="step">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs font-extrabold text-white">2</span>
+                            <span class="progress-label mt-2 block font-bold text-primary">Customize harvest</span>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-[#276749]/20" aria-hidden="true"></span>
+                        </li>
+                        <li class="relative text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full border border-[#276749]/20 bg-white text-xs font-extrabold text-[#607068]">3</span>
+                            <span class="progress-label mt-2 block font-semibold text-[#607068]">Checkout</span>
+                            <span class="absolute left-[calc(50%+1.25rem)] top-4 h-px w-[calc(100%-2.5rem)] bg-[#276749]/20" aria-hidden="true"></span>
+                        </li>
+                        <li class="text-center">
+                            <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full border border-[#276749]/20 bg-white text-xs font-extrabold text-[#607068]">4</span>
+                            <span class="progress-label mt-2 block font-semibold text-[#607068]">Confirmed</span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+                    <div class="max-w-3xl">
+                        <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-primary">This week's farm list</p>
+                        <h1 class="font-display text-4xl font-bold leading-none tracking-tight sm:text-5xl">Build a box worth looking forward to.</h1>
+                        <p class="mt-4 max-w-2xl text-base leading-7 text-[#5a6962]">Choose up to eight favorites. Your grower fills the remaining slots with seasonal picks and scales every portion to your household.</p>
+                    </div>
+                    <div class="rounded-2xl bg-mint px-5 py-4 text-sm leading-6 text-forest lg:max-w-xs">
+                        <strong class="block font-extrabold">Good to know</strong>
+                        Produce prices show market value only—your picks are included in the box plan.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-4 py-10 sm:px-6 lg:px-10" aria-label="Customize produce preferences">
+            <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1fr)_23rem] lg:items-start">
+                <div>
+                    <div class="mb-7 flex flex-wrap gap-2" role="group" aria-label="Filter produce">
+                        <button class="box-filter min-h-11 rounded-full border border-[#276749]/20 bg-white px-5 text-sm font-extrabold transition-colors" type="button" data-box-filter="all" aria-pressed="true">All picks</button>
+                        <button class="box-filter min-h-11 rounded-full border border-[#276749]/20 bg-white px-5 text-sm font-extrabold transition-colors" type="button" data-box-filter="vegetables" aria-pressed="false">Vegetables</button>
+                        <button class="box-filter min-h-11 rounded-full border border-[#276749]/20 bg-white px-5 text-sm font-extrabold transition-colors" type="button" data-box-filter="fruit" aria-pressed="false">Fruit</button>
+                        <button class="box-filter min-h-11 rounded-full border border-[#276749]/20 bg-white px-5 text-sm font-extrabold transition-colors" type="button" data-box-filter="pantry" aria-pressed="false">Pantry</button>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3" id="produce-grid">
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Organic Carrots" data-price="1.89" data-box-category="vegetables">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Fresh organic carrots" style="background-image: url('assets/images/harvest-2dbc4e0e20e2.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Organic Carrots</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$1.89 market value · bunch</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Organic Carrots quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Organic Carrots"><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Organic Carrots"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Broccoli Crowns" data-price="3.49" data-box-category="vegetables">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Fresh broccoli crowns" style="background-image: url('assets/images/harvest-787278c152bf.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Broccoli Crowns</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$3.49 market value · head</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Broccoli Crowns quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Broccoli Crowns" disabled><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold text-slate-400" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Broccoli Crowns"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Baby Spinach" data-price="3.29" data-box-category="vegetables">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Fresh baby spinach leaves" style="background-image: url('assets/images/harvest-06eabd61e346.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Baby Spinach</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$3.29 market value · 5 oz</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Baby Spinach quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Baby Spinach"><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Baby Spinach"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Vine Tomatoes" data-price="3.00" data-box-category="fruit">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Vine-ripened tomatoes" style="background-image: url('assets/images/harvest-86c10e1c2ffd.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Vine Tomatoes</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$3.00 market value · lb</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Vine Tomatoes quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Vine Tomatoes" disabled><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold text-slate-400" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Vine Tomatoes"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Red Onions" data-price="1.50" data-box-category="vegetables">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Fresh red onions" style="background-image: url('assets/images/harvest-c8f5f529fd79.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Red Onions</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$1.50 market value · lb</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Red Onions quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Red Onions" disabled><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold text-slate-400" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Red Onions"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Russet Potatoes" data-price="1.20" data-box-category="vegetables">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Fresh russet potatoes" style="background-image: url('assets/images/harvest-dbbfae965207.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Russet Potatoes</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$1.20 market value · lb</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Russet Potatoes quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Russet Potatoes" disabled><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold text-slate-400" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Russet Potatoes"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Hass Avocados" data-price="1.99" data-box-category="fruit">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Fresh Hass avocados" style="background-image: url('assets/images/harvest-4281bf674006.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Hass Avocados</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$1.99 market value · each</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Hass Avocados quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Hass Avocados" disabled><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold text-slate-400" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Hass Avocados"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Honeycrisp Apples" data-price="3.49" data-box-category="fruit">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Fresh Honeycrisp apples" style="background-image: url('assets/images/harvest-0e732b63ccce.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Honeycrisp Apples</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$3.49 market value · lb</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Honeycrisp Apples quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Honeycrisp Apples" disabled><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold text-slate-400" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Honeycrisp Apples"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Free Range Eggs" data-price="5.49" data-box-category="pantry">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Free-range eggs in a carton" style="background-image: url('assets/images/harvest-a16b9e11b2be.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Free Range Eggs</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$5.49 market value · dozen</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Free Range Eggs quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Free Range Eggs" disabled><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold text-slate-400" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Free Range Eggs"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="produce-card flex flex-col overflow-hidden rounded-xl border border-[#276749]/15 bg-white" data-box-product="Sourdough Loaf" data-price="5.99" data-box-category="pantry">
+                            <div class="produce-photo aspect-[4/3]" role="img" aria-label="Fresh sourdough loaf" style="background-image: url('assets/images/harvest-1e11ea03f83b.webp')"></div>
+                            <div class="flex flex-1 flex-col p-4">
+                                <h2 class="font-display text-lg font-bold leading-tight">Sourdough Loaf</h2>
+                                <p class="mt-1 text-xs font-semibold text-[#607068]">$5.99 market value · loaf</p>
+                                <div class="quantity-control mt-4 flex items-center justify-between rounded-full bg-mint p-1" role="group" aria-label="Sourdough Loaf quantity">
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-forest" type="button" data-quantity-action="remove" aria-label="Remove one Sourdough Loaf" disabled><span class="material-symbols-outlined text-lg" aria-hidden="true">remove</span></button>
+                                    <span class="min-w-7 text-center text-sm font-extrabold text-slate-400" data-quantity>0</span>
+                                    <button class="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-white" type="button" data-quantity-action="add" aria-label="Add one Sourdough Loaf"><span class="material-symbols-outlined text-lg" aria-hidden="true">add</span></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <aside class="box-summary sticky top-24 overflow-hidden rounded-[1.5rem] border border-[#276749]/15 bg-white shadow-[0_24px_70px_rgba(20,73,53,0.12)]" aria-labelledby="box-summary-heading">
+                    <div class="bg-forest p-6 text-white">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-citrus">Live summary</p>
+                                <h2 id="box-summary-heading" class="mt-2 font-display text-2xl font-bold">Your Verde Box</h2>
+                                <p id="box-plan-summary" class="mt-2 text-xs leading-5 text-white/75">The Family Box · $85.00 · Weekly</p>
+                            </div>
+                            <span id="box-progress-label" class="shrink-0 rounded-full bg-white/10 px-3 py-1 text-sm font-extrabold">0 / 8</span>
+                        </div>
+                        <div class="mt-5 h-2 overflow-hidden rounded-full bg-white/15" aria-hidden="true">
+                            <div id="box-progress" class="h-full rounded-full bg-citrus transition-[width] duration-300" style="width: 0%"></div>
+                        </div>
+                        <p id="box-progress-hint" class="mt-3 text-xs leading-5 text-white/75" aria-live="polite">Add your first favorite to start your box.</p>
+                    </div>
+
+                    <section id="box-summary-items" class="max-h-[25rem] overflow-y-auto p-4" aria-label="Selected produce"></section>
+
+                    <div class="border-t border-[#276749]/12 bg-[#f7faf8] p-6">
+                        <div class="mb-1 flex items-center justify-between gap-4">
+                            <span class="text-sm font-semibold text-[#607068]">Selected market value</span>
+                            <strong id="box-total" class="font-display text-2xl">$0.00</strong>
+                        </div>
+                        <p id="box-checkout-copy" class="mb-5 text-xs leading-5 text-[#718078]">Your picks are included in the plan price. Shop basket items are optional, one-time add-ons at checkout.</p>
+                        <a id="box-review" class="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-extrabold text-white transition-colors hover:bg-forest aria-disabled:opacity-50" href="build-my-box-checkout-finalize?checkout=box" aria-disabled="true">
+                            Review checkout
+                            <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
+                        </a>
+                        <p class="mt-3 text-center text-[0.7rem] text-[#718078]">No payment is taken in this portfolio demo.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="border-y border-[#276749]/12 bg-mint px-4 py-9 sm:px-6 lg:px-10" aria-label="Box flexibility">
+            <div class="mx-auto grid max-w-7xl gap-6 text-sm sm:grid-cols-3">
+                <div class="flex gap-3"><span class="material-symbols-outlined text-primary" aria-hidden="true">swap_horiz</span><p><strong class="block">Easy swaps</strong><span class="text-[#607068]">Adjust preferences before every packing day.</span></p></div>
+                <div class="flex gap-3"><span class="material-symbols-outlined text-primary" aria-hidden="true">compost</span><p><strong class="block">Low-waste packing</strong><span class="text-[#607068]">Produce travels in returnable or recyclable materials.</span></p></div>
+                <div class="flex gap-3"><span class="material-symbols-outlined text-primary" aria-hidden="true">calendar_month</span><p><strong class="block">Flexible schedule</strong><span class="text-[#607068]">Skip, pause, or change cadence from your dashboard.</span></p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="px-4 py-7 text-center text-xs text-[#607068]">
+        <p>© 2026 Verde Market. A portfolio concept for thoughtful local grocery delivery.</p>
+    </footer>
+
+    <script src="assets/vendor/gsap-3.12.5.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger-3.12.5.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const filters = Array.from(document.querySelectorAll("[data-box-filter]"));
+            const products = Array.from(document.querySelectorAll("[data-box-category]"));
+            filters.forEach((filter) => {
+                filter.addEventListener("click", () => {
+                    const category = filter.dataset.boxFilter;
+                    filters.forEach((item) => item.setAttribute("aria-pressed", String(item === filter)));
+                    products.forEach((product) => {
+                        product.hidden = category !== "all" && product.dataset.boxCategory !== category;
+                    });
+                });
+            });
+
+            if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.from(".produce-card", { opacity: 0, y: 22, duration: 0.55, stagger: 0.045, ease: "power3.out", scrollTrigger: { trigger: "#produce-grid", start: "top 86%", once: true } });
+            }
         });
-
-        const cards = document.querySelectorAll('[class*="card"], [class*="grid"] > div');
-        if (cards.length > 0) gsap.from(cards, { opacity: 0, y: 50, scale: 0.95, stagger: 0.08, duration: 0.8, ease: 'back.out(1.2)', scrollTrigger: { trigger: cards[0], start: 'top 85%', once: true } });
-
-        const imgs = document.querySelectorAll('img');
-        if (imgs.length > 0) imgs.forEach(img => gsap.from(img, { opacity: 0, scale: 1.05, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: img, start: 'top 88%', once: true } }));
-
-        const btns = document.querySelectorAll('button, [class*="btn"]');
-        if (btns.length > 0) gsap.from(btns, { opacity: 0, y: 10, scale: 0.95, stagger: 0.05, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: 'body', start: 'top top', once: true } });
-
-        if (window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches) {
-            document.body.insertAdjacentHTML('afterbegin', '<div id="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#2e6b50;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;"></div><div id="cursor-ring" style="position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid rgba(46,107,80,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);"></div>');
-            const dot = document.querySelector('#cursor-dot'), ring = document.querySelector('#cursor-ring');
-            document.addEventListener('mousemove', (e) => { gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 }); gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.18, ease: 'power2.out' }); });
-            document.body.style.cursor = 'none';
-        }
-    });
-}
-</script>
-</body></html>
+    </script>
+    <script src="assets/js/verde-commerce.js" defer></script>
+    <script src="assets/js/verde-polish.js" defer></script>
+</body>
+</html>
